@@ -1,5 +1,17 @@
 /* src/app.css */
 @import "tailwindcss";
-@config "../tailwind.config.js";   
+@config "../tailwind.config.js";
 
-@custom-variant dark (&:where(.dark, .dark *));
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: black;
+  background-color: white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

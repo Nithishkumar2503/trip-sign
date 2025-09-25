@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
- export default {
+export default {
   theme: {
-    colors: {
-     primary:'#E3B662', 
-     secondary:'#4A2D1A'
+    extend: {
+      colors: {
+        primary: "#0000FF",
+        secondary: "#f3f4f6",
+      },
     },
   },
-};   
+
+};
