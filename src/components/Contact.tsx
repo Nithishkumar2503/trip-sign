@@ -3,9 +3,7 @@ const ContactForm = () => {
     <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4 py-12">
       <div className="max-w-3xl w-full">
         <div className="text-center mb-10">
-          <p className="text-sm tracking-widest uppercase text-gray-500">
-            Contact Us
-          </p>
+          <p className="text-sm tracking-widest uppercase text-gray-500">Contact With Us</p>
           <div className="w-10 h-1 bg-red-500 mx-auto my-2 rounded-full"></div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             Feel Free to Get in Touch with us

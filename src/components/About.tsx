@@ -1,22 +1,7 @@
 import { FaUsers } from "react-icons/fa"; // For the icon
 import { FaQuoteLeft } from "react-icons/fa";
-
-const testimonials = [
-  {
-    name: "Gauthami",
-    role: "Student",
-    feedback:
-      "From India to my destination country, they ensured every detail was covered, making my transition seamless and allowing me to focus on my studies.",
-    img: "/src/assets/person.png", // Replace with actual profile image
-  },
-  {
-    name: "Krishna",
-    role: "Student from Singapore",
-    feedback:
-      "Navigating the study abroad landscape can be overwhelming, but Trip with sign's experts are true navigators.",
-    img: "/src/assets/person.png", // Replace with actual profile image
-  },
-];
+import { useState } from "react";
+import { faqData, officeData, stats, testimonials } from "./data&type";
 
 function Testimonials() {
   return (
@@ -60,37 +45,6 @@ function Testimonials() {
     </div>
   );
 }
-
-import { useState } from "react";
-interface FQAProps {
-  heading: string;
-  subHeading: string;
-}
-const faqData: FQAProps[] = [
-  {
-    heading: "What is Trip with sign?",
-    subHeading:
-      "Trip with sign is a comprehensive education and career platform that empowers students and professionals to explore international education opportunities, secure placements, enhance skills, and navigate global career paths. We offer a range of services to help you achieve your academic and professional goals.",
-  },
-  {
-    heading: "What services does Trip with sign provide?",
-    subHeading:
-      "Trip with sign offers a variety of services, including study abroad program selection, admission assistance, career counseling, guaranteed placements, skill development programs, visa support, pre/post departure services, and more. Our aim is to guide you at every stage of your journey towards academic and career success.",
-  },
-
-  {
-    heading: "How can Trip with sign help me study abroad?",
-    subHeading:
-      "Our study abroad services assist you in selecting the right educational program, preparing your application documents, navigating admission requirements, and ensuring a smooth transition to your chosen study destination. We offer guidance, resources, and personalized support throughout the process.",
-  },
-
-  {
-    heading: "Can Trip with sign assist with visa applications?",
-    subHeading:
-      "Yes, we provide support with visa applications for your chosen study destination. Our experts offer guidance on the necessary documentation, requirements, and processes, ensuring a smooth visa application experience. Professional people",
-  },
-];
-
 function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -136,29 +90,6 @@ function FAQ() {
   );
 }
 function StatsSection() {
-  const stats = [
-    {
-      icon: '🛂',
-      value: '30+',
-      label: 'Visa Categories',
-    },
-    {
-      icon: '🌍',
-      value: '68k',
-      label: 'Visa Process',
-    },
-    {
-      icon: '🎯',
-      value: '99+',
-      label: 'Success Rate',
-    },
-    {
-      icon: '👥',
-      value: '23+',
-      label: 'Pro Consultants',
-    },
-  ];
-
   return (
     <section className="bg-blue-950 py-16">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -177,54 +108,8 @@ function StatsSection() {
   );
 }
 
-const officeData = {
- 
-  Coimbatore: {
-   image: '/src/assets/hero2.png',
-    address: 'First floor,Vignesh Park,Ram Nagar,Gandhipuram,Coimbatore-641009',
-    email: 'tripwithsign@gmail.com',
-    phones: ['+916384044005','+91 6374080040', '04224690439'],
-    hours: {
-      Monday: '12:00 pm – 19:00 pm',
-      'Tuesday to Friday': '8:00 am – 19:00 pm',
-      Saturday: '8:00 am to 3:30 pm',
-    },
-  },
-   Namakkal: {
-    image: '/src/assets/hero2.png',
-    address: 'First floor,Vignesh Park,Ram Nagar,Gandhipuram,Coimbatore-641009',
-    email: 'tripwithsign@gmail.com',
-    phones: ['+916384044005','+91 6374080040', '04224690439'],
-    hours: {
-      Monday: '12:00 pm – 19:00 pm',
-      'Tuesday to Friday': '8:00 am – 19:00 pm',
-      Saturday: '8:00 am to 3:30 pm',
-    },
-  },
-  Singapore: {
-    image: 'https://via.placeholder.com/400x250?text=Singapore+Office',
-    address: '123 Singapore Road, SG - 567890',
-    email: 'sg.office@email.com',
-    phones: ['+65 1234 5678'],
-    hours: {
-      Monday: '10:00 am – 6:00 pm',
-      'Tuesday to Friday': '10:00 am – 6:00 pm',
-    },
-  },
-  Dubai: {
-    image: 'https://via.placeholder.com/400x250?text=Dubai+Office',
-    address: 'Dubai Business Center, Dubai - UAE',
-    email: 'dubai@office.com',
-    phones: ['+971 50 123 4567'],
-    hours: {
-      Sunday: '9:00 am – 5:00 pm',
-      'Monday to Thursday': '9:00 am – 5:00 pm',
-    },
-  },
-};
-
 const OfficeLocations = () => {
-  const [activeTab, setActiveTab] = useState('Namakkal');
+  const [activeTab, setActiveTab] = useState("Coimbatore");
 
   const office = officeData[activeTab];
 
@@ -233,28 +118,31 @@ const OfficeLocations = () => {
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-10">
-          <p className="text-sm uppercase tracking-widest text-gray-500">Checkout Our Locations</p>
+          <p className="text-sm uppercase tracking-widest text-gray-500">
+            Checkout Our Locations
+          </p>
           <div className="w-10 h-1 bg-red-500 mx-auto my-2 rounded-full"></div>
           <h2 className="text-4xl font-bold text-gray-900 leading-tight">
             Our Visa Consultancy <br className="hidden md:block" />
             Offices in World
           </h2>
           <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-            There are many variations of passages of available but the majority have suffered
-            alteration in some form, by injected hum randomised words which don't slightly.
+            There are many variations of passages of available but the majority
+            have suffered alteration in some form, by injected hum randomised
+            words which don't slightly.
           </p>
         </div>
-        
+
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center mb-8">
+        <div className="flex gap-2 flex-wrap justify-center mb-8">
           {Object.keys(officeData).map((location) => (
             <button
               key={location}
               onClick={() => setActiveTab(location)}
-              className={`px-6 py-3 font-medium border transition-all duration-300 ${
+              className={`px-6 py-3 font-medium  rounded-lg transition-all duration-300 ${
                 activeTab === location
-                  ? 'bg-red-500 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? "bg-red-500 text-white"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
               {location}
@@ -291,9 +179,7 @@ const OfficeLocations = () => {
           </div>
 
           {/* Working Hours */}
-          <div className="md:col-span-1 border-l md:pl-6">
-           {Open24x7()}
-          </div>
+          <div className="md:col-span-1 border-l md:pl-6">{Open24x7()}</div>
         </div>
       </div>
     </section>
@@ -314,13 +200,17 @@ const Open24x7 = () => {
         </h2>
 
         <p className="text-gray-600 text-lg mb-8">
-          Our consultants are available around the clock to assist you with your visa, immigration, and documentation needs. Contact us anytime, from anywhere.
+          Our consultants are available around the clock to assist you with your
+          visa, immigration, and documentation needs. Contact us anytime, from
+          anywhere.
         </p>
 
-        <div className="flex justify-center items-center space-x-4">
-          <span className="text-xl text-red-600 font-semibold">📞 +91 98765 43210</span>
+        <div className="items-center space-x-4 ">
+          <span className="text-xl text-red-600 font-semibold py-2">
+            📞 +91 6384044005
+          </span>
           <a
-            href="#"
+            href="/#"
             className="inline-block bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 transition"
           >
             Contact Us Now
@@ -330,7 +220,6 @@ const Open24x7 = () => {
     </section>
   );
 };
-
 
 const AboutUs = () => {
   return (
