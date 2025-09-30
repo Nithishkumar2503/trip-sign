@@ -4,9 +4,10 @@ export default {
     extend: {
       colors: {
         primary: "#0000FF",
-        secondary: "#f3f4f6",
+        secondary: "gray",
       },
     },
   },
 
 };
+// E0F7FA

@@ -106,7 +106,7 @@ function Header() {
           isOpen={isOpen}
         />
       </div>
-      <div className="lg:h-20 h-18 rounded-xl  w-full bg-transparent fixed ">
+      <div className="lg:h-20 h-18 rounded-xl  w-full bg-gray-200 ">
         <div className="py-2 cursor-default hidden lg:block lg:flex lg:justify-end gap-6  lg:w-[65vw] mx-auto items-center content-center  px-2">
           <div className="p-1 cursor-pointer flex gap-2 items-center  content-center">
             <TbViewfinder className="text-red-500" />
@@ -144,7 +144,7 @@ function Header() {
                     alt=""
                   />
 
-                  <div className=" grid  text-[9px] font-semibold text-green-500">
+                  <div className=" grid  text-[9px] font-semibold text-primary">
                     <span>Study & career</span>
                     <span>abroad</span>
                     <span>Consultant</span>
