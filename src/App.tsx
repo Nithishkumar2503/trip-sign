@@ -15,7 +15,7 @@ function App() {
       <Header />
 
       {/* Page Routes */}
-      <div className="pt-16">
+      <div className="">
         {" "}
         {/* padding to avoid overlap with fixed header */}
         <Routes>

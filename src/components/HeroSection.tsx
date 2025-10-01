@@ -1,9 +1,29 @@
-import { heroContent,  studyAbroadFormData, type HeroContentProps } from "./data&type";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  FaGlobe,
+  FaRoute,
+  FaPassport,
+  FaHandsHelping,
+  FaUserTie,
+  FaStar,
+  FaShieldAlt,
+  FaCompass,
+  FaChartLine,
+} from "react-icons/fa";
+
+import {
+  countries,
+  heroContent,
+  immigrationContent,
+  studyAbroadFormData,
+  type HeroContentProps,
+} from "./data&type";
 
 // StudyAbroadForm.jsx
 const StudyAbroadForm = () => {
   return (
-    <div className="rounded-xl bg-purple-700  text-white px-6 py-12 lg:flex lg:items-center lg:justify-between lg:px-20">
+    <div className="rounded-xl bg-purple-700  text-white px-6 py-12 lg:flex lg:items-center lg:justify-center gap-40 lg:px-20">
       {/* Left Section */}
       <div className="max-w-xl space-y-6">
         <h2 className="text-3xl font-bold">
@@ -105,9 +125,9 @@ const StudyAbroadForm = () => {
 
 const HeroSect = () => {
   return (
-    <section className="bg-white pt-16 pb-12 px-6 lg:px-12 lg:px-20 h-[100vh] items-center content-center">
+    <section className=" bg-white pt pb-8 px-6 lg:px-12 lg:px-20 h-fit items-center content-center">
       {/* Hero content */}
-      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row justify-between items-center gap-12">
         {/* Left Content */}
         <div className="text-center lg:text-left max-w-xl">
           <h1 className="text-4xl lg:text-5xl font-bold text-purple-900 leading-tight">
@@ -138,15 +158,15 @@ const HeroSect = () => {
         {/* Right Image */}
         <div className="flex justify-center">
           <img
-            src="/src/assets/hero2.png"
+            src="/src/assets/abroad-career.png"
             alt="Student smiling"
-            className="w-[320px] lg:w-[400px] rounded-xl object-cover"
+            className="h-[600px]  rounded-xl object-cover"
           />
         </div>
       </div>
 
       {/* Stats */}
-      <div className="mt-16 bg-[#f4f3fc] py-10 rounded-lg">
+      <div className=" bg-[#f4f3fc] py-10 rounded-lg">
         <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
           <div>
             <h3 className="text-3xl font-bold text-purple-700">1,100+</h3>
@@ -175,35 +195,199 @@ const HeroSect = () => {
   );
 };
 
-export default function HeroSection() {
+function ImmigrationServices() {
+  const immigrationContent = [
+    {
+      heading: "Unlock Global Opportunities",
+      subheading:
+        "Trusted citizenship and immigration services tailored to your goals.",
+      icon: (
+        <FaGlobe className="text-blue-500 w-12 h-12 p-2 bg-blue-100 rounded-full" />
+      ),
+    },
+    {
+      heading: "Your Pathway to a New Life",
+      subheading:
+        "Expert guidance for citizenship, residency, and immigration success.",
+      icon: (
+        <FaRoute className="text-green-500 w-12 h-12 p-2 bg-green-100 rounded-full" />
+      ),
+    },
+    {
+      heading: "Seamless Immigration Solutions",
+      subheading:
+        "From application to approval, we simplify your journey abroad.",
+      icon: (
+        <FaPassport className="text-purple-500 w-12 h-12 p-2 bg-purple-100 rounded-full" />
+      ),
+    },
+    {
+      heading: "Building Bridges Beyond Borders",
+      subheading:
+        "Reliable citizenship and immigration assistance for individuals & families.",
+      icon: (
+        <FaHandsHelping className="text-pink-500 w-12 h-12 p-2 bg-pink-100 rounded-full" />
+      ),
+    },
+    {
+      heading: "Expert Support for Global Moves",
+      subheading:
+        "Professional immigration services to help you settle with ease.",
+      icon: (
+        <FaUserTie className="text-indigo-500 w-12 h-12 p-2 bg-indigo-100 rounded-full" />
+      ),
+    },
+    {
+      heading: "Turning Immigration Dreams into Reality",
+      subheading:
+        "Personalized services for study, work, and permanent residency.",
+      icon: (
+        <FaStar className="text-yellow-400 w-12 h-12 p-2 bg-yellow-100 rounded-full" />
+      ),
+    },
+    {
+      heading: "Secure Your Future Abroad",
+      subheading:
+        "Trusted experts in citizenship, visas, and immigration solutions.",
+      icon: (
+        <FaShieldAlt className="text-red-500 w-12 h-12 p-2 bg-red-100 rounded-full" />
+      ),
+    },
+    {
+      heading: "Global Citizenship, Simplified",
+      subheading: "We help you achieve hassle-free immigration and residency.",
+      icon: (
+        <FaShieldAlt className="text-red-500 w-12 h-12 p-2 bg-red-100 rounded-full" />
+      ),
+    },
+    {
+      heading: "Guiding You Every Step of the Way",
+      subheading: "From consultation to approval, your success is our mission.",
+      icon: (
+        <FaCompass className="text-orange-500 w-12 h-12 p-2 bg-orange-100 rounded-full" />
+      ),
+    },
+    {
+      heading: "Expanding Your Horizons",
+      subheading:
+        "Comprehensive citizenship and immigration support you can trust.",
+      icon: (
+        <FaChartLine className="text-emerald-500 w-12 h-12 p-2 bg-emerald-100 rounded-full" />
+      ),
+    },
+  ] as const;
+
   return (
-    <>
-      <div className="lg:px-[20vw] px-[10vw] w-[100vw]  items-center content-center mt-20">
-        {heroContent.map((item: HeroContentProps) => (
+    <section className="relative py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          Citizenship & Immigration Services
+        </h2>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {immigrationContent.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.05, type: "spring", stiffness: 100 }}
+              className="group bg-white rounded-3xl shadow-lg p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-start gap-4"
+            >
+              <div className="flex-shrink-0">{item.icon}</div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-500 transition-colors">
+                  {item.heading}
+                </h3>
+                <p className="text-gray-600">{item.subheading}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Decorative curved background */}
+      <div className="absolute top-0 left-0 w-full h-64 bg-blue-50 rounded-b-full -z-10"></div>
+    </section>
+  );
+}
+
+const CountryList = () => {
+  return (
+    <div className="min-h-[90vh] items-center content-center  bg-gray-50 p-8">
+      {/* Heading & Subheading */}
+      <div className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          Our Countries List
+        </h1>
+        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+          World-Class Universities Abroad
+        </p>
+      </div>
+
+      {/* Country Cards */}
+      <div className="flex flex-wrap gap-8 justify-center">
+        {countries.map((country) => (
           <div
-            key={item.id}
-            className={
-              item.id % 2 == 1
-                ? "lg:flex items-center content-center gap-10 pb-2 "
-                : "lg:flex flex-row-reverse items-center content-center gap-10 pb-2"
-            }
+            key={country.name}
+            className="flex flex-col items-center justify-center bg-white rounded-3xl shadow-xl p-8 w-60 h-60 hover:scale-105 transition-transform duration-300"
           >
-            <div className="w-full items-center content-center">
-              <img src={item.img} alt="" className="select-none " />
-            </div>
-            <div className="w-full items-center content-center">
-              <h1 className="text-primary lg:text-4xl text-2xl py-2">
-                {item?.heading}
-              </h1>
-              <h2 className="text-secondary lg:text-xl text-sm py-2">
-                {item?.subHeading}
-              </h2>
-            </div>
+            <span className="text-6xl mb-4">{country.flag}</span>
+            <h2 className="text-xl font-semibold text-gray-800 text-center">
+              {country.name}
+            </h2>
           </div>
         ))}
-        {HeroSect()}
-        {StudyAbroadForm()}
       </div>
+    </div>
+  );
+};
+
+export default function HeroSection() {
+  const [count, setCount] = useState(1);
+  setTimeout(() => {
+    if (heroContent.length == count) {
+      setCount(1);
+      return;
+    }
+    setCount(count + 1);
+  }, 3000);
+  return (
+    <>
+      <div className="lg:flex  w-[99.2vw] mx-auto  h-screen  items-center content-center">
+        {heroContent.map((item: HeroContentProps) =>
+          count == item.id ? (
+            <div
+              key={item.id}
+              className={
+                item.id % 2 == 1
+                  ? " items-center content-center pb-0 h-full w-full "
+                  : " flex-row-reverse items-center content-centerpb-0 h-full w-full bg-primary"
+              }
+            >
+              <div className="w-full items-center content-center h-full ">
+                <img
+                  src={item.img}
+                  alt=""
+                  className="select-none w-full h-full object-cover opacity-50"
+                />
+              </div>
+
+              <div className="items-end content-end pb-40 absolute inset-0 w-fit mx-auto opacity-100 ">
+                <h1 className="text-white lg:text-6xl font-extrabold text-2xl py-2">
+                  {item?.heading}
+                </h1>
+                <h2 className="text-secondary lg:text-xl text-sm py-2">
+                  {item?.subHeading}
+                </h2>
+              </div>
+            </div>
+          ) : null
+        )}
+      </div>
+      {HeroSect()}
+      {ImmigrationServices()}
+      {StudyAbroadForm()}
+      {CountryList()}
       {/* Left Section*/}
     </>
   );
