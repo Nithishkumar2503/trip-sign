@@ -8,6 +8,7 @@ import { IoLogoInstagram } from "react-icons/io";
 import { CiFacebook } from "react-icons/ci";
 import { useState } from "react";
 import Sidebar from "./Sidebar";
+import { useLocation } from "react-router-dom";
 
 const emailRedirectTo: string =
   "mailto:tripwithsign@gmail.com?subject=Guidance%20for%20Studying/Career%20Abroad&body=Dear%20Consultant%2C%0D%0A%0D%0AMy%20name%20is%20[Your%20Name]%2C%20and%20I%20am%20interested%20in%20studying/Career%20abroad.%20I%20would%20like%20to%20know%20more%20about%20available%20courses%2C%20universities%2C%20application%20requirements%2C%20and%20the%20overall%20process.%0D%0A%0D%0ACould%20you%20please%20guide%20me%20on%20how%20to%20get%20started%20and%20let%20me%20know%20what%20documents%20or%20details%20you%20need%20from%20me%3F%0D%0A%0D%0ALooking%20forward%20to%20your%20reply.%0D%0A%0D%0ABest%20regards%2C%0D%0A[Your%20Full%20Name]%0D%0A[Your%20Contact%20Number]";
@@ -106,7 +107,7 @@ function Header() {
           isOpen={isOpen}
         />
       </div>
-      <div className="lg:h-20 h-18 rounded-b-xl z-40 w-full bg-gray-200 fixed">
+      <div className="lg:h-20 h-18 rounded-b-xl  z-40 w-full bg-gray-200 fixed">
         <div className="py-2 cursor-default hidden lg:block lg:flex lg:justify-end gap-6  lg:w-[65vw] mx-auto items-center content-center  px-2">
           <div className="p-1 cursor-pointer flex gap-2 items-center  content-center">
             <TbViewfinder className="text-red-500" />
@@ -165,27 +166,28 @@ function Header() {
                   className="lg:hidden text-2xl cursor-pointer"
                   onClick={openSideBar}
                 />
-                <a href="/" className="px-2 cursor-pointer lg:block hidden">
+                <a href="/" className={`${useLocation().pathname=='/'? "text-red-500":""} px-2 cursor-pointer lg:block hidden`}>
                   Home
                 </a>
                 <a
                   href="/about"
-                  className="px-2 cursor-pointer lg:block hidden"
+                  className={`${useLocation().pathname=='/about'? "text-red-500":""} px-2 cursor-pointer lg:block hidden`}
                 >
                   About us
                 </a>
                 <a
                   href="/country"
-                  className="px-2 cursor-pointer lg:block hidden"
+                  className={`${useLocation().pathname=='/country'? "text-red-500":""} px-2 cursor-pointer lg:block hidden`}
                 >
                   Countries
                 </a>
                 <a
                   href="/contact"
-                  className="px-2 cursor-pointer lg:block hidden"
+                  className={`${useLocation().pathname=='/contact'? "text-red-500":""} px-2 cursor-pointer lg:block hidden`}
                 >
                   Contact
                 </a>
+                
               </div>
             </div>
             <a href="/contact">

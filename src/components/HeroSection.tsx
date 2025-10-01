@@ -11,7 +11,6 @@ import {
   FaCompass,
   FaChartLine,
 } from "react-icons/fa";
-
 import {
   countries,
   heroContent,
@@ -19,6 +18,35 @@ import {
   studyAbroadFormData,
   type HeroContentProps,
 } from "./data&type";
+import CountryList from "./CountryItem";
+import CountryItem from "./CountryItem";
+
+const FreeFeelCard = () => {
+  return (
+   <motion.div
+      initial={{ opacity: 0, y: 50, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className="max-w-md mx-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl shadow-2xl p-8 text-center text-white"
+    >
+      <h2 className="text-3xl font-extrabold mb-4 drop-shadow-lg">
+        Free Feel to Ask
+      </h2>
+      <p className="text-lg mb-6 drop-shadow-md">
+        Have any questions or need guidance? We're here to help you out anytime.
+      </p>
+      <motion.a
+      href="/contact"
+        whileHover={{ scale: 1.1, y: -2 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 300 }}
+        className="bg-white text-indigo-600 font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all"
+      >
+        Ask Now
+      </motion.a>
+    </motion.div>
+  );
+};
 
 // StudyAbroadForm.jsx
 const StudyAbroadForm = () => {
@@ -52,73 +80,7 @@ const StudyAbroadForm = () => {
       </div>
 
       {/* Right Section */}
-      <div className="bg-white text-gray-800 mt-12 lg:mt-0 rounded-xl p-8 w-full max-w-md shadow-lg mx-auto md:mx-0">
-        <h3 className="text-lg font-semibold text-center mb-4">
-          Book Your{" "}
-          <span className="text-purple-600 font-bold">FREE Consultation</span>{" "}
-          Call with Our Certified Counsellors
-        </h3>
-
-        <form className="space-y-4">
-          <input
-            type="text"
-            placeholder="Full Name *"
-            className="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
-          />
-          <div className="flex space-x-2">
-            <span className="px-4 py-2 bg-gray-100 border rounded">+91</span>
-            <input
-              type="tel"
-              placeholder="Mobile Number *"
-              className="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
-            />
-          </div>
-          <input
-            type="email"
-            placeholder="Email ID *"
-            className="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
-          />
-          <select
-            className="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
-            defaultValue=""
-          >
-            <option value="" disabled>
-              Destination *
-            </option>
-            <option value="usa">USA</option>
-            <option value="uk">UK</option>
-            <option value="canada">Canada</option>
-            <option value="australia">Australia</option>
-            {/* Add more as needed */}
-          </select>
-
-          <div className="flex items-start space-x-2 text-sm">
-            <input
-              type="checkbox"
-              className="mt-1 accent-purple-600"
-              defaultChecked
-            />
-            <p>
-              I agree to AECC’s{" "}
-              <a href="#" className="text-purple-600 underline">
-                Privacy Policy
-              </a>{" "}
-              and{" "}
-              <a href="#" className="text-purple-600 underline">
-                Terms and Conditions
-              </a>{" "}
-              *
-            </p>
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-cyan-400 hover:bg-cyan-500 text-white py-2 rounded font-semibold transition"
-          >
-            Book a FREE Consultation →
-          </button>
-        </form>
-      </div>
+     {FreeFeelCard()}
     </div>
   );
 };
@@ -135,23 +97,18 @@ const HeroSect = () => {
             <span className="text-purple-600">Trip With Sign</span>
           </h1>
           <p className="mt-4 text-gray-700 text-lg">
-            Know about Destinations, Courses, Scholarships, Study/Career Visa
-            and Deadlines for 2026 — all in our International Education Fair
+            Your Trusted Partner for Overseas Education, Career Guidance, and Global Opportunities
           </p>
 
           {/* Buttons */}
           {/* <button className="bg-purple-900 text-white px-6 py-3 h-fit  rounded-full font-medium hover:bg-purple-800 transition">
               Register for FREE
             </button> */}
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center content-center lg:justify-start">
-            <div className="bg-purple-600 text-white p-4 rounded-xl shadow-md text-left">
-              <p className="mb-2 font-medium">
-                Book Your Free Study/Career Abroad Consultation
-              </p>
-              <button className="bg-cyan-300 text-black font-medium px-6 py-2 rounded-full hover:bg-cyan-400 transition">
-                Book Now
+          <div className="mt-8  flex flex-col sm:flex-row gap-4 justify-center items-center content-center lg:justify-start">
+              
+              <button className="bg-cyan-300 mx-auto text-black font-medium px-6 py-2 rounded-full hover:bg-cyan-400 transition">
+               Contact us
               </button>
-            </div>
           </div>
         </div>
 
@@ -169,27 +126,24 @@ const HeroSect = () => {
       <div className=" bg-[#f4f3fc] py-10 rounded-lg">
         <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
           <div>
-            <h3 className="text-3xl font-bold text-purple-700">1,100+</h3>
-            <p className="text-sm text-gray-600 mt-1">Institution Partners</p>
+            <h3 className="text-3xl font-bold text-purple-700">30+</h3>
+            <p className="text-sm text-gray-600 mt-1">Visa Categories</p>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-purple-700">760,000+</h3>
-            <p className="text-sm text-gray-600 mt-1">Students Assisted</p>
+            <h3 className="text-3xl font-bold text-purple-700">68+</h3>
+            <p className="text-sm text-gray-600 mt-1">Visa Process</p>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-purple-700">200,000+</h3>
+            <h3 className="text-3xl font-bold text-purple-700">99+</h3>
             <p className="text-sm text-gray-600 mt-1">
-              Institution Courses Offered
+              Success Rate
             </p>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-purple-700">10+</h3>
-            <p className="text-sm text-gray-600 mt-1">Destinations Served</p>
+            <h3 className="text-3xl font-bold text-purple-700"><span>23</span>+</h3>
+            <p className="text-sm text-gray-600 mt-1">Pro Consultants</p>
           </div>
         </div>
-        <p className="text-xs text-gray-500 text-center mt-4">
-          (As of Mar’25)*
-        </p>
       </div>
     </section>
   );
@@ -311,36 +265,6 @@ function ImmigrationServices() {
   );
 }
 
-const CountryList = () => {
-  return (
-    <div className="min-h-[90vh] items-center content-center  bg-gray-50 p-8">
-      {/* Heading & Subheading */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-          Our Countries List
-        </h1>
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-          World-Class Universities Abroad
-        </p>
-      </div>
-
-      {/* Country Cards */}
-      <div className="flex flex-wrap gap-8 justify-center">
-        {countries.map((country) => (
-          <div
-            key={country.name}
-            className="flex flex-col items-center justify-center bg-white rounded-3xl shadow-xl p-8 w-60 h-60 hover:scale-105 transition-transform duration-300"
-          >
-            <span className="text-6xl mb-4">{country.flag}</span>
-            <h2 className="text-xl font-semibold text-gray-800 text-center">
-              {country.name}
-            </h2>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 export default function HeroSection() {
   const [count, setCount] = useState(1);
@@ -365,18 +289,26 @@ export default function HeroSection() {
               }
             >
               <div className="w-full items-center content-center h-full ">
-                <img
+                {/* <img
                   src={item.img}
                   alt=""
                   className="select-none w-full h-full object-cover opacity-50"
+                /> */}
+                <motion.img
+                  src={item.img}
+                  alt=""
+                  className="select-none w-full h-full object-cover"
+                  initial={{ x: 50, opacity: 0 }} // start off-screen to the left
+                  animate={{ x: 0, opacity: 0.7 }} // animate to original position
+                  transition={{ duration: 0.5, ease: "easeOut" }}
                 />
               </div>
 
-              <div className="items-end content-end pb-40 absolute inset-0 w-fit mx-auto opacity-100 ">
+              <div className="items-end content-end pb-80  absolute inset-0 w-fit mx-auto opacity-100 ">
                 <h1 className="text-white lg:text-6xl font-extrabold text-2xl py-2">
                   {item?.heading}
                 </h1>
-                <h2 className="text-secondary lg:text-xl text-sm py-2">
+                <h2 className="text-secondary hidden lg:text-xl text-sm py-2">
                   {item?.subHeading}
                 </h2>
               </div>
@@ -387,7 +319,7 @@ export default function HeroSection() {
       {HeroSect()}
       {ImmigrationServices()}
       {StudyAbroadForm()}
-      {CountryList()}
+      {CountryItem()}
       {/* Left Section*/}
     </>
   );
