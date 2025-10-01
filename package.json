@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/Nithishkumar2503/trip-sign",
+  "homepage": "https://nithish.github.io/trip-sign",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
