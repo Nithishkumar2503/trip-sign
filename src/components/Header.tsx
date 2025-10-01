@@ -145,10 +145,8 @@ function Header() {
                     alt=""
                   />
 
-                  <div className=" grid  text-[9px] font-semibold text-primary">
-                    <span>Study & career</span>
-                    <span>abroad</span>
-                    <span>Consultant</span>
+                  <div className=" grid font-semibold">
+                   Trip with Sign
                   </div>
                 </div>
               </a>

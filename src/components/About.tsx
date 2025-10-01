@@ -87,7 +87,11 @@ function FAQ() {
   return (
     <div className="lg:flex items-center content-center">
       <div className="w-full lg:w-1/2  flex flex-col justify-center px-10 py-20">
-        <img src="/src/assets/faq.jpg" className="w-full h-full rounded-2xl" alt="" />
+        <img
+          src="/src/assets/faq.jpg"
+          className="w-full h-full rounded-2xl"
+          alt=""
+        />
       </div>
       <div className="w-full  lg:w-1/2 bg-gree flex flex-col justify-center px-10 py-20">
         <div>
@@ -159,11 +163,12 @@ const OfficeLocations = () => {
           </p>
           <div className="w-10 h-1 bg-red-500 mx-auto my-2 rounded-full"></div>
           <h2 className="text-4xl font-bold text-gray-900 leading-tight">
-            
-            Worldwide Visa Consultancy 
+            Worldwide Visa Consultancy
           </h2>
           <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-           There are numerous versions of these passages, but most have been altered in some way, often including random or irrelevant words that affect their clarity.
+            There are numerous versions of these passages, but most have been
+            altered in some way, often including random or irrelevant words that
+            affect their clarity.
           </p>
         </div>
 
@@ -242,7 +247,7 @@ const AboutUs = () => {
   return (
     <>
       {AboutScreen()}
-      <section className="bg-white py-16 px-6 lg:px-16 relative h-[100vh]  items-center content-center">
+      <section className="bg-white py-16 px-6 lg:px-16 relative h-fit  items-center content-center">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
           {/* Left Content */}
           <div>
@@ -250,7 +255,7 @@ const AboutUs = () => {
               Get to know us
             </p>
             <h2 className="text-4xl font-bold mb-4">
-              Your Pathway to Worldwide Education and Opportunities
+              Unlock Global Learning and Career Opportunities
             </h2>
 
             <div className="flex items-center gap-2 mb-4">

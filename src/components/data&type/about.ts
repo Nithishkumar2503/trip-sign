@@ -3,7 +3,6 @@ interface itemProp {
   address: string;
   email: string;
   phones: string[];
- 
 }
 export interface OfficeDataProps {
   Coimbatore: itemProp;
@@ -17,19 +16,16 @@ export const officeData: OfficeDataProps = {
     address: "First floor,Vignesh Park,Ram Nagar,Gandhipuram,Coimbatore-641009",
     email: "tripwithsign@gmail.com",
     phones: ["+916384044005", "+91 6374080040", "04224690439"],
-    
   },
-  
 };
 
-
-export interface TestingmonialsProps{
-    name:string
-    role:string
-    feedback:string
-    img:string
+export interface TestingmonialsProps {
+  name: string;
+  role: string;
+  feedback: string;
+  img: string;
 }
-export const testimonials:TestingmonialsProps[] = [
+export const testimonials: TestingmonialsProps[] = [
   {
     name: "Gauthami",
     role: "Student",
@@ -45,8 +41,6 @@ export const testimonials:TestingmonialsProps[] = [
     img: "/src/assets/person.png", // Replace with actual profile image
   },
 ];
-
-
 
 export interface FQAProps {
   heading: string;
@@ -77,32 +71,30 @@ export const faqData: FQAProps[] = [
   },
 ];
 
-
-export interface statsProps{
-    icon:string
-    value:string
-    label:string
-
+export interface statsProps {
+  icon: string;
+  value: string;
+  label: string;
 }
-  export const stats:statsProps[]= [
-    {
-      icon: "🛂",
-      value: "30+",
-      label: "Visa Categories",
-    },
-    {
-      icon: "🌍",
-      value: "68k",
-      label: "Visa Process",
-    },
-    {
-      icon: "🎯",
-      value: "99+",
-      label: "Success Rate",
-    },
-    {
-      icon: "👥",
-      value: "23+",
-      label: "Pro Consultants",
-    },
-  ];
+export const stats: statsProps[] = [
+  {
+    icon: "🛂",
+    value: "30+",
+    label: "Visa Categories",
+  },
+  {
+    icon: "🌍",
+    value: "68k",
+    label: "Visa Process",
+  },
+  {
+    icon: "🎯",
+    value: "99+",
+    label: "Success Rate",
+  },
+  {
+    icon: "👥",
+    value: "23+",
+    label: "Pro Consultants",
+  },
+];
