@@ -56,28 +56,39 @@ export interface StudyAbroadFormProps {
 }
 export const studyAbroadFormData: StudyAbroadFormProps[] = [
   {
-    title: "Choose Your Programme",
-    desc: "Select the course that inspires you and shapes your future.",
+    title: "Choose Your Path",
+    desc: "Select the programme that inspires you and advances your career or education.",
     icon: "📋",
   },
   {
-    title: "Find Your University",
-    desc: "Discover and shortlist top universities with expert guidance.",
-    icon: "🏛️",
+    title: "Level Up Your Future",
+    desc: "From student life to career advancement, explore top universities with expert support.",
+    icon: "🚀",
   },
   {
-    title: "Prepare for Tests & Applications",
-    desc: "Get support to ace your English language test and craft a strong Statement of Purpose.",
+    title: "Test & Application Support",
+    desc: "Boost your English test performance and present your best self through your Statement of Purpose.",
     icon: "📝",
   },
-  {
-    title: "Secure Funding",
-    desc: "Apply for scholarships and manage your finances for a smooth visa process.",
-    icon: "💰",
-  },
+  // {
+  //   title: "Secure Funding",
+  //   desc: "manage your finances for a smooth visa process.",
+  //   icon: "💰",
+  // },
   {
     title: "Visa & Beyond",
     desc: "Prepare confidently for your visa interview and take the first step towards your international future.",
     icon: "🧳",
   },
+];
+
+// Country data with flag emojis
+export const countries = [
+  { name: "Singapore", flag: "🇸🇬" },
+  { name: "Germany", flag: "🇩🇪" },
+  { name: "Denmark", flag: "🇩🇰" },
+  { name: "France", flag: "🇫🇷" },
+  { name: "Italy", flag: "🇮🇹" },
+  { name: "United Kingdom", flag: "🇬🇧" },
+  { name: "USA", flag: "🇺🇸" },
 ];
