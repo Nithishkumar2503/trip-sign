@@ -56,24 +56,24 @@ export const faqData: FQAProps[] = [
   {
     heading: "What is Trip with sign?",
     subHeading:
-      "Trip with sign is a comprehensive education and career platform that empowers students and professionals to explore international education opportunities, secure placements, enhance skills, and navigate global career paths. We offer a range of services to help you achieve your academic and professional goals.",
+      "Trip with Sign helps students and professionals fulfill their dreams of studying and working abroad. We provide complete end-to-end support — from admissions and visas to career guidance and settlement assistance.",
   },
   {
     heading: "What services does Trip with sign provide?",
     subHeading:
-      "Trip with sign offers a variety of services, including study abroad program selection, admission assistance, career counseling, guaranteed placements, skill development programs, visa support, pre/post departure services, and more. Our aim is to guide you at every stage of your journey towards academic and career success.",
+      "Trip with Sign offers end-to-end support for studying and working abroad. Our services include career counseling, university admissions, visa assistance, job guidance, scholarships, accommodation support, and pre-departure orientation to make your international journey smooth and successful.",
   },
 
   {
     heading: "How can Trip with sign help me study abroad?",
     subHeading:
-      "Our study abroad services assist you in selecting the right educational program, preparing your application documents, navigating admission requirements, and ensuring a smooth transition to your chosen study destination. We offer guidance, resources, and personalized support throughout the process.",
+      "Trip with Sign guides you through every step of your study abroad journey — from choosing the right course and university, preparing your application, securing scholarships, handling visa formalities, to arranging accommodation and pre-departure support.",
   },
 
   {
     heading: "Can Trip with sign assist with visa applications?",
     subHeading:
-      "Yes, we provide support with visa applications for your chosen study destination. Our experts offer guidance on the necessary documentation, requirements, and processes, ensuring a smooth visa application experience. Professional people",
+      "Yes, Trip with Sign provides complete visa assistance. Our team helps you with document preparation, application filing, interview guidance, and follow-ups to ensure a smooth visa approval process.",
   },
 ];
 

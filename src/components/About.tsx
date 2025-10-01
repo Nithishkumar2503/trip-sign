@@ -2,6 +2,42 @@ import { FaUsers } from "react-icons/fa"; // For the icon
 import { FaQuoteLeft } from "react-icons/fa";
 import { useState } from "react";
 import { faqData, officeData, stats, testimonials } from "./data&type";
+import { motion } from "framer-motion";
+
+const AboutScreen = () => {
+  return (
+    <>
+      <motion.div
+        className="min-h-screen flex flex-col justify-center items-center bg-gray-50 p-8"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">About Us</h1>
+        <p className="max-w-2xl text-center text-gray-600 text-lg leading-relaxed">
+          At <span className="font-bold">Trip with Sign</span>, we help{" "}
+          <span className="font-bold">
+            students and professionals achieve their dream of studying and
+            working abroad.
+          </span>{" "}
+          Our team guides you step by step – from{" "}
+          <span className="font-bold">
+            choosing the right course or job, applying to universities,
+            preparing documents,
+          </span>{" "}
+          to{" "}
+          <span className="font-bold">
+            finding career opportunities overseas.
+          </span>
+          Studying and working abroad is more than travel – it’s about learning,
+          growing, and building a better future. With{" "}
+          <span className="font-bold">Trip with Sign</span>, the journey becomes
+          easy, clear, and stress-free.
+        </p>
+      </motion.div>
+    </>
+  );
+};
 
 function Testimonials() {
   return (
@@ -51,7 +87,7 @@ function FAQ() {
   return (
     <div className="lg:flex items-center content-center">
       <div className="w-full lg:w-1/2  flex flex-col justify-center px-10 py-20">
-        <img src="/src/assets/hero1.jpg" className="w-full h-full" alt="" />
+        <img src="/src/assets/faq.jpg" className="w-full h-full rounded-2xl" alt="" />
       </div>
       <div className="w-full  lg:w-1/2 bg-gree flex flex-col justify-center px-10 py-20">
         <div>
@@ -123,31 +159,12 @@ const OfficeLocations = () => {
           </p>
           <div className="w-10 h-1 bg-red-500 mx-auto my-2 rounded-full"></div>
           <h2 className="text-4xl font-bold text-gray-900 leading-tight">
-            Our Visa Consultancy <br className="hidden md:block" />
-            Offices in World
+            
+            Worldwide Visa Consultancy 
           </h2>
           <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-            There are many variations of passages of available but the majority
-            have suffered alteration in some form, by injected hum randomised
-            words which don't slightly.
+           There are numerous versions of these passages, but most have been altered in some way, often including random or irrelevant words that affect their clarity.
           </p>
-        </div>
-
-        {/* Tabs */}
-        <div className="flex gap-2 flex-wrap justify-center mb-8">
-          {Object.keys(officeData).map((location) => (
-            <button
-              key={location}
-              onClick={() => setActiveTab(location)}
-              className={`px-6 py-3 font-medium  rounded-lg transition-all duration-300 ${
-                activeTab === location
-                  ? "bg-red-500 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              {location}
-            </button>
-          ))}
         </div>
 
         {/* Office Content */}
@@ -224,6 +241,7 @@ const Open24x7 = () => {
 const AboutUs = () => {
   return (
     <>
+      {AboutScreen()}
       <section className="bg-white py-16 px-6 lg:px-16 relative h-[100vh]  items-center content-center">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
           {/* Left Content */}
