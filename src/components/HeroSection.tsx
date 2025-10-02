@@ -12,13 +12,10 @@ import {
   FaChartLine,
 } from "react-icons/fa";
 import {
-  countries,
   heroContent,
-  immigrationContent,
   studyAbroadFormData,
   type HeroContentProps,
 } from "./data&type";
-import CountryList from "./CountryItem";
 import CountryItem from "./CountryItem";
 
 const FreeFeelCard = () => {

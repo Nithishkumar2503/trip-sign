@@ -1,7 +1,7 @@
 import { FaUsers } from "react-icons/fa"; // For the icon
 import { FaQuoteLeft } from "react-icons/fa";
 import { useState } from "react";
-import { faqData, officeData, stats, testimonials } from "./data&type";
+import { faqData, officeData, stats, testimonials,  } from "./data&type";
 import { motion } from "framer-motion";
 
 const AboutScreen = () => {
@@ -149,9 +149,8 @@ function StatsSection() {
 }
 
 const OfficeLocations = () => {
-  const [activeTab, setActiveTab] = useState("Coimbatore");
 
-  const office = officeData[activeTab];
+  const office:any = officeData["Coimbatore"];
 
   return (
     <section className="bg-white py-16 px-6 lg:px-20">
@@ -177,23 +176,23 @@ const OfficeLocations = () => {
           {/* Image */}
           <div className="md:col-span-1 my-auto">
             <img
-              src={office.image}
-              alt={`${activeTab} office`}
+              src={office?.image}
+              alt={`Coimbatore office`}
               className="w-full h-auto rounded-md object-cover"
             />
           </div>
 
           {/* Address & Contact */}
           <div className="md:col-span-1 space-y-4 my-auto">
-            <h3 className="text-xl font-semibold text-gray-900">{activeTab}</h3>
+            <h3 className="text-xl font-semibold text-gray-900">{'Coimbatore'}</h3>
             <p className="text-gray-600 flex items-start">
               <span className="text-red-500 mr-2">📍</span>
-              {office.address}
+              {office?.address}
             </p>
             <p className="text-gray-600 flex items-center">
-              <span className="text-red-500 mr-2">✉️</span> {office.email}
+              <span className="text-red-500 mr-2">✉️</span> {office?.email}
             </p>
-            {office.phones.map((phone, idx) => (
+            {office?.phones.map((phone:any, idx:any) => (
               <p className="text-gray-600 flex items-center" key={idx}>
                 <span className="text-red-500 mr-2">📞</span> {phone}
               </p>
