@@ -16,7 +16,6 @@ function App() {
 
       {/* Page Routes */}
       <div className="">
-        {" "}
         {/* padding to avoid overlap with fixed header */}
         <Routes>
           <Route path="/" element={<HeroSection />} />

@@ -20,7 +20,7 @@ import CountryItem from "./CountryItem";
 
 const FreeFeelCard = () => {
   return (
-   <motion.div
+    <motion.div
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
@@ -33,7 +33,7 @@ const FreeFeelCard = () => {
         Have any questions or need guidance? We're here to help you out anytime.
       </p>
       <motion.a
-      href="/contact"
+        href="/contact"
         whileHover={{ scale: 1.1, y: -2 }}
         whileTap={{ scale: 0.95 }}
         transition={{ type: "spring", stiffness: 300 }}
@@ -48,9 +48,9 @@ const FreeFeelCard = () => {
 // StudyAbroadForm.jsx
 const StudyAbroadForm = () => {
   return (
-    <div className="rounded-xl bg-purple-700  text-white px-6 py-12 lg:flex lg:items-center lg:justify-center gap-40 lg:px-20">
+    <div className="bg-purple-700  text-white px-6 py-12 lg:flex lg:items-center lg:justify-center gap-40 lg:px-20">
       {/* Left Section */}
-      <div className="max-w-xl space-y-6">
+      <div className="max-w-xl space-y-6 lg:mb-0 mb-4 ml-auto">
         <h2 className="text-3xl font-bold">
           Your Next Steps to Studying Abroad
         </h2>
@@ -77,7 +77,7 @@ const StudyAbroadForm = () => {
       </div>
 
       {/* Right Section */}
-     {FreeFeelCard()}
+      {FreeFeelCard()}
     </div>
   );
 };
@@ -86,7 +86,7 @@ const HeroSect = () => {
   return (
     <section className=" bg-white pt pb-8 px-6 lg:px-12 lg:px-20 h-fit items-center content-center">
       {/* Hero content */}
-      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row justify-between items-center gap-12">
+      <div className="lg:max-w-7xl mx-auto flex flex-col-reverse lg:flex-row justify-between items-center gap-12">
         {/* Left Content */}
         <div className="text-center lg:text-left max-w-xl">
           <h1 className="text-4xl lg:text-5xl font-bold text-purple-900 leading-tight">
@@ -94,7 +94,8 @@ const HeroSect = () => {
             <span className="text-purple-600">Trip With Sign</span>
           </h1>
           <p className="mt-4 text-gray-700 text-lg">
-            Your Trusted Partner for Overseas Education, Career Guidance, and Global Opportunities
+            Your Trusted Partner for Overseas Education, Career Guidance, and
+            Global Opportunities
           </p>
 
           {/* Buttons */}
@@ -102,19 +103,18 @@ const HeroSect = () => {
               Register for FREE
             </button> */}
           <div className="mt-8  flex flex-col sm:flex-row gap-4 justify-center items-center content-center lg:justify-start">
-              
-              <button className="bg-cyan-300 mx-auto text-black font-medium px-6 py-2 rounded-full hover:bg-cyan-400 transition">
-               Contact us
-              </button>
+            <button className="bg-cyan-300 mx-auto text-black font-medium px-6 py-2 rounded-full hover:bg-cyan-400 transition">
+              Contact us
+            </button>
           </div>
         </div>
 
         {/* Right Image */}
         <div className="flex justify-center">
           <img
-            src="/src/assets/abroad-career.png"
+            src="/abroad-career.png"
             alt="Student smiling"
-            className="h-[600px]  rounded-xl object-cover"
+            className="lg:h-[600px]  rounded-xl object-cover"
           />
         </div>
       </div>
@@ -132,12 +132,12 @@ const HeroSect = () => {
           </div>
           <div>
             <h3 className="text-3xl font-bold text-purple-700">99+</h3>
-            <p className="text-sm text-gray-600 mt-1">
-              Success Rate
-            </p>
+            <p className="text-sm text-gray-600 mt-1">Success Rate</p>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-purple-700"><span>23</span>+</h3>
+            <h3 className="text-3xl font-bold text-purple-700">
+              <span>23</span>+
+            </h3>
             <p className="text-sm text-gray-600 mt-1">Pro Consultants</p>
           </div>
         </div>
@@ -230,19 +230,19 @@ function ImmigrationServices() {
 
   return (
     <section className="relative py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+      <div className="lg:max-w-7xl mx-auto lg:px-4 w-full items-center content-center ">
+        <h2 className="text-2xl lg:text-4xl font-bold text-center mb-12">
           Citizenship & Immigration Services
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap  gap-8 justify-center ">
           {immigrationContent.map((item, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05, type: "spring", stiffness: 100 }}
-              className="group bg-white rounded-3xl shadow-lg p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-start gap-4"
+              className="group   bg-white rounded-3xl shadow-lg p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-start gap-4"
             >
               <div className="flex-shrink-0">{item.icon}</div>
               <div>
@@ -262,7 +262,6 @@ function ImmigrationServices() {
   );
 }
 
-
 export default function HeroSection() {
   const [count, setCount] = useState(1);
   setTimeout(() => {
@@ -274,7 +273,7 @@ export default function HeroSection() {
   }, 3000);
   return (
     <>
-      <div className="lg:flex  w-[99.2vw] mx-auto  h-screen  items-center content-center">
+      <div className="lg:flex  lg:w-[99.2vw] mx-auto  lg:h-[70vh] w-full  h-[80vh]  items-center content-center">
         {heroContent.map((item: HeroContentProps) =>
           count == item.id ? (
             <div
@@ -282,32 +281,37 @@ export default function HeroSection() {
               className={
                 item.id % 2 == 1
                   ? " items-center content-center pb-0 h-full w-full "
-                  : " flex-row-reverse items-center content-centerpb-0 h-full w-full bg-primary"
+                  : " flex-row-reverse items-center content-center pb-0 h-full w-full "
               }
             >
-              <div className="w-full items-center content-center h-full ">
-                {/* <img
-                  src={item.img}
-                  alt=""
-                  className="select-none w-full h-full object-cover opacity-50"
-                /> */}
+              <div className="relative w-full  h-full flex items-center justify-center overflow-hidden shadow-lg">
+                {/* Image sliding from right to left */}
                 <motion.img
                   src={item.img}
                   alt=""
                   className="select-none w-full h-full object-cover"
-                  initial={{ x: 50, opacity: 0 }} // start off-screen to the left
-                  animate={{ x: 0, opacity: 0.7 }} // animate to original position
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  initial={{ x: 100, opacity: 0 }} // start off-screen to the right
+                  animate={{ x: 0, opacity: 0.8 }} // slide into place
+                  transition={{
+                    duration: 0.8,
+                    ease: "easeOut",
+                  }}
+                  whileHover={{ scale: 1.05 }} // hover zoom effect
                 />
-              </div>
 
-              <div className="items-end content-end pb-80  absolute inset-0 w-fit mx-auto opacity-100 ">
-                <h1 className="text-white lg:text-6xl font-extrabold text-2xl py-2">
-                  {item?.heading}
-                </h1>
-                <h2 className="text-secondary hidden lg:text-xl text-sm py-2">
-                  {item?.subHeading}
-                </h2>
+              
+              </div>
+                  
+              <div className="items-center content-center  absolute inset-0 w-fit mx-auto opacity-80 bg-gradient-to-l">
+                 <motion.div
+                  className="text-white  text-nowrap text-8xl"
+                  initial={{ y: 200, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.7, ease: "easeOut" }}
+                >
+                  <h2 className="lg:text-4xl text-[6vw] font-bold text-wrap text-center lg:px-0 px-10">{item?.heading}</h2>
+                </motion.div>
+               
               </div>
             </div>
           ) : null

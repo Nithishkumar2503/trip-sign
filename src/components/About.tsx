@@ -8,13 +8,13 @@ const AboutScreen = () => {
   return (
     <>
       <motion.div
-        className="min-h-screen flex flex-col justify-center items-center bg-gray-50 p-8"
-        initial={{ opacity: 0, y: 30 }}
+        className="lg:min-h-[60vh] h-[80vh] flex flex-col justify-center items-center bg-gray-50 p-8 "
+        initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">About Us</h1>
-        <p className="max-w-2xl text-center text-gray-600 text-lg leading-relaxed">
+        <h1 className="lg:text-4xl text-2xl font-bold text-gray-800 mb-4">About Us</h1>
+        <p className="max-w-2xl text-center text-gray-600 lg:text-lg text-md leading-relaxed">
           At <span className="font-bold">Trip with Sign</span>, we help{" "}
           <span className="font-bold">
             students and professionals achieve their dream of studying and
@@ -88,7 +88,7 @@ function FAQ() {
     <div className="lg:flex items-center content-center">
       <div className="w-full lg:w-1/2  flex flex-col justify-center px-10 py-20">
         <img
-          src="/src/assets/faq.jpg"
+          src="/faq.jpg"
           className="w-full h-full rounded-2xl"
           alt=""
         />
@@ -172,7 +172,8 @@ const OfficeLocations = () => {
         </div>
 
         {/* Office Content */}
-        <div className="bg-white rounded-md   shadow-md p-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start border">
+        
+        <div className="bg-white rounded-xl   hover:shadow-2xl shadow-xl p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-start ">
           {/* Image */}
           <div className="md:col-span-1 my-auto">
             <img
@@ -290,7 +291,7 @@ const AboutUs = () => {
           {/* Right Content */}
           <div className="relative flex flex-col gap-4">
             <img
-              src="/src/assets/hero1.jpg"
+              src="/hero1.jpg"
               alt="Team"
               className="w-full rounded-lg shadow-lg object-cover"
             />
