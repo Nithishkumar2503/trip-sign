@@ -82,7 +82,7 @@ function Testimonials() {
   );
 }
 function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <div className="lg:flex items-center content-center">
