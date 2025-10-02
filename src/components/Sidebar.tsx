@@ -1,9 +1,9 @@
 import { AiOutlineClose } from "react-icons/ai";
 
 interface ParamsProps {
-  child?: HTMLElement;
+  child?: HTMLElement|any;
   isOpen?: boolean;
-  onDispatch: any;
+  onDispatch: ()=>void|null|HTMLElement;
 }
 export default function Sidebar({ isOpen, child, onDispatch }: ParamsProps) {
   function onClose() {

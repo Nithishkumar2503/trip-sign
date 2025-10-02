@@ -5,10 +5,10 @@ interface itemProp {
   phones: string[];
 }
 export interface OfficeDataProps {
-  Coimbatore: itemProp;
-  Namakkal: itemProp;
-  Singapore: itemProp;
-  Dubai: itemProp;
+  Coimbatore?: itemProp;
+  Namakkal?: itemProp;
+  Singapore?: itemProp;
+  Dubai?: itemProp;
 }
 export const officeData: OfficeDataProps = {
   Coimbatore: {

@@ -5,14 +5,11 @@ import {
   FaYoutube,
   FaInstagram,
   FaLock,
-  FaGlobe,
   FaPhone,
-  FaWhatsapp,
 } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { countryItem, visaItem } from "./data&type/footerData";
 import { MdFlight } from "react-icons/md";
-import { useState } from "react";
 
 const emailRedirectTo: string =
   "mailto:tripwithsign@gmail.com?subject=Guidance%20for%20Studying/Career%20Abroad&body=Dear%20Consultant%2C%0D%0A%0D%0AMy%20name%20is%20[Your%20Name]%2C%20and%20I%20am%20interested%20in%20studying/Career%20abroad.%20I%20would%20like%20to%20know%20more%20about%20available%20courses%2C%20universities%2C%20application%20requirements%2C%20and%20the%20overall%20process.%0D%0A%0D%0ACould%20you%20please%20guide%20me%20on%20how%20to%20get%20started%20and%20let%20me%20know%20what%20documents%20or%20details%20you%20need%20from%20me%3F%0D%0A%0D%0ALooking%20forward%20to%20your%20reply.%0D%0A%0D%0ABest%20regards%2C%0D%0A[Your%20Full%20Name]%0D%0A[Your%20Contact%20Number]";
@@ -20,25 +17,6 @@ const whatsappRedirectTo: string =
   "https://wa.me/919876543210?text=Hello%2C%20my%20name%20is%20[Your%20Name]%20and%20I%20am%20interested%20in%20studying/Career%20abroad.%20Could%20you%20please%20guide%20me%20about%20courses%2C%20universities%2C%20and%20the%20application%20process%3F";
 const phoneRedirectTo: string = "tel:+916384044005";
 const Footer = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const countries = [
-    {
-      name: "United Kingdom",
-      flag: "🇬🇧",
-      position: "left-1/2 top-32 -translate-x-1/2",
-    },
-    { name: "United States", flag: "🇺🇸", position: "right-24 top-48" },
-    { name: "Canada", flag: "🇨🇦", position: "right-32 top-20" },
-    {
-      name: "Australia",
-      flag: "🇦🇺",
-      position: "top-12 left-1/2 translate-x-12",
-    },
-    { name: "Germany", flag: "🇩🇪", position: "left-24 top-56" },
-    { name: "Italy", flag: "🇮🇹", position: "left-32 top-20" },
-    { name: "Singapore", flag: "🇸🇬", position: "right-28 top-64" },
-  ];
 
   return (
     <>
@@ -265,7 +243,7 @@ const Footer = () => {
                 </li>
                 <li className="flex items-center space-x-2 gap-1">
                   <IoLogoWhatsapp className="w-5 h-5" />
-                  <a href={phoneRedirectTo}>Whatsapp</a>
+                  <a href={whatsappRedirectTo}>Whatsapp</a>
                 </li>
                 <li className="flex items-center space-x-2 gap-1">
                   <FaEnvelope className="w-4 h-4" />

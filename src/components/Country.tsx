@@ -1,44 +1,17 @@
-import { useState } from "react";
 import {
-  FaGlobe,
   FaArrowRight,
-  FaBars,
-  FaTimes,
   FaGraduationCap,
   FaBriefcase,
   FaPlane,
-  FaMapMarkerAlt,
   FaClock,
   FaCheckCircle,
   FaUsers,
   FaFileAlt,
   FaShieldAlt,
-  FaPhone,
-  FaEnvelope,
 } from "react-icons/fa";
 import CountryItem from "./CountryItem";
 
 export default function Country() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const countries = [
-    {
-      name: "United Kingdom",
-      flag: "🇬🇧",
-      position: "left-1/2 top-32 -translate-x-1/2",
-    },
-    { name: "United States", flag: "🇺🇸", position: "right-24 top-48" },
-    { name: "Canada", flag: "🇨🇦", position: "right-32 top-20" },
-    {
-      name: "Australia",
-      flag: "🇦🇺",
-      position: "top-12 left-1/2 translate-x-12",
-    },
-    { name: "Germany", flag: "🇩🇪", position: "left-24 top-56" },
-    { name: "Italy", flag: "🇮🇹", position: "left-32 top-20" },
-    { name: "Singapore", flag: "🇸🇬", position: "right-28 top-64" },
-  ];
-
   return (
     <>
       {CountryItem()}
