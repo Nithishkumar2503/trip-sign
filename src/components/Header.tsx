@@ -145,7 +145,7 @@ function Header() {
                     alt=""
                   />
 
-                  <div className=" grid font-semibold">
+                  <div className=" grid font-semibold hidden lg:block">
                    Trip with Sign
                   </div>
                 </div>

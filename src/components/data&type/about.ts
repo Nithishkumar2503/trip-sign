@@ -12,7 +12,7 @@ export interface OfficeDataProps {
 }
 export const officeData: OfficeDataProps = {
   Coimbatore: {
-    image: "/src/assets/hero2.png",
+    image: "/hero2.png",
     address: "First floor,Vignesh Park,Ram Nagar,Gandhipuram,Coimbatore-641009",
     email: "tripwithsign@gmail.com",
     phones: ["+916384044005", "+91 6374080040", "04224690439"],
@@ -31,14 +31,14 @@ export const testimonials: TestingmonialsProps[] = [
     role: "Student",
     feedback:
       "From India to my destination country, they ensured every detail was covered, making my transition seamless and allowing me to focus on my studies.",
-    img: "/src/assets/person.png", // Replace with actual profile image
+    img: "/person.png", // Replace with actual profile image
   },
   {
     name: "Krishna",
     role: "Student from Singapore",
     feedback:
       "Navigating the study abroad landscape can be overwhelming, but Trip with sign's experts are true navigators.",
-    img: "/src/assets/person.png", // Replace with actual profile image
+    img: "/person.png", // Replace with actual profile image
   },
 ];
 

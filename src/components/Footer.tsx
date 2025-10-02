@@ -55,7 +55,7 @@ const Footer = () => {
             <div>
               <div className="mb-5">
                 <img
-                  src="/src/assets/trip-sign.png"
+                  src="/trip-sign.png"
                   alt="Trip with Sign Logo"
                   className="md:w-12 w-12 block my-auto "
                 />
@@ -175,7 +175,7 @@ const Footer = () => {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <img
-                  src="/src/assets/trip-sign.png"
+                  src="/trip-sign.png"
                   className="w-8 h-8 text-red-600"
                   alt=""
                 />
