@@ -24,7 +24,7 @@ const FreeFeelCard = () => {
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="max-w-md mx-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl shadow-2xl p-8 text-center text-white"
+      className="max-w-md mx-auto bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 rounded-3xl shadow-2xl p-8 text-center text-white"
     >
       <h2 className="text-3xl font-extrabold mb-4 drop-shadow-lg">
         Free Feel to Ask
@@ -48,9 +48,9 @@ const FreeFeelCard = () => {
 // StudyAbroadForm.jsx
 const StudyAbroadForm = () => {
   return (
-    <div className="bg-purple-700  text-white px-6 py-12 lg:flex lg:items-center lg:justify-center gap-40 lg:px-20">
+    <div className="rounded-xl bg-purple-700   text-white px-6 py-12 lg:flex lg:items-center lg:justify-center gap-40 lg:px-20">
       {/* Left Section */}
-      <div className="max-w-xl space-y-6 lg:mb-0 mb-4 ml-auto">
+      <div className="max-w-xl space-y-6 ml-auto ">
         <h2 className="text-3xl font-bold">
           Your Next Steps to Studying Abroad
         </h2>

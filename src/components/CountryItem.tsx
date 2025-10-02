@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { countries, type CountriesProp } from "./data&type";
 import { AnimatePresence, motion } from "framer-motion";
-function InfoCard({ icon, title, value }) {
+function InfoCard({
+  icon,
+  title,
+  value,
+}: {
+  icon: string;
+  title: string;
+  value: string;
+}) {
   return (
     <motion.div
       whileHover={{ scale: 1.03 }}
@@ -19,7 +27,8 @@ function InfoCard({ icon, title, value }) {
 }
 
 const CountryItem = () => {
-  const [selectedCountry, setSelectedCountry] = useState<CountriesProp>(null);
+  const [selectedCountry, setSelectedCountry] =
+    useState<CountriesProp | null>();
   const [activeTab, setActiveTab] = useState("study");
 
   return (
@@ -36,24 +45,26 @@ const CountryItem = () => {
           <p className="text-gray-600 text-lg">World-Wide Services</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {countries.map((country, index) => (
-            <motion.div
-              key={country.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              onClick={() => setSelectedCountry(country)}
-              className="bg-white rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-2xl transition-shadow"
-            >
-              <div className="text-6xl mb-4 text-center">{country.flag}</div>
-              <h3 className="text-xl font-bold text-gray-900 text-center">
-                {country.name}
-              </h3>
-            </motion.div>
-          ))}
-        </div>
+        {!selectedCountry && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            {countries.map((country, index) => (
+              <motion.div
+                key={country.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                onClick={() => setSelectedCountry(country)}
+                className="bg-white rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-2xl transition-shadow"
+              >
+                <div className="text-6xl mb-4 text-center">{country.flag}</div>
+                <h3 className="text-xl font-bold text-gray-900 text-center">
+                  {country.name}
+                </h3>
+              </motion.div>
+            ))}
+          </div>
+        )}
 
         <AnimatePresence mode="wait">
           {selectedCountry && (
@@ -83,12 +94,12 @@ const CountryItem = () => {
                   </svg>
                 </button>
                 <div className="flex items-center gap-4">
-                  <div className="text-7xl">{selectedCountry.flag}</div>
+                  <div className="lg:text-7xl text-5xl">{selectedCountry.flag}</div>
                   <div>
-                    <h2 className="text-4xl font-bold mb-2">
+                    <h2 className="lg:text-4xl text-2xl font-bold mb-2">
                       {selectedCountry.name}
                     </h2>
-                    <p className="text-blue-100 text-lg">
+                    <p className="text-blue-100 lg:text-lg text-md">
                       {selectedCountry.description}
                     </p>
                   </div>
@@ -98,7 +109,7 @@ const CountryItem = () => {
               <div className="flex border-b border-gray-200">
                 <button
                   onClick={() => setActiveTab("study")}
-                  className={`flex-1 py-4 px-6 font-semibold transition-colors relative ${
+                  className={` flex-1 py-4 px-6 font-semibold transition-colors relative ${
                     activeTab === "study"
                       ? "text-blue-600"
                       : "text-gray-500 hover:text-gray-700"

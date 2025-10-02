@@ -141,7 +141,7 @@ function Header() {
                 <div className="flex gap-1 items-center content-center h-full">
                   <img
                     className="md:w-12 w-12 block my-auto "
-                    src="/src/assets/trip-sign.png"
+                    src="/trip-sign.png"
                     alt=""
                   />
 

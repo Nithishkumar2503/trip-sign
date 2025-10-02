@@ -1,5 +1,3 @@
-import { number } from "motion";
-import { string } from "zod";
 
 export interface HeroContentProps {
   id: number;
@@ -97,7 +95,7 @@ export interface CountriesProp{
       topUniversities: string[],
       avgTuition: string,
       scholarships: string,
-      language: 'English'
+      language: string
     },
     jobOpportunities: {
       industries: string[],
