@@ -235,14 +235,14 @@ function ImmigrationServices() {
           Citizenship & Immigration Services
         </h2>
 
-        <div className="flex flex-wrap  gap-8 justify-center ">
+        <div className="flex flex-wrap justify-between  gap-8 ">
           {immigrationContent.map((item, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05, type: "spring", stiffness: 100 }}
-              className="group   bg-white rounded-3xl shadow-lg p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-start gap-4"
+              className="group   bg-white rounded-3xl shadow-lg p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-start gap-4 w-[30rem]"
             >
               <div className="flex-shrink-0">{item.icon}</div>
               <div>
@@ -290,7 +290,7 @@ export default function HeroSection() {
                   src={item.img}
                   alt=""
                   className="select-none w-full h-full object-cover"
-                  initial={{ x: 100, opacity: 0 }} // start off-screen to the right
+                  initial={{ x: 10, opacity: 0 }} // start off-screen to the right
                   animate={{ x: 0, opacity: 0.8 }} // slide into place
                   transition={{
                     duration: 0.8,
