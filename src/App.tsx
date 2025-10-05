@@ -15,6 +15,9 @@ function App() {
       <div className="">
         {/* Fixed Header */}
         <Header />
+        <div className="lg:h-20">
+
+        </div>
         {/* padding to avoid overlap with fixed header */}
         <Routes>
           <Route path="/" element={<HeroSection />} />

@@ -25,12 +25,12 @@ const FreeFeelCard = () => {
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="mx-auto lg:w-full lg:mt-0 mt-2 items-center content-center bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 rounded-3xl shadow-2xl p-8 text-center text-white"
+      className="mx-auto lg:w-full lg:mt-0 mt-2 items-center content-center bg-white  rounded-3xl shadow-2xl p-8 text-center text-white"
     >
-      <h2 className="lg:text-3xl text-xl font-extrabold mb-4 drop-shadow-lg">
+      <h2 className="lg:text-3xl text-xl font-semibold mb-4 drop-shadow-lg text-primary">
         Free Feel to Ask
       </h2>
-      <p className="lg:text-lg text-sm mb-6 drop-shadow-md">
+      <p className="lg:text-lg text-sm mb-6 drop-shadow-md text-secondary">
         Have any questions or need guidance? We're here to help you out anytime.
       </p>
       <motion.a
@@ -38,7 +38,7 @@ const FreeFeelCard = () => {
         whileHover={{ scale: 1.1, y: -2 }}
         whileTap={{ scale: 0.95 }}
         transition={{ type: "spring", stiffness: 300 }}
-        className="bg-white lg:text-lg text-sm text-indigo-600 font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all"
+        className="border border-primary text-primary lg:text-lg text-sm font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all"
       >
         Ask Now
       </motion.a>
@@ -49,14 +49,14 @@ const FreeFeelCard = () => {
 // StudyAbroadForm.jsx
 const StudyAbroadForm = () => {
   return (
-    <div className="rounded-xl  bg-purple-700   text-white px-6 lg:py-26 py-12 lg:items-center lg:justify-center gap-40 lg:px-20">
+    <div className="bg-primary   text-white px-6 lg:py-26 py-12 lg:items-center lg:justify-center gap-40 lg:px-20">
       <div className="lg:w-[66vw] gap-8 lg:flex mx-auto p-2">
         {/* Left Section */}
         <div className="">
-          <h2 className="lg:text-3xl text-xl font-bold">
+          <h2 className="lg:text-3xl text-xl font-bold ">
             Your Next Steps to Studying Abroad
           </h2>
-          <p className="lg:text-lg text-sm">
+          <p className="lg:text-lg text-sm mb-2">
             Unlock a world of global opportunities, personal growth, and career
             success with a study experience beyond borders. The investment you
             make today pays off tomorrow with job prospects and extended visa
@@ -71,7 +71,7 @@ const StudyAbroadForm = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-white">{step.title}</h4>
-                  <p className="text-sm text-purple-200">{step.desc}</p>
+                  <p className="text-sm text-red-200">{step.desc}</p>
                 </div>
               </li>
             ))}
@@ -92,9 +92,9 @@ const HeroSect = () => {
       <div className="lg:w-[66vw] p-2 mx-auto flex flex-col-reverse lg:flex-row justify-between items-center gap-12">
         {/* Left Content */}
         <div className="text-center lg:text-left max-w-xl">
-          <h1 className="text-4xl lg:text-5xl font-bold text-purple-900 leading-tight">
+          <h1 className="text-4xl lg:text-5xl font-bold text-secondary leading-tight">
             Start Your Study/Career Abroad <br /> Journey with{" "}
-            <span className="text-purple-600">Trip With Sign</span>
+            <span className="text-primary">Trip With Sign</span>
           </h1>
           <p className="mt-4 text-gray-700 text-lg">
             Your Trusted Partner for Overseas Education, Career Guidance, and
@@ -106,7 +106,7 @@ const HeroSect = () => {
               Register for FREE
             </button> */}
           <div className="mt-8  flex flex-col sm:flex-row gap-4 justify-center items-center content-center lg:justify-start">
-            <button className="bg-cyan-300 mx-auto text-black font-medium px-6 py-2 rounded-full hover:bg-cyan-400 transition">
+            <button className="border border-primary text-primary mx-auto text-black font-medium px-6 py-2 rounded-full hover:bg-cyan-400 transition">
               Contact us
             </button>
           </div>
@@ -215,7 +215,7 @@ function ImmigrationServices() {
           Citizenship & Immigration Services
         </h2>
 
-        <div className="flex flex-wrap lg:justify-between justify-center gap-8 ">
+        <div className="flex flex-wrap lg:justify-between  justify-center gap-8 ">
           {immigrationContent.map((item, idx) => (
             <motion.div
               key={idx}
