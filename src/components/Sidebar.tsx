@@ -24,7 +24,7 @@ export default function Sidebar({ isOpen, child, onDispatch }: ParamsProps) {
         className={`fixed  top-0 right-0 h-full w-[60vw] rounded-lg  bg-white shadow-lg z-50 transform transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
-      >
+       >
         {/* Close Button */}
         <div className="flex justify-end p-4 ">
           <button

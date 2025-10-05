@@ -15,7 +15,6 @@ export default function Country() {
   return (
     <>
       {CountryItem()}
-
       <div className="min-h-screen bg-gray-50 pt-28">
         {/* CTA Section */}
         <section className="py-12 px-4 ">
@@ -30,11 +29,10 @@ export default function Country() {
                     in Visa & Immigration
                   </h1>
                   <a href="/contact">
-                  <button className="mt-8 bg-gray-900 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
-                    Apply for Visa
-                  </button>
+                    <button className="mt-8 bg-gray-900 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
+                      Apply for Visa
+                    </button>
                   </a>
-                  
                 </div>
 
                 {/* Right Content - Travel Items */}

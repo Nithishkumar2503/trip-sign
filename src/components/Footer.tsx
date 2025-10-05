@@ -10,6 +10,7 @@ import {
 import { IoLogoWhatsapp } from "react-icons/io";
 import { countryItem, visaItem } from "./data&type/footerData";
 import { MdFlight } from "react-icons/md";
+import CountryItem from "./CountryItem";
 
 const emailRedirectTo: string =
   "mailto:tripwithsign@gmail.com?subject=Guidance%20for%20Studying/Career%20Abroad&body=Dear%20Consultant%2C%0D%0A%0D%0AMy%20name%20is%20[Your%20Name]%2C%20and%20I%20am%20interested%20in%20studying/Career%20abroad.%20I%20would%20like%20to%20know%20more%20about%20available%20courses%2C%20universities%2C%20application%20requirements%2C%20and%20the%20overall%20process.%0D%0A%0D%0ACould%20you%20please%20guide%20me%20on%20how%20to%20get%20started%20and%20let%20me%20know%20what%20documents%20or%20details%20you%20need%20from%20me%3F%0D%0A%0D%0ALooking%20forward%20to%20your%20reply.%0D%0A%0D%0ABest%20regards%2C%0D%0A[Your%20Full%20Name]%0D%0A[Your%20Contact%20Number]";
@@ -58,28 +59,8 @@ const Footer = () => {
             </div>
             <div>
               <h3 className="font-bold mb-4">Countries</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <a href="#" className="hover:text-red-600 transition">
-                    United Kingdom
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-red-600 transition">
-                    United States
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-red-600 transition">
-                    Canada
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-red-600 transition">
-                    Australia
-                  </a>
-                </li>
-              </ul>
+              {CountryItem(true)}
+              
             </div>
             <div>
               <h3 className="font-bold mb-4">Contact</h3>
