@@ -2,9 +2,6 @@
 export default {
   theme: {
     extend: {
-      width:{
-        contentWidth:"w-[66vw]"
-      },
       colors: {
         primary: "#DC143C",
         secondary: "#F75270",
