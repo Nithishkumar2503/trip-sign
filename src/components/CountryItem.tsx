@@ -44,7 +44,7 @@ const CountryItem = (textOnly?: boolean) => {
           <ul className="space-y-2 text-gray-400">
             {countries.map((country, index) => (
               <li
-                className="hover:text-red-600 transition"
+                className="hover:text-red-600 cursor-pointer transition"
                 onClick={() => setSelectedCountry(country)}
                 key={index}
               >
@@ -91,15 +91,15 @@ const CountryItem = (textOnly?: boolean) => {
 
         <AnimatePresence mode="wait">
           {selectedCountry && (
-            <motion.div className="bg-white  rounded-3xl shadow-2xl  overflow-hidden">
+            <motion.div className="bg-white z-32  rounded-3xl shadow-2xl  overflow-hidden">
               <div
                 onClick={() => setSelectedCountry(null)}
-                className="fixed inset-0 bg-black/80 z-40 "
+                className="fixed inset-0 bg-black/80 z-40"
               ></div>
               <div
                 className={`fixed ${
                   textOnly ? "" : ""
-                } top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  h-fit  w-[60vw] rounded-lg  bg-white shadow-lg z-50 transform transition-transform duration-300 `}
+                } top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2  h-fit  w-[60vw] rounded-lg  bg-white shadow-lg z-50 transform transition-transform duration-300 `}
               >
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-white relative">
                   <button

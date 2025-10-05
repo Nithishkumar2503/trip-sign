@@ -18,23 +18,23 @@ const AboutScreen = () => {
           About Us
         </h1>
         <p className="max-w-2xl text-center text-gray-600 lg:text-lg text-md leading-relaxed">
-          At <span className="font-bold">Trip with Sign</span>, we help{" "}
-          <span className="font-bold">
+          At <span className="text-primary font-semibold">Trip with Sign</span>, we help{" "}
+          <span className="">
             students and professionals achieve their dream of studying and
             working abroad.
           </span>{" "}
           Our team guides you step by step – from{" "}
-          <span className="font-bold">
+          <span className="text-primary font-semibold">
             choosing the right course or job, applying to universities,
             preparing documents,
           </span>{" "}
           to{" "}
-          <span className="font-bold">
+          <span className="">
             finding career opportunities overseas.
           </span>
           Studying and working abroad is more than travel – it’s about learning,
           growing, and building a better future. With{" "}
-          <span className="font-bold">Trip with Sign</span>, the journey becomes
+          <span className="text-primary font-semibold">Trip with Sign</span>, the journey becomes
           easy, clear, and stress-free.
         </p>
       </motion.div>
