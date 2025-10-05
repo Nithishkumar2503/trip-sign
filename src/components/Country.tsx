@@ -19,7 +19,7 @@ export default function Country() {
       <div className="min-h-screen bg-gray-50 pt-28">
         {/* CTA Section */}
         <section className="py-12 px-4 ">
-          <div className="max-w-7xl mx-auto">
+          <div className="lg:w-[66vw] p-2 mx-auto">
             <div className="relative bg-gradient-to-r from-red-600 to-red-700 rounded-3xl overflow-hidden">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 {/* Left Content */}
@@ -77,7 +77,7 @@ export default function Country() {
 
         {/* Services Section */}
         <section className="py-16 px-4 bg-white">
-          <div className="max-w-7xl mx-auto">
+          <div className="lg:w-[66vw] p-2 mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
               Our Services
             </h2>
@@ -116,7 +116,7 @@ export default function Country() {
 
         {/* Why Choose Us Section */}
         <section className="py-16 px-4 bg-gray-50">
-          <div className="max-w-7xl mx-auto">
+          <div className="lg:w-[66vw] p-2 mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
               Why Choose Us
             </h2>
@@ -160,7 +160,7 @@ export default function Country() {
 
         {/* Process Section */}
         <section className="py-16 px-4 bg-white">
-          <div className="max-w-7xl mx-auto">
+          <div className="lg:w-[66vw] p-2 mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
               Simple Application Process
             </h2>

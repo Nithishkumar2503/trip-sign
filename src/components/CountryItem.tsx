@@ -32,12 +32,12 @@ const CountryItem = () => {
   const [activeTab, setActiveTab] = useState("study");
 
   return (
-    <div className="h-auto  bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 px-4">
-      <div className="max-w-7xl mx-auto 0">
+    <div className="h-auto  bg-gradient-to-br from-blue-50 via-white to-purple-50 py-6 px-4">
+      <div className="lg:w-[66vw] py-8 p-2 mx-auto 0">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12 pt-40"
+          className="text-center"
         >
           <h1 className="text-5xl font-bold text-gray-900 mb-3">
             Our Countries List

@@ -17,6 +17,7 @@ import {
   type HeroContentProps,
 } from "./data&type";
 import CountryItem from "./CountryItem";
+import StatsSection from "./StatsSection";
 
 const FreeFeelCard = () => {
   return (
@@ -24,12 +25,12 @@ const FreeFeelCard = () => {
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="max-w-md mx-auto bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 rounded-3xl shadow-2xl p-8 text-center text-white"
+      className="mx-auto lg:w-full lg:mt-0 mt-2 items-center content-center bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 rounded-3xl shadow-2xl p-8 text-center text-white"
     >
-      <h2 className="text-3xl font-extrabold mb-4 drop-shadow-lg">
+      <h2 className="lg:text-3xl text-xl font-extrabold mb-4 drop-shadow-lg">
         Free Feel to Ask
       </h2>
-      <p className="text-lg mb-6 drop-shadow-md">
+      <p className="lg:text-lg text-sm mb-6 drop-shadow-md">
         Have any questions or need guidance? We're here to help you out anytime.
       </p>
       <motion.a
@@ -37,7 +38,7 @@ const FreeFeelCard = () => {
         whileHover={{ scale: 1.1, y: -2 }}
         whileTap={{ scale: 0.95 }}
         transition={{ type: "spring", stiffness: 300 }}
-        className="bg-white text-indigo-600 font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all"
+        className="bg-white lg:text-lg text-sm text-indigo-600 font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all"
       >
         Ask Now
       </motion.a>
@@ -48,45 +49,47 @@ const FreeFeelCard = () => {
 // StudyAbroadForm.jsx
 const StudyAbroadForm = () => {
   return (
-    <div className="rounded-xl bg-purple-700   text-white px-6 py-12 lg:flex lg:items-center lg:justify-center gap-40 lg:px-20">
-      {/* Left Section */}
-      <div className="max-w-xl space-y-6 ml-auto ">
-        <h2 className="text-3xl font-bold">
-          Your Next Steps to Studying Abroad
-        </h2>
-        <p className="text-lg">
-          Unlock a world of global opportunities, personal growth, and career
-          success with a study experience beyond borders. The investment you
-          make today pays off tomorrow with job prospects and extended visa
-          options.
-        </p>
+    <div className="rounded-xl  bg-purple-700   text-white px-6 lg:py-26 py-12 lg:items-center lg:justify-center gap-40 lg:px-20">
+      <div className="lg:w-[66vw] gap-8 lg:flex mx-auto p-2">
+        {/* Left Section */}
+        <div className="">
+          <h2 className="lg:text-3xl text-xl font-bold">
+            Your Next Steps to Studying Abroad
+          </h2>
+          <p className="lg:text-lg text-sm">
+            Unlock a world of global opportunities, personal growth, and career
+            success with a study experience beyond borders. The investment you
+            make today pays off tomorrow with job prospects and extended visa
+            options.
+          </p>
 
-        <ul className="space-y-6">
-          {studyAbroadFormData.map((step, index) => (
-            <li key={index} className="flex items-start space-x-4">
-              <div className="text-2xl bg-white text-purple-700 p-2 rounded-md">
-                {step.icon}
-              </div>
-              <div>
-                <h4 className="font-semibold text-white">{step.title}</h4>
-                <p className="text-sm text-purple-200">{step.desc}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+          <ul className="space-y-6 lg:pt-0 pt-2">
+            {studyAbroadFormData.map((step, index) => (
+              <li key={index} className="flex items-start space-x-4">
+                <div className="lg:text-2xl text-md  bg-white text-purple-700 p-2 rounded-md">
+                  {step.icon}
+                </div>
+                <div>
+                  <h4 className="font-semibold text-white">{step.title}</h4>
+                  <p className="text-sm text-purple-200">{step.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Right Section */}
+        {FreeFeelCard()}
       </div>
-
-      {/* Right Section */}
-      {FreeFeelCard()}
     </div>
   );
 };
 
 const HeroSect = () => {
   return (
-    <section className=" bg-white pt pb-8 px-6 lg:px-12 lg:px-20 h-fit items-center content-center">
+    <section className=" bg-white py-8 lg:px-12 h-fit items-center content-center">
       {/* Hero content */}
-      <div className="lg:max-w-7xl mx-auto flex flex-col-reverse lg:flex-row justify-between items-center gap-12">
+      <div className="lg:w-[66vw] p-2 mx-auto flex flex-col-reverse lg:flex-row justify-between items-center gap-12">
         {/* Left Content */}
         <div className="text-center lg:text-left max-w-xl">
           <h1 className="text-4xl lg:text-5xl font-bold text-purple-900 leading-tight">
@@ -118,30 +121,7 @@ const HeroSect = () => {
           />
         </div>
       </div>
-
-      {/* Stats */}
-      <div className=" bg-[#f4f3fc] py-10 rounded-lg">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
-          <div>
-            <h3 className="text-3xl font-bold text-purple-700">30+</h3>
-            <p className="text-sm text-gray-600 mt-1">Visa Categories</p>
-          </div>
-          <div>
-            <h3 className="text-3xl font-bold text-purple-700">68+</h3>
-            <p className="text-sm text-gray-600 mt-1">Visa Process</p>
-          </div>
-          <div>
-            <h3 className="text-3xl font-bold text-purple-700">99+</h3>
-            <p className="text-sm text-gray-600 mt-1">Success Rate</p>
-          </div>
-          <div>
-            <h3 className="text-3xl font-bold text-purple-700">
-              <span>23</span>+
-            </h3>
-            <p className="text-sm text-gray-600 mt-1">Pro Consultants</p>
-          </div>
-        </div>
-      </div>
+      {StatsSection()}
     </section>
   );
 };
@@ -230,19 +210,19 @@ function ImmigrationServices() {
 
   return (
     <section className="relative py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-      <div className="lg:max-w-7xl mx-auto lg:px-4 w-full items-center content-center ">
+      <div className="lg:w-[66vw] p-2 mx-auto lg:px-4 w-full items-center content-center ">
         <h2 className="text-2xl lg:text-4xl font-bold text-center mb-12">
           Citizenship & Immigration Services
         </h2>
 
-        <div className="flex flex-wrap justify-between  gap-8 ">
+        <div className="flex flex-wrap lg:justify-between justify-center gap-8 ">
           {immigrationContent.map((item, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05, type: "spring", stiffness: 100 }}
-              className="group   bg-white rounded-3xl shadow-lg p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-start gap-4 w-[30rem]"
+              className="group   bg-white rounded-3xl shadow-lg p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-start gap-4 w-[27rem]"
             >
               <div className="flex-shrink-0">{item.icon}</div>
               <div>
@@ -298,25 +278,23 @@ export default function HeroSection() {
                   }}
                   whileHover={{ scale: 1.05 }} // hover zoom effect
                 />
-
-              
               </div>
-                  
+
               <div className="items-center content-center  absolute inset-0 w-fit mx-auto opacity-80 bg-gradient-to-l">
-                 <motion.div
+                <motion.div
                   className="text-white  text-nowrap text-8xl"
                   initial={{ y: 200, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.7, ease: "easeOut" }}
                 >
-                  <h2 className="lg:text-4xl text-[6vw] font-bold text-wrap text-center lg:px-0 px-10">{item?.heading}</h2>
+                  <h2 className="lg:text-4xl text-[6vw] font-bold text-wrap text-center lg:px-0 px-10">
+                    {item?.heading}
+                  </h2>
                 </motion.div>
-               
               </div>
             </div>
           ) : null
         )}
-        
       </div>
       {HeroSect()}
       {ImmigrationServices()}
