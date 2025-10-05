@@ -3,7 +3,7 @@ import { AiOutlineClose } from "react-icons/ai";
 interface ParamsProps {
   child?: HTMLElement|any;
   isOpen?: boolean;
-  onDispatch: ()=>void|null|HTMLElement;
+  onDispatch: ()=>void|null|HTMLElement|boolean;
 }
 export default function Modal({ isOpen=true, child, onDispatch }: ParamsProps) {
   function onClose() {
@@ -30,7 +30,7 @@ export default function Modal({ isOpen=true, child, onDispatch }: ParamsProps) {
           <button
             onClick={() =>
                 
-              typeof onDispatch == "function" ? onDispatch(false) : null
+              typeof onDispatch == "function" ? onDispatch() : null
             }
           >
             <AiOutlineClose className="h-6 w-6 text-gray-700 cursor-pointer" />

@@ -11,11 +11,10 @@ import {
 function App() {
   return (
     <BrowserRouter>
-      {/* Fixed Header */}
-      <Header />
-
       {/* Page Routes */}
       <div className="">
+        {/* Fixed Header */}
+        <Header />
         {/* padding to avoid overlap with fixed header */}
         <Routes>
           <Route path="/" element={<HeroSection />} />
@@ -24,9 +23,9 @@ function App() {
           <Route path="/country" element={<Country />} />
           {/* Add more routes here */}
         </Routes>
+        {/* Fixed Footer */}
+        <Footer />
       </div>
-      {/* Fixed Footer */}
-      <Footer />
     </BrowserRouter>
   );
 }

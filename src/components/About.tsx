@@ -1,8 +1,9 @@
 import { FaUsers } from "react-icons/fa"; // For the icon
 import { FaQuoteLeft } from "react-icons/fa";
 import { useState } from "react";
-import { faqData, officeData, stats, testimonials,  } from "./data&type";
+import { faqData, officeData, stats, testimonials } from "./data&type";
 import { motion } from "framer-motion";
+import StatsSection from "./StatsSection";
 
 const AboutScreen = () => {
   return (
@@ -13,7 +14,9 @@ const AboutScreen = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <h1 className="lg:text-4xl text-2xl font-bold text-gray-800 mb-4">About Us</h1>
+        <h1 className="lg:text-4xl text-2xl font-bold text-gray-800 mb-4">
+          About Us
+        </h1>
         <p className="max-w-2xl text-center text-gray-600 lg:text-lg text-md leading-relaxed">
           At <span className="font-bold">Trip with Sign</span>, we help{" "}
           <span className="font-bold">
@@ -51,7 +54,7 @@ function Testimonials() {
         </h2>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <div className="grid lg:grid-cols-2 gap-8 lg:w-[66vw] px-4 p-2 mx-auto">
         {testimonials.map((t, index) => (
           <div
             key={index}
@@ -82,81 +85,62 @@ function Testimonials() {
   );
 }
 function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <div className="lg:flex items-center content-center">
-      <div className="w-full lg:w-1/2  flex flex-col justify-center px-10 py-20">
-        <img
-          src="/faq.jpg"
-          className="w-full h-full rounded-2xl"
-          alt=""
-        />
-      </div>
-      <div className="w-full  lg:w-1/2 bg-gree flex flex-col justify-center px-10 py-20">
-        <div>
-          <p className="text-sm uppercase text-gray-500 tracking-wider">
-            Common FAQs
-          </p>
-          <h2 className="text-4xl font-bold mt-2 mb-10">
-            Frequently Asked Questions?
-          </h2>
+      <div className="lg:w-[66vw] px-4 p-2 flex mx-auto py-12 gap-8">
+        <div className="w-full   flex flex-col justify-center ">
+          <img src="/faq.jpg" className="w-full h-full rounded-2xl" alt="" />
+        </div>
+        <div className="w-full  flex flex-col justify-center ">
+          <div>
+            <p className="text-sm uppercase text-gray-500 tracking-wider">
+              Common FAQs
+            </p>
+            <h2 className="text-4xl font-bold mt-2 mb-10">
+              Frequently Asked Questions?
+            </h2>
 
-          <div className="space-y-4">
-            {faqData.map((item, index) => (
-              <div
-                key={index}
-                className="border-b pb-4 cursor-pointer"
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              >
-                <div className="flex justify-between items-center">
-                  <p className="font-medium text-lg">{item.heading}</p>
-                  <span className="text-red-600 text-xl">
-                    {openIndex === index ? "-" : "+"}
-                  </span>
+            <div className="space-y-4">
+              {faqData.map((item, index) => (
+                <div
+                  key={index}
+                  className="border-b pb-4 cursor-pointer"
+                  onClick={() =>
+                    setOpenIndex(openIndex === index ? null : index)
+                  }
+                >
+                  <div className="flex justify-between items-center">
+                    <p className="font-medium text-lg">{item.heading}</p>
+                    <span className="text-red-600 text-xl">
+                      {openIndex === index ? "-" : "+"}
+                    </span>
+                  </div>
+                  {openIndex === index && (
+                    <p className="text-gray-600 text-sm py-2">
+                      {/* Placeholder answer - customize as needed */}
+                      {item.subHeading}
+                    </p>
+                  )}
                 </div>
-                {openIndex === index && (
-                  <p className="text-gray-600 text-sm py-2">
-                    {/* Placeholder answer - customize as needed */}
-                    {item.subHeading}
-                  </p>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 }
-function StatsSection() {
-  return (
-    <section className="bg-blue-950 py-16">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {stats.map((stat, index) => (
-          <div
-            key={index}
-            className="border border-white/40 text-white p-6 flex flex-col items-center text-center rounded-lg"
-          >
-            <div className="text-5xl mb-4">{stat.icon}</div>
-            <div className="text-3xl font-bold">{stat.value}</div>
-            <div className="text-sm mt-1">{stat.label}</div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
 
 const OfficeLocations = () => {
-
-  const office:any = officeData["Coimbatore"];
+  const office: any = officeData["Coimbatore"];
 
   return (
-    <section className="bg-white py-16 px-6 lg:px-20">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-white py-16 px-6 lg:px-20 py-20">
+      <div className="lg:w-[66vw] p-2 mx-auto ">
         {/* Heading */}
-        <div className="text-center mb-10">
+        <div className="text-center w-full">
           <p className="text-sm uppercase tracking-widest text-gray-500">
             Checkout Our Locations
           </p>
@@ -172,8 +156,8 @@ const OfficeLocations = () => {
         </div>
 
         {/* Office Content */}
-        
-        <div className="bg-white rounded-xl   hover:shadow-2xl shadow-xl p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-start ">
+
+        <div className="bg-white rounded-xl py-26  hover:shadow-2xl shadow-xl p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {/* Image */}
           <div className="md:col-span-1 my-auto">
             <img
@@ -185,7 +169,9 @@ const OfficeLocations = () => {
 
           {/* Address & Contact */}
           <div className="md:col-span-1 space-y-4 my-auto">
-            <h3 className="text-xl font-semibold text-gray-900">{'Coimbatore'}</h3>
+            <h3 className="text-xl font-semibold text-gray-900">
+              {"Coimbatore"}
+            </h3>
             <p className="text-gray-600 flex items-start">
               <span className="text-red-500 mr-2">📍</span>
               {office?.address}
@@ -193,7 +179,7 @@ const OfficeLocations = () => {
             <p className="text-gray-600 flex items-center">
               <span className="text-red-500 mr-2">✉️</span> {office?.email}
             </p>
-            {office?.phones.map((phone:any, idx:any) => (
+            {office?.phones.map((phone: any, idx: any) => (
               <p className="text-gray-600 flex items-center" key={idx}>
                 <span className="text-red-500 mr-2">📞</span> {phone}
               </p>
@@ -209,19 +195,19 @@ const OfficeLocations = () => {
 };
 const Open24x7 = () => {
   return (
-    <section className="bg-gray-50 py-20 px-6 text-center">
-      <div className="max-w-3xl mx-auto">
+    <section className="w-full">
+      <div className="mx-auto text-white">
         <p className="text-sm uppercase tracking-widest text-gray-500">
           Always Available
         </p>
 
         <div className="w-10 h-1 bg-red-500 mx-auto my-3 rounded-full"></div>
 
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-6">
           We’re Open 24/7 at <span className="text-primary">Online</span>
         </h2>
 
-        <p className="text-gray-600 text-lg mb-8">
+        <p className="text-gray-600 text-wrap mb-8 h-auto txt">
           Our consultants are available around the clock to assist you with your
           visa, immigration, and documentation needs. Contact us anytime, from
           anywhere.
@@ -247,8 +233,8 @@ const AboutUs = () => {
   return (
     <>
       {AboutScreen()}
-      <section className="bg-white py-16 px-6 lg:px-16 relative h-fit  items-center content-center">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+      <section className="bg-white py-16  lg:px-16 relative h-fit  items-center content-center">
+        <div className="lg:w-[66vw] px-4 p-2 mx-auto grid lg:grid-cols-2 gap-10 items-center">
           {/* Left Content */}
           <div>
             <p className="text-sm text-gray-500 uppercase mb-2">
@@ -305,7 +291,7 @@ const AboutUs = () => {
       {/* Decorative plane icon */}
       {Testimonials()}
       {FAQ()}
-      {StatsSection()}
+      {/* {StatsSection()}   */}
       {OfficeLocations()}
     </>
   );

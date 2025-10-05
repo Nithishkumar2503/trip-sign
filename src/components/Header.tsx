@@ -108,7 +108,7 @@ function Header() {
         />
       </div>
       <div className="lg:h-20 h-18 rounded-b-xl  z-40 w-full bg-gray-200 fixed">
-        <div className="py-2 cursor-default hidden lg:block lg:flex lg:justify-end gap-6  lg:w-[65vw] mx-auto items-center content-center  px-2">
+        <div className="py-2 cursor-default hidden lg:block lg:flex lg:justify-end gap-6  lg:w-[66vw] mx-auto items-center content-center  px-2">
           <div className="p-1 cursor-pointer flex gap-2 items-center  content-center">
             <TbViewfinder className="text-red-500" />
             <h1>Find us</h1>
@@ -134,19 +134,19 @@ function Header() {
             <h1>WhatsApp</h1>
           </a>
         </div>
-        <div className="lg:bg-white lg:h-full h-full items-center content-center border-b-6 border-gray-200">
-          <div className="lg:h-full h-full  items-center content-center w-[90vw] lg:w-[65vw] mx-auto  px-2 lg:flex lg:justify-between ">
+        <div className="lg:bg-white lg:h-full h-full items-center content-center">
+          <div className="lg:h-full h-full  items-center content-center w-[90vw] lg:w-[66vw] mx-auto  px-2 lg:flex lg:justify-between ">
             <div className="flex justify-between items-center content-center gap-2">
               <a href="/">
                 <div className="flex gap-1 items-center content-center h-full">
                   <img
                     className="md:w-12 w-12 block my-auto "
-                    src="/src/assets/trip-sign.png"
+                    src="/trip-sign.png"
                     alt=""
                   />
 
                   <div className=" grid font-semibold hidden lg:block">
-                   Trip with Sign
+                    Trip with Sign
                   </div>
                 </div>
               </a>
@@ -164,28 +164,38 @@ function Header() {
                   className="lg:hidden text-2xl cursor-pointer"
                   onClick={openSideBar}
                 />
-                <a href="/" className={`${useLocation().pathname=='/'? "text-red-500":""} px-2 cursor-pointer lg:block hidden`}>
+                <a
+                  href="/"
+                  className={`${
+                    useLocation().pathname == "/" ? "text-red-500" : ""
+                  } px-2 cursor-pointer lg:block hidden`}
+                >
                   Home
                 </a>
                 <a
                   href="/about"
-                  className={`${useLocation().pathname=='/about'? "text-red-500":""} px-2 cursor-pointer lg:block hidden`}
+                  className={`${
+                    useLocation().pathname == "/about" ? "text-red-500" : ""
+                  } px-2 cursor-pointer lg:block hidden`}
                 >
                   About us
                 </a>
                 <a
                   href="/country"
-                  className={`${useLocation().pathname=='/country'? "text-red-500":""} px-2 cursor-pointer lg:block hidden`}
+                  className={`${
+                    useLocation().pathname == "/country" ? "text-red-500" : ""
+                  } px-2 cursor-pointer lg:block hidden`}
                 >
                   Countries
                 </a>
                 <a
                   href="/contact"
-                  className={`${useLocation().pathname=='/contact'? "text-red-500":""} px-2 cursor-pointer lg:block hidden`}
+                  className={`${
+                    useLocation().pathname == "/contact" ? "text-red-500" : ""
+                  } px-2 cursor-pointer lg:block hidden`}
                 >
                   Contact
                 </a>
-                
               </div>
             </div>
             <a href="/contact">

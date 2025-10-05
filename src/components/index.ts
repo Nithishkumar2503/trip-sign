@@ -7,3 +7,4 @@ export { default as Contact } from './Contact';
 export { default as Footer } from './Footer';
 export { default as Country } from './Country';
 export { default as CounrtyItem } from './CountryItem';
+export { default as VisaCard } from './StatsSection';
