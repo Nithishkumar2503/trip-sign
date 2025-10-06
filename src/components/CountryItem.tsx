@@ -13,7 +13,7 @@ function InfoCard({
   return (
     <motion.div
       whileHover={{ scale: 1.03 }}
-      className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors"
+      className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-5 border border-gray-200 hover:border-primary transition-colors"
     >
       <div className="flex items-start gap-3">
         <div className="text-3xl">{icon}</div>
@@ -100,12 +100,12 @@ const CountryItem = (textOnly?: boolean) => {
                 className={`fixed ${
                   textOnly ? "" : ""
                 } top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2  h-fit  w-[60vw] rounded-lg  bg-white shadow-lg z-50 transform transition-transform duration-300 `}
-              >
-                <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-white relative">
+               >
+                <div className="bg-gradient-to-r from-primary to-secondary  p-8 text-white relative">
                   <button
                     onClick={() => setSelectedCountry(null)}
                     className="absolute top-4 right-4 text-white hover:bg-white/20 rounded-full p-2 transition-colors"
-                  >
+                    >
                     <svg
                       className="w-6 h-6"
                       fill="none"
@@ -140,7 +140,7 @@ const CountryItem = (textOnly?: boolean) => {
                     onClick={() => setActiveTab("study")}
                     className={` flex-1 py-4 px-6 font-semibold transition-colors relative ${
                       activeTab === "study"
-                        ? "text-blue-600"
+                        ? "text-primary"
                         : "text-gray-500 hover:text-gray-700"
                     }`}
                   >
@@ -148,7 +148,7 @@ const CountryItem = (textOnly?: boolean) => {
                     {activeTab === "study" && (
                       <motion.div
                         layoutId="activeTab"
-                        className="absolute bottom-0 left-0 right-0 h-1 bg-blue-600"
+                        className="absolute bottom-0 left-0 right-0 h-1 bg-primary"
                       />
                     )}
                   </button>
@@ -156,7 +156,7 @@ const CountryItem = (textOnly?: boolean) => {
                     onClick={() => setActiveTab("job")}
                     className={`flex-1 py-4 px-6 font-semibold transition-colors relative ${
                       activeTab === "job"
-                        ? "text-blue-600"
+                        ? "text-primary"
                         : "text-gray-500 hover:text-gray-700"
                     }`}
                   >
@@ -164,7 +164,7 @@ const CountryItem = (textOnly?: boolean) => {
                     {activeTab === "job" && (
                       <motion.div
                         layoutId="activeTab"
-                        className="absolute bottom-0 left-0 right-0 h-1 bg-blue-600"
+                        className="absolute bottom-0 left-0 right-0 h-1 bg-primary"
                       />
                     )}
                   </button>
@@ -277,7 +277,7 @@ const CountryItem = (textOnly?: boolean) => {
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full border bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-4 rounded-xl hover:shadow-lg transition-shadow"
+                      className="w-full border bg-gradient-to-r from-primary to-secondary text-white font-semibold py-4 rounded-xl hover:shadow-lg transition-shadow"
                     >
                       Apply Now for {selectedCountry.name}
                     </motion.div>

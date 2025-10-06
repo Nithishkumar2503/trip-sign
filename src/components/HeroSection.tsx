@@ -21,28 +21,27 @@ import StatsSection from "./StatsSection";
 
 const FreeFeelCard = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-      className="mx-auto lg:w-full lg:mt-0 mt-2 items-center content-center bg-white  rounded-3xl shadow-2xl p-8 text-center text-white"
-    >
-      <h2 className="lg:text-3xl text-xl font-semibold mb-4 drop-shadow-lg text-primary">
-        Free Feel to Ask
-      </h2>
-      <p className="lg:text-lg text-sm mb-6 drop-shadow-md text-secondary">
-        Have any questions or need guidance? We're here to help you out anytime.
-      </p>
-      <motion.a
-        href="/contact"
-        whileHover={{ scale: 1.1, y: -2 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ type: "spring", stiffness: 300 }}
-        className="border border-primary text-primary lg:text-lg text-sm font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all"
-      >
-        Ask Now
-      </motion.a>
-    </motion.div>
+    <div className="relative mt-14 lg:mt-0 mx-auto  w-fit  items-center content-center ">
+      <div className="absolute lg:w-92  w-80 top-1/2 left-1/2   -translate-x-1/2 -translate-y-1/2 lg:h-92 h-80   bg-pink-400 rounded-full opacity-30 animate-pulse"></div>
+      <motion.div className="lg:mx-auto w-fit top-1/2 left-1/2  mx-auto lg:rotate-12 z-50 transition-transform  hover:rotate-0 duration-500 lg:w-fit h-fit lg:mt-8   items-center content-center bg-white  rounded-3xl shadow-2xl p-8 text-center text-white ">
+        <h2 className=" text-xl  mb-4 drop-shadow-lg text-primary">
+          Feel Free to Ask
+        </h2>
+        <p className="lg:text-lg text-sm mb-6 drop-shadow-md text-secondary lg:w-[15rem] w-[10rem]">
+          Have any questions or need guidance? We're here to help you out
+          anytime.
+        </p>
+        <motion.a
+          href="/contact"
+          whileHover={{ scale: 1.1, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 300 }}
+          className="border border-primary text-primary lg:text-lg text-sm px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all"
+        >
+          Ask Now
+        </motion.a>
+      </motion.div>
+    </div>
   );
 };
 
@@ -106,9 +105,12 @@ const HeroSect = () => {
               Register for FREE
             </button> */}
           <div className="mt-8  flex flex-col sm:flex-row gap-4 justify-center items-center content-center lg:justify-start">
-            <button className="border border-primary text-primary mx-auto text-black font-medium px-6 py-2 rounded-full hover:bg-cyan-400 transition">
+            <a
+              href="/contact"
+              className="border cursor-pointer border-primary text-primary mx-auto font-medium px-6 py-2 rounded-full hover:bg-primary hover:text-white  transition"
+            >
               Contact us
-            </button>
+            </a>
           </div>
         </div>
 

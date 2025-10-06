@@ -19,7 +19,7 @@ export default function Country() {
         {/* CTA Section */}
         <section className="py-12 px-4 ">
           <div className="lg:w-[66vw] p-2 mx-auto">
-            <div className="relative bg-gradient-to-r from-red-600 to-red-700 rounded-3xl overflow-hidden">
+            <div className="relative bg-gradient-to-r from-primary to-primary rounded-3xl overflow-hidden">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 {/* Left Content */}
                 <div className="p-8 md:p-16 text-white">

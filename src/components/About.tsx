@@ -3,7 +3,6 @@ import { FaQuoteLeft } from "react-icons/fa";
 import { useState } from "react";
 import { faqData, officeData, stats, testimonials } from "./data&type";
 import { motion } from "framer-motion";
-import StatsSection from "./StatsSection";
 
 const AboutScreen = () => {
   return (
