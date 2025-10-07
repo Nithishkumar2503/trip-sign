@@ -1,10 +1,6 @@
 import {
   FaEnvelope,
   FaMapMarkerAlt,
-  FaClock,
-  FaYoutube,
-  FaInstagram,
-  FaLock,
   FaPhone,
 } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
