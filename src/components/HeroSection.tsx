@@ -18,6 +18,7 @@ import {
 } from "./data&type";
 import CountryItem from "./CountryItem";
 import StatsSection from "./StatsSection";
+import { ExpandLatter } from ".";
 
 const FreeFeelCard = () => {
   return (
@@ -36,7 +37,7 @@ const FreeFeelCard = () => {
           whileHover={{ scale: 1.1, y: -2 }}
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 300 }}
-          className="border border-primary text-primary lg:text-lg text-sm px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all"
+          className="border border-primary z-50 lg:z-0 text-primary lg:text-lg text-sm px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all"
         >
           Ask Now
         </motion.a>
@@ -90,11 +91,19 @@ const HeroSect = () => {
       {/* Hero content */}
       <div className="lg:w-[66vw] p-2 mx-auto flex flex-col-reverse lg:flex-row justify-between items-center gap-12">
         {/* Left Content */}
-        <div className="text-center lg:text-left max-w-xl">
-          <h1 className="text-4xl lg:text-5xl font-bold text-secondary leading-tight">
-            Start Your Study/Career Abroad <br /> Journey with{" "}
-            <span className="text-primary">Trip With Sign</span>
-          </h1>
+        <div className="text-center lg:text-left max-w-xl text-wrap">
+          <ExpandLatter
+              text="Start Your Study/Career Abroad"
+              classes="text-3xl  lg:text-5xl font-bold text-secondary leading-tight"
+            />
+            <ExpandLatter
+              text="Journey with"
+              classes="text-3xl  lg:text-5xl font-bold text-secondary leading-tight"
+            />
+            <ExpandLatter
+              text="Trip With Sign"
+              classes="text-3xl  lg:text-5xl font-bold text-primary leading-tight"
+            />
           <p className="mt-4 text-gray-700 text-lg">
             Your Trusted Partner for Overseas Education, Career Guidance, and
             Global Opportunities

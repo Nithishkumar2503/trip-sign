@@ -217,7 +217,7 @@ const Open24x7 = () => {
             📞 +91 6384044005
           </span>
           <a
-            href="/#"
+            href="/contact"
             className="inline-block bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 transition"
           >
             Contact Us Now

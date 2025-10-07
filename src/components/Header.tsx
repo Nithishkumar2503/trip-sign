@@ -136,7 +136,7 @@ function Header() {
         </div>
         <div className="lg:bg-white lg:h-full h-full items-center content-center">
           <div className="lg:h-full h-full  items-center content-center w-[90vw] lg:w-[66vw] mx-auto  px-2 lg:flex lg:justify-between ">
-            <div className="flex justify-between items-center content-center gap-2">
+            <div className="flex justify-between items-center content-center gap-10">
               <a href="/">
                 <div className="flex gap-1 items-center content-center h-full">
                   <img
@@ -167,39 +167,39 @@ function Header() {
                 <a
                   href="/"
                   className={`${
-                    useLocation().pathname == "/" ? "text-red-500" : ""
-                  } px-2 cursor-pointer lg:block hidden`}
+                    useLocation().pathname == "/" ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white" : ""
+                  } cursor-pointer lg:block  p-2 rounded-lg px-4 hover:bg-gray-100 hidden`}
                 >
                   Home
                 </a>
                 <a
                   href="/about"
                   className={`${
-                    useLocation().pathname == "/about" ? "text-red-500" : ""
-                  } px-2 cursor-pointer lg:block hidden`}
+                    useLocation().pathname == "/about" ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white" : ""
+                  } cursor-pointer lg:block  p-2 rounded-lg px-4 hover:bg-gray-100 hidden`}
                 >
                   About us
                 </a>
                 <a
                   href="/country"
                   className={`${
-                    useLocation().pathname == "/country" ? "text-red-500" : ""
-                  } px-2 cursor-pointer lg:block hidden`}
+                    useLocation().pathname == "/country" ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white" : ""
+                  } cursor-pointer lg:block  p-2 rounded-lg px-4 hover:bg-gray-100 hidden`}
                 >
                   Countries
                 </a>
                 <a
                   href="/contact"
                   className={`${
-                    useLocation().pathname == "/contact" ? "text-red-500" : ""
-                  } px-2 cursor-pointer lg:block hidden`}
+                    useLocation().pathname == "/contact" ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white" : ""
+                  } cursor-pointer lg:block  p-2 rounded-lg px-4 hover:bg-gray-100 hidden`}
                 >
                   Contact
                 </a>
               </div>
             </div>
             <a href="/contact">
-              <div className="border rounded p-1 px-2 border-primary text-primary lg:block hidden">
+              <div className="border rounded-lg active:bg-primary p-2 active:text-white   px-4 border-primary text-primary lg:block hidden">
                 Book Appoinment
               </div>
             </a>

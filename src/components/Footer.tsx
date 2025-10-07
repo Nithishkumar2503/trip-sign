@@ -8,7 +8,6 @@ import {
   FaPhone,
 } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
-import { countryItem, visaItem } from "./data&type/footerData";
 import { MdFlight } from "react-icons/md";
 import CountryItem from "./CountryItem";
 
@@ -17,6 +16,7 @@ const emailRedirectTo: string =
 const whatsappRedirectTo: string =
   "https://wa.me/919876543210?text=Hello%2C%20my%20name%20is%20[Your%20Name]%20and%20I%20am%20interested%20in%20studying/Career%20abroad.%20Could%20you%20please%20guide%20me%20about%20courses%2C%20universities%2C%20and%20the%20application%20process%3F";
 const phoneRedirectTo: string = "tel:+916384044005";
+const lat_long="https://www.google.com/maps?q=11.0168,76.9558"
 const Footer = () => {
   return (
     <>
@@ -65,25 +65,29 @@ const Footer = () => {
             <div>
               <h3 className="font-bold mb-4">Contact</h3>
               <ul className="space-y-2 text-gray-400">
-                <li className="flex items-center space-x-2 gap-1">
+                <li className="flex items-center space-x-2 gap-1 hover:text-primary">
+                  <a target="_blank" className="flex items-center space-x-2 gap-1 hover:text-primary" href={lat_long}>
+
                   <FaMapMarkerAlt className="w-6 h-6" />
                   <span>
                     First floor, Vignesh park, Ram Nagar,Ghandipuram,Coimbatore
                     - 6410009
                   </span>
+                  </a>
+
                 </li>
-                <li className="flex items-center space-x-2 gap-1">
+                <li className="flex items-center space-x-2 gap-1 hover:text-primary">
                   <IoLogoWhatsapp className="w-5 h-5" />
                   <a href={whatsappRedirectTo}>Whatsapp</a>
                 </li>
-                <li className="flex items-center space-x-2 gap-1">
+                <li className="flex items-center space-x-2 gap-1 hover:text-primary">
                   <FaEnvelope className="w-4 h-4" />
                   <a href={emailRedirectTo} target="_blank">
                     tripwithsign@gmail.com
                   </a>
                 </li>
 
-                <li className="flex items-center space-x-2 gap-1">
+                <li className="flex items-center space-x-2 gap-1 hover:text-primary">
                   <FaPhone className="w-4 h-4" />
                   <a href={phoneRedirectTo}>+916384044005</a>
                 </li>
