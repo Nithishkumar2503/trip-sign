@@ -23,8 +23,8 @@ import { ExpandLatter } from ".";
 const FreeFeelCard = () => {
   return (
     <div className="relative mt-14 lg:mt-0 mx-auto  w-fit  items-center content-center ">
-      <div className="absolute lg:w-92  w-80 top-1/2 left-1/2   -translate-x-1/2 -translate-y-1/2 lg:h-92 h-80   bg-pink-400 rounded-full opacity-30 animate-pulse"></div>
-      <motion.div className="lg:mx-auto w-fit top-1/2 left-1/2  mx-auto lg:rotate-12 z-50 transition-transform  hover:rotate-0 duration-500 lg:w-fit h-fit lg:mt-8   items-center content-center bg-white  rounded-3xl shadow-2xl p-8 text-center text-white ">
+      <div className="absolute lg:w-92 z-20 w-80 top-1/2 left-1/2   -translate-x-1/2 -translate-y-1/2 lg:h-92 h-80   bg-pink-400 rounded-full opacity-30 animate-pulse"></div>
+      <motion.div className="lg:mx-auto w-fit relative lg:sticky top-1/2 lg:top-0 lg:left-1/2  mx-auto lg:rotate-12 z-50 transition-transform  hover:rotate-0 duration-500 lg:w-fit h-fit lg:mt-4   items-center content-center bg-white  rounded-3xl shadow-2xl p-8 text-center text-white ">
         <h2 className=" text-xl  mb-4 drop-shadow-lg text-primary">
           Feel Free to Ask
         </h2>

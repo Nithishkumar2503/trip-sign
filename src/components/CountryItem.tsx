@@ -59,13 +59,13 @@ const CountryItem = (textOnly?: boolean) => {
               animate={{ opacity: 1, y: 0 }}
               className={textOnly ? "hidden" : "text-center"}
             >
-              <h1 className="text-5xl font-bold text-gray-900 mb-3">
+              <h1 className="text-5xl   font-bold text-gray-900 mb-3">
                 Our Countries List
               </h1>
-              <p className="text-gray-600 text-lg">World-Wide Services</p>
+              <p className="text-gray-600 text-lg ">World-Wide Services</p>
             </motion.div>
             {!selectedCountry && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 py-4  lg:grid-cols-4 gap-6 mb-8">
                 {countries.map((country, index) => (
                   <motion.div
                     key={country.id}
@@ -91,7 +91,7 @@ const CountryItem = (textOnly?: boolean) => {
 
         <AnimatePresence mode="wait">
           {selectedCountry && (
-            <motion.div className="bg-white z-32  rounded-3xl shadow-2xl  overflow-hidden">
+            <motion.div className="bg-white z-32   rounded-3xl shadow-2xl  overflow-hidden">
               <div
                 onClick={() => setSelectedCountry(null)}
                 className="fixed inset-0 bg-black/80 z-40"
@@ -99,13 +99,16 @@ const CountryItem = (textOnly?: boolean) => {
               <div
                 className={`fixed ${
                   textOnly ? "" : ""
-                } top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2  h-fit  w-[60vw] rounded-lg  bg-white shadow-lg z-50 transform transition-transform duration-300 `}
-               >
+                } top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+         h-fit w-[60vw] bg-white shadow-lg z-50 
+         transform transition-transform duration-300 
+         rounded-lg overflow-hidden  `}
+              >
                 <div className="bg-gradient-to-r from-primary to-secondary  p-8 text-white relative">
                   <button
                     onClick={() => setSelectedCountry(null)}
                     className="absolute top-4 right-4 text-white hover:bg-white/20 rounded-full p-2 transition-colors"
-                    >
+                  >
                     <svg
                       className="w-6 h-6"
                       fill="none"
@@ -134,7 +137,7 @@ const CountryItem = (textOnly?: boolean) => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="flex border-b border-gray-200">
                   <button
                     onClick={() => setActiveTab("study")}
@@ -288,7 +291,7 @@ const CountryItem = (textOnly?: boolean) => {
           )}
         </AnimatePresence>
 
-        {!selectedCountry &&!textOnly&& (
+        {!selectedCountry && !textOnly && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

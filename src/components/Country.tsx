@@ -15,7 +15,7 @@ export default function Country() {
   return (
     <>
       {CountryItem()}
-      <div className="min-h-screen bg-gray-50 pt-28">
+      <div className="min-h-screen bg-gray-50 ">
         {/* CTA Section */}
         <section className="py-12 px-4 ">
           <div className="lg:w-[66vw] p-2 mx-auto">
@@ -29,7 +29,7 @@ export default function Country() {
                     in Visa & Immigration
                   </h1>
                   <a href="/contact">
-                    <button className="mt-8 bg-gray-900 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
+                    <button className="mt-8  text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary hover:text-white border border-white transition-all transform hover:scale-105 shadow-lg">
                       Apply for Visa
                     </button>
                   </a>
@@ -51,7 +51,7 @@ export default function Country() {
                               <div className="text-sm text-gray-600">Globe</div>
                             </div>
                             <div className="flex items-center space-x-3">
-                              <div className="w-16 h-10 bg-gradient-to-br from-red-900 to-red-700 rounded"></div>
+                              <div className="w-16 h-10 bg-gradient-to-br from-primary to-secondary rounded"></div>
                               <div className="text-sm text-gray-600">
                                 Passport
                               </div>
@@ -83,17 +83,17 @@ export default function Country() {
               {[
                 {
                   title: "Student Visa",
-                  icon: <FaGraduationCap className="w-12 h-12 text-red-600" />,
+                  icon: <FaGraduationCap className="w-12 h-12 text-primary" />,
                   desc: "Complete assistance for student visa applications",
                 },
                 {
                   title: "Work Visa",
-                  icon: <FaBriefcase className="w-12 h-12 text-red-600" />,
+                  icon: <FaBriefcase className="w-12 h-12 text-primary" />,
                   desc: "Professional guidance for work permits",
                 },
                 {
                   title: "Travel Visa",
-                  icon: <FaPlane className="w-12 h-12 text-red-600" />,
+                  icon: <FaPlane className="w-12 h-12 text-primary" />,
                   desc: "Quick processing for travel visas",
                 },
               ].map((service, index) => (
@@ -121,22 +121,22 @@ export default function Country() {
             <div className="grid md:grid-cols-4 gap-6">
               {[
                 {
-                  icon: <FaClock className="w-10 h-10 text-red-600" />,
+                  icon: <FaClock className="w-10 h-10 text-primary" />,
                   title: "Fast Processing",
                   desc: "Quick turnaround times",
                 },
                 {
-                  icon: <FaCheckCircle className="w-10 h-10 text-red-600" />,
+                  icon: <FaCheckCircle className="w-10 h-10 text-primary" />,
                   title: "High Success Rate",
                   desc: "98% approval rate",
                 },
                 {
-                  icon: <FaUsers className="w-10 h-10 text-red-600" />,
+                  icon: <FaUsers className="w-10 h-10 text-primary" />,
                   title: "Expert Team",
                   desc: "Experienced consultants",
                 },
                 {
-                  icon: <FaShieldAlt className="w-10 h-10 text-red-600" />,
+                  icon: <FaShieldAlt className="w-10 h-10 text-primary" />,
                   title: "Secure Process",
                   desc: "Safe and confidential",
                 },
@@ -186,7 +186,7 @@ export default function Country() {
                 },
               ].map((process, index) => (
                 <div key={index} className="relative">
-                  <div className="bg-red-600 text-white rounded-xl p-8 text-center hover:bg-red-700 transition-colors">
+                  <div className="bg-secondary text-white rounded-xl p-8 text-center hover:bg-primary transition-colors">
                     <div className="text-4xl font-bold mb-4 opacity-50">
                       {process.step}
                     </div>
@@ -197,7 +197,7 @@ export default function Country() {
                   </div>
                   {index < 3 && (
                     <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                      <FaArrowRight className="w-8 h-8 text-red-600" />
+                      <FaArrowRight className="w-8 h-8 text-primary" />
                     </div>
                   )}
                 </div>
