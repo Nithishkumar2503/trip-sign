@@ -1,20 +1,20 @@
 import { FaSquareWhatsapp } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { FaPhone } from "react-icons/fa";
-import { TbViewfinder } from "react-icons/tb";
+import { FaPhone, FaWhatsapp } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoLogoInstagram } from "react-icons/io";
 import { CiFacebook } from "react-icons/ci";
 import { useState } from "react";
 import Sidebar from "./Sidebar";
 import { useLocation } from "react-router-dom";
+import {
+  emailAddress,
+  emailRedirectTo,
+  phoneNoOne,
+  phoneRedirectTo,
+  whatsappRedirectTo,
+} from "./data&type";
 
-const emailRedirectTo: string =
-  "mailto:tripwithsign@gmail.com?subject=Guidance%20for%20Studying/Career%20Abroad&body=Dear%20Consultant%2C%0D%0A%0D%0AMy%20name%20is%20[Your%20Name]%2C%20and%20I%20am%20interested%20in%20studying/Career%20abroad.%20I%20would%20like%20to%20know%20more%20about%20available%20courses%2C%20universities%2C%20application%20requirements%2C%20and%20the%20overall%20process.%0D%0A%0D%0ACould%20you%20please%20guide%20me%20on%20how%20to%20get%20started%20and%20let%20me%20know%20what%20documents%20or%20details%20you%20need%20from%20me%3F%0D%0A%0D%0ALooking%20forward%20to%20your%20reply.%0D%0A%0D%0ABest%20regards%2C%0D%0A[Your%20Full%20Name]%0D%0A[Your%20Contact%20Number]";
-const whatsappRedirectTo: string =
-  "https://wa.me/919876543210?text=Hello%2C%20my%20name%20is%20[Your%20Name]%20and%20I%20am%20interested%20in%20studying/Career%20abroad.%20Could%20you%20please%20guide%20me%20about%20courses%2C%20universities%2C%20and%20the%20application%20process%3F";
-const phoneRedirectTo: string = "tel:+916384044005";
 function sideBarContent() {
   return (
     <>
@@ -107,22 +107,22 @@ function Header() {
           isOpen={isOpen}
         />
       </div>
-      <div className="lg:h-20 h-18 rounded-b-xl  z-40 w-full bg-gray-200 fixed">
-        <div className="py-2 cursor-default hidden lg:block lg:flex lg:justify-end gap-6  lg:w-[66vw] mx-auto items-center content-center  px-2">
-          <div className="p-1 cursor-pointer flex gap-2 items-center  content-center">
+      <div className="lg:h-20 h-18 rounded-b-xl  z-40 w-full bg-white  fixed">
+        <div className="pt-2 cursor-default hidden lg:block lg:flex lg:justify-end gap-6  lg:w-[66vw] mx-auto items-center content-center  px-2">
+          {/* <div className="p-1 cursor-pointer flex gap-2 items-center  content-center">
             <TbViewfinder className="text-red-500" />
             <h1>Find us</h1>
-          </div>
+          </div> */}
           <a href={phoneRedirectTo}>
             <div className="p-1 cursor-pointer flex gap-2 items-center content-center border px-2  rounded-xl border-gray-300">
               <FaPhone className="text-green-500" />
-              <h1>6384044005</h1>
+              <h1>{phoneNoOne}</h1>
             </div>
           </a>
           <a href={emailRedirectTo}>
             <div className="p-1 cursor-pointer flex gap-2 items-center content-center border px-2 rounded-xl border-gray-300">
               <MdEmail className="text-primary" />
-              <h1>tripwithsign@gmail.com</h1>
+              <h1>{emailAddress}</h1>
             </div>
           </a>
           <a
@@ -167,7 +167,9 @@ function Header() {
                 <a
                   href="/"
                   className={`${
-                    useLocation().pathname == "/" ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white" : ""
+                    useLocation().pathname == "/"
+                      ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white"
+                      : ""
                   } cursor-pointer lg:block  p-2 rounded-lg px-4 hover:bg-gray-100 hidden`}
                 >
                   Home
@@ -175,7 +177,9 @@ function Header() {
                 <a
                   href="/about"
                   className={`${
-                    useLocation().pathname == "/about" ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white" : ""
+                    useLocation().pathname == "/about"
+                      ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white"
+                      : ""
                   } cursor-pointer lg:block  p-2 rounded-lg px-4 hover:bg-gray-100 hidden`}
                 >
                   About us
@@ -183,7 +187,9 @@ function Header() {
                 <a
                   href="/country"
                   className={`${
-                    useLocation().pathname == "/country" ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white" : ""
+                    useLocation().pathname == "/country"
+                      ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white"
+                      : ""
                   } cursor-pointer lg:block  p-2 rounded-lg px-4 hover:bg-gray-100 hidden`}
                 >
                   Countries
@@ -191,7 +197,9 @@ function Header() {
                 <a
                   href="/contact"
                   className={`${
-                    useLocation().pathname == "/contact" ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white" : ""
+                    useLocation().pathname == "/contact"
+                      ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white"
+                      : ""
                   } cursor-pointer lg:block  p-2 rounded-lg px-4 hover:bg-gray-100 hidden`}
                 >
                   Contact

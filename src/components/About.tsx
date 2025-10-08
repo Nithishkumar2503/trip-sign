@@ -23,7 +23,7 @@ const AboutScreen = () => {
             working abroad.
           </span>{" "}
           Our team guides you step by step – from{" "}
-          <span className="text-primary font-semibold">
+          <span className="">
             choosing the right course or job, applying to universities,
             preparing documents,
           </span>{" "}
@@ -87,9 +87,9 @@ function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="lg:flex items-center content-center">
-      <div className="lg:w-[66vw] px-4 p-2 flex mx-auto py-12 gap-8">
-        <div className="w-full   flex flex-col justify-center ">
+    <div className="items-center content-center lg:w-[66vw] mx-auto">
+      <div className=" px-4 p-2 lg:flex space-y-2 mx-auto py-12 gap-8">
+        <div className="w-full   lg:flex lg:flex-col justify-center ">
           <img src="/faq.jpg" className="w-full h-full rounded-2xl" alt="" />
         </div>
         <div className="w-full  flex flex-col justify-center ">
@@ -136,8 +136,8 @@ const OfficeLocations = () => {
   const office: any = officeData["Coimbatore"];
 
   return (
-    <section className="bg-white py-16 px-6 lg:px-20 py-20">
-      <div className="lg:w-[66vw] p-2 mx-auto ">
+    <section className="bg-white p-2 py-4 lg:p-20">
+      <div className="lg:w-[66vw]  mx-auto ">
         {/* Heading */}
         <div className="text-center w-full">
           <p className="text-sm uppercase tracking-widest text-gray-500">
@@ -156,7 +156,7 @@ const OfficeLocations = () => {
 
         {/* Office Content */}
 
-        <div className="bg-white rounded-xl py-26  hover:shadow-2xl shadow-xl p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div className="bg-white rounded-xl lg:py-26  hover:shadow-2xl shadow-xl p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {/* Image */}
           <div className="md:col-span-1 my-auto">
             <img
@@ -186,7 +186,7 @@ const OfficeLocations = () => {
           </div>
 
           {/* Working Hours */}
-          <div className="md:col-span-1 border-l md:pl-6">{Open24x7()}</div>
+          <div className="md:col-span-1 lg:border-l lg:pl-6">{Open24x7()}</div>
         </div>
       </div>
     </section>

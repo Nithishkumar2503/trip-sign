@@ -15,7 +15,7 @@ function App() {
       <div className="">
         {/* Fixed Header */}
         <Header />
-        <div className="lg:h-20">
+        <div className="lg:h-20 h-18  bg-transparent">
 
         </div>
         {/* padding to avoid overlap with fixed header */}
