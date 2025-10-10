@@ -65,7 +65,7 @@ const CountryItem = (textOnly?: boolean) => {
               <p className="text-gray-600 text-lg ">World-Wide Services</p>
             </motion.div>
             {!selectedCountry && (
-              <div className="grid grid-cols-1 md:grid-cols-2 py-4  lg:grid-cols-4 gap-6 mb-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 py-4  lg:grid-cols-4 gap-6 mb-8">
                 {countries.map((country, index) => (
                   <motion.div
                     key={country.id}
@@ -182,7 +182,7 @@ const CountryItem = (textOnly?: boolean) => {
                       exit={{ opacity: 0, x: 20 }}
                       className="p-8"
                     >
-                      <div className="grid md:grid-cols-2 gap-6">
+                      <div className="grid lg:grid-cols-2 gap-6">
                         <InfoCard
                           icon="🏛️"
                           title="Universities"
@@ -224,7 +224,7 @@ const CountryItem = (textOnly?: boolean) => {
                       exit={{ opacity: 0, x: 20 }}
                       className="p-8"
                     >
-                      <div className="grid md:grid-cols-2 gap-6">
+                      <div className="grid lg:grid-cols-2 gap-6">
                         <InfoCard
                           icon="🏢"
                           title="Key Industries"

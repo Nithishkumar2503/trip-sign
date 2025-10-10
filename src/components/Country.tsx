@@ -20,10 +20,10 @@ export default function Country() {
         <section className="py-12 px-4 ">
           <div className="lg:w-[66vw] p-2 mx-auto">
             <div className="relative bg-gradient-to-r from-primary to-primary rounded-3xl overflow-hidden">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="grid lg:grid-cols-2 gap-8 items-center">
                 {/* Left Content */}
-                <div className="p-8 md:p-16 text-white">
-                  <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                <div className="p-8 lg:p-16 text-white">
+                  <h1 className="text-4xl lg:text-6xl font-bold mb-4 leading-tight">
                     Excellence
                     <br />
                     in Visa & Immigration
@@ -36,7 +36,7 @@ export default function Country() {
                 </div>
 
                 {/* Right Content - Travel Items */}
-                <div className="relative h-full min-h-[400px] hidden md:block">
+                <div className="relative h-full min-h-[400px] hidden lg:block">
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                     <div className="relative">
                       {/* Pink Circle Background */}
@@ -76,10 +76,10 @@ export default function Country() {
         {/* Services Section */}
         <section className="py-16 px-4 bg-white">
           <div className="lg:w-[66vw] p-2 mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
               Our Services
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-3 gap-8">
               {[
                 {
                   title: "Student Visa",
@@ -115,10 +115,10 @@ export default function Country() {
         {/* Why Choose Us Section */}
         <section className="py-16 px-4 bg-gray-50">
           <div className="lg:w-[66vw] p-2 mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
               Why Choose Us
             </h2>
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid lg:grid-cols-4 gap-6">
               {[
                 {
                   icon: <FaClock className="w-10 h-10 text-primary" />,
@@ -159,10 +159,10 @@ export default function Country() {
         {/* Process Section */}
         <section className="py-16 px-4 bg-white">
           <div className="lg:w-[66vw] p-2 mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
               Simple Application Process
             </h2>
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid lg:grid-cols-4 gap-8">
               {[
                 {
                   icon: <FaFileAlt className="w-10 h-10" />,
@@ -196,7 +196,7 @@ export default function Country() {
                     <h3 className="font-bold text-lg">{process.title}</h3>
                   </div>
                   {index < 3 && (
-                    <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                    <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
                       <FaArrowRight className="w-8 h-8 text-primary" />
                     </div>
                   )}

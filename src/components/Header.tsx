@@ -10,8 +10,15 @@ import { useLocation } from "react-router-dom";
 import {
   emailAddress,
   emailRedirectTo,
+  facebooklink,
+  instaLink,
+  phoneCode,
   phoneNoOne,
-  phoneRedirectTo,
+  phoneNoThree,
+  phoneNoTwo,
+  phoneRedirectToOne,
+  phoneRedirectToThree,
+  phoneRedirectToTwo,
   whatsappRedirectTo,
 } from "./data&type";
 
@@ -45,11 +52,25 @@ function sideBarContent() {
           </a>
         </div>
         <a
-          href={phoneRedirectTo}
+          href={phoneRedirectToOne}
           className="p-1 cursor-pointer flex gap-2 items-center content-center px-2  rounded-xl border-gray-300"
         >
           <FaPhone className="text-green-500" />
-          <h1>6384044005</h1>
+          <h1>{phoneCode+' '+phoneNoOne}</h1>
+        </a>
+         <a
+          href={phoneRedirectToTwo}
+          className="p-1 cursor-pointer flex gap-2 items-center content-center px-2  rounded-xl border-gray-300"
+        >
+          <FaPhone className="text-green-500" />
+          <h1>{phoneCode+' '+phoneNoTwo}</h1>
+        </a>
+         <a
+          href={phoneRedirectToThree}
+          className="p-1 cursor-pointer flex gap-2 items-center content-center px-2  rounded-xl border-gray-300"
+        >
+          <FaPhone className="text-green-500" />
+          <h1>{phoneCode+' '+phoneNoThree}</h1>
         </a>
         <a
           href={emailRedirectTo}
@@ -57,7 +78,7 @@ function sideBarContent() {
           className="p-1 cursor-pointer flex gap-2 items-center content-center px-2 rounded-xl border-gray-300"
         >
           <MdEmail className="text-primary" />
-          <h1>tripwithsign@gmail.com</h1>
+          <h1>{emailAddress}</h1>
         </a>
         <a
           href={whatsappRedirectTo}
@@ -69,14 +90,14 @@ function sideBarContent() {
         </a>
         <div className="flex gap-4 justify-center py-2">
           <a
-            href="https://www.instagram.com/trip_with_sign?igsh=cWtnbGlkbWxuMjI5"
+            href={instaLink}
             target="_blank"
             className="w-10 h-8 hover:text-pink-400 cursor-pointer"
           >
             <IoLogoInstagram className="w-full h-full" />
           </a>
           <a
-            href="https://www.facebook.com/share/1CUckrMtQJ/"
+            href={facebooklink}
             target="_blank"
             className="w-10 h-8 hover:text-primary cursor-pointer"
           >
@@ -107,20 +128,32 @@ function Header() {
           isOpen={isOpen}
         />
       </div>
-      <div className="lg:h-20 h-18 rounded-b-xl  z-40 w-full bg-white  fixed">
-        <div className="pt-2 cursor-default hidden lg:block lg:flex lg:justify-end gap-6  lg:w-[66vw] mx-auto items-center content-center  px-2">
+      <div className="lg:h-fit  shadow-xs rounded-b-xl  lg:z-50 w-full bg-white  lg:fixed">
+        <div className="pt-2  cursor-default hidden lg:block lg:flex lg:justify-center gap-6  lg:w-[66vw] mx-auto items-center content-center  px-2">
           {/* <div className="p-1 cursor-pointer flex gap-2 items-center  content-center">
             <TbViewfinder className="text-red-500" />
             <h1>Find us</h1>
           </div> */}
-          <a href={phoneRedirectTo}>
-            <div className="p-1 cursor-pointer flex gap-2 items-center content-center border px-2  rounded-xl border-gray-300">
+           <a href={phoneRedirectToOne}>
+            <div className="p-1 text-xs cursor-pointer flex gap-2 items-center content-center border px-2  rounded-xl border-gray-300">
               <FaPhone className="text-green-500" />
               <h1>{phoneNoOne}</h1>
             </div>
           </a>
+           <a href={phoneRedirectToTwo}>
+            <div className="p-1 text-xs cursor-pointer flex gap-2 items-center content-center border px-2  rounded-xl border-gray-300">
+              <FaPhone className="text-green-500" />
+              <h1>{phoneNoTwo}</h1>
+            </div>
+          </a>
+          <a href={phoneRedirectToThree}>
+            <div className="p-1 text-xs cursor-pointer flex gap-2 items-center content-center border px-2  rounded-xl border-gray-300">
+              <FaPhone className="text-green-500" />
+              <h1>{phoneNoThree}</h1>
+            </div>
+          </a>
           <a href={emailRedirectTo}>
-            <div className="p-1 cursor-pointer flex gap-2 items-center content-center border px-2 rounded-xl border-gray-300">
+            <div className="p-1 text-xs cursor-pointer flex gap-2 items-center content-center border px-2 rounded-xl border-gray-300">
               <MdEmail className="text-primary" />
               <h1>{emailAddress}</h1>
             </div>
@@ -128,19 +161,18 @@ function Header() {
           <a
             href={whatsappRedirectTo}
             target="_blank"
-            className="p-1 cursor-pointer flex gap-2 items-center content-center border px-2 rounded-xl border-gray-300"
+            className="p-1 text-xs cursor-pointer flex gap-2 items-center content-center border px-2 rounded-xl border-gray-300"
           >
             <FaSquareWhatsapp className="text-green-500" />
             <h1>WhatsApp</h1>
           </a>
         </div>
-        <div className="lg:bg-white lg:h-full h-full items-center content-center">
-          <div className="lg:h-full h-full  items-center content-center w-[90vw] lg:w-[66vw] mx-auto  px-2 lg:flex lg:justify-between ">
-            <div className="flex justify-between items-center content-center gap-10">
-              <a href="/">
+        <div className="lg:bg-white py-2  items-center content-center">
+          <div className="lg:h-full  h-full flex justify-between  items-center content-center w-[90vw] lg:w-[66vw] mx-auto  px-2 lg:flex lg:justify-between ">
+              <a href="/" className="">
                 <div className="flex gap-1 items-center content-center h-full">
                   <img
-                    className="md:w-12 w-12 block my-auto "
+                    className="lg:w-12 w-12 block my-auto "
                     src="/trip-sign.png"
                     alt=""
                   />
@@ -151,7 +183,7 @@ function Header() {
                 </div>
               </a>
 
-              <div className="flex gap-4 items-center content-center">
+              <div className="flex gap-4 ml-auto lg:ml-0 items-center content-center">
                 <a
                   href={whatsappRedirectTo}
                   target="_blank"
@@ -205,7 +237,6 @@ function Header() {
                   Contact
                 </a>
               </div>
-            </div>
             <a href="/contact">
               <div className="border rounded-lg active:bg-primary p-2 active:text-white   px-4 border-primary text-primary lg:block hidden">
                 Book Appoinment
