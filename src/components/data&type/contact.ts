@@ -15,9 +15,9 @@ export const lat_long = `https://www.google.com/maps?q=${latLong}`;
 //Contact Details
 export const whatsaapno: string = "6384044005";
 export const emailAddress: string = "tripwithsign@gmail.com";
-export const phoneNoOne: string = "6384044005";
+export const phoneNoOne: string = "6374080040";
 export const phoneNoTwo: string = "6384044005";
-export const phoneNoThree: string = "6384044005";
+export const phoneNoThree: string = "04224690439";
 
 
 
