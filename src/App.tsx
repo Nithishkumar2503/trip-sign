@@ -15,7 +15,7 @@ function App() {
       <div className="">
         {/* Fixed Header */}
         <Header />
-        <div className={`lg:h-[100px]  h-18 `}>
+        <div className={`lg:h-[100px] h-12 `}>
         </div>
         {/* padding to avoid overlap with fixed header */}
         <Routes>

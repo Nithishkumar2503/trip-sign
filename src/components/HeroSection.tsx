@@ -275,7 +275,7 @@ export default function HeroSection() {
                   : " flex-row-reverse items-center content-center pb-0 h-full w-full "
               }
             >
-              <div className="relative w-full  h-full flex items-center justify-center overflow-hidden shadow-lg">
+              <div className="relative w-full z-20 h-full flex items-center justify-center overflow-hidden shadow-lg">
                 {/* Image sliding from right to left */}
                 <motion.img
                   src={item.img}

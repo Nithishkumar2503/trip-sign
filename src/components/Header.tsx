@@ -128,7 +128,7 @@ function Header() {
           isOpen={isOpen}
         />
       </div>
-      <div className="lg:h-fit  shadow-xs rounded-b-xl  lg:z-50 w-full bg-white  lg:fixed">
+      <div className="lg:h-fit z-50 shadow-xs rounded-b-xl  lg:z-50 w-full bg-white  fixed">
         <div className="pt-2  cursor-default hidden lg:block lg:flex lg:justify-center gap-6  lg:w-[66vw] mx-auto items-center content-center  px-2">
           {/* <div className="p-1 cursor-pointer flex gap-2 items-center  content-center">
             <TbViewfinder className="text-red-500" />
@@ -167,7 +167,7 @@ function Header() {
             <h1>WhatsApp</h1>
           </a>
         </div>
-        <div className="lg:bg-white py-2  items-center content-center">
+        <div className="lg:bg-white py-2 z-50 items-center content-center">
           <div className="lg:h-full  h-full flex justify-between  items-center content-center w-[90vw] lg:w-[66vw] mx-auto  px-2 lg:flex lg:justify-between ">
               <a href="/" className="">
                 <div className="flex gap-1 items-center content-center h-full">

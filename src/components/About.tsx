@@ -2,7 +2,7 @@ import { FaUsers } from "react-icons/fa"; // For the icon
 import { FaQuoteLeft } from "react-icons/fa";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { faqData, officeData, testimonials } from "./data&type";
+import { faqData, officeData, phoneCode, phoneNoOne, phoneRedirectToOne, testimonials } from "./data&type";
 
 const AboutScreen = () => {
   return (
@@ -137,7 +137,7 @@ const OfficeLocations = () => {
 
   return (
     <section className="bg-white p-2 py-4 lg:p-20">
-      <div className="lg:w-[66vw]  mx-auto ">
+      <div className="lg:w-[66vw]   mx-auto ">
         {/* Heading */}
         <div className="text-center w-full">
           <p className="text-sm uppercase tracking-widest text-gray-500">
@@ -156,7 +156,7 @@ const OfficeLocations = () => {
 
         {/* Office Content */}
 
-        <div className="bg-white rounded-xl lg:py-26  hover:shadow-2xl shadow-xl p-12 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="bg-white rounded-xl lg:py-26   hover:shadow-2xl shadow-xl p-2 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {/* Image */}
           <div className="lg:col-span-1 my-auto">
             <img
@@ -212,16 +212,11 @@ const Open24x7 = () => {
           anywhere.
         </p>
 
-        <div className="items-center space-x-4 ">
-          <span className="text-xl text-red-600 font-semibold py-2">
-            📞 +91 6384044005
-          </span>
-          <a
-            href="/contact"
-            className="inline-block bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 transition"
-          >
-            Contact Us Now
+        <div className="items-center space-x-4 content-center ">
+          <a href={phoneRedirectToOne} className="text-xl text-red-600 cursor-pointer font-semibold py-2">
+            📞 {phoneCode+' '+phoneNoOne}
           </a>
+          
         </div>
       </div>
     </section>
@@ -280,7 +275,7 @@ const AboutUs = () => {
               alt="Team"
               className="w-full rounded-lg shadow-lg object-cover"
             />
-            <div className="absolute top-4 right-4 bg-white p-4 rounded-lg shadow-lg flex flex-col items-center">
+            <div className="absolute lg:top-4 lg:bottom-0 bottom-1 lg:right-4 right-1  bg-white p-4 rounded-lg shadow-lg flex flex-col items-center">
               <span className="text-3xl font-bold text-red-500">10</span>
               <span className="text-gray-500 text-sm">Years of Experience</span>
             </div>

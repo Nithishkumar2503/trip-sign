@@ -1,24 +1,22 @@
-import { motion,type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { contactDetailsData } from "./data&type";
 import { useState } from "react";
 
 const ContactForm = () => {
   // Reusable animation variant for cards
 
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
-
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.2,
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    }),
+  };
 
   interface FormProps {
     name?: string;
@@ -43,12 +41,13 @@ const cardVariants: Variants = {
     });
   };
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errors, setErrors] = useState<Partial<FormProps>>({});
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setErrors({});
 
+    // ✅ If validation passes, send API request
     try {
-      setErrorMessage("");
       const response = await fetch("http://localhost:5000/send-email", {
         method: "POST",
         headers: {
@@ -58,13 +57,12 @@ const cardVariants: Variants = {
       });
 
       const result = await response.json();
-      console.log("result: ", result);
+
       if (result.success) {
+        alert("Email sent successfully!");
         setFormData({ name: "", email: "", message: "", phone: "" });
-        return;
       } else {
-        setErrorMessage("Email failed to send.");
-        return;
+        alert("Email failed to send.");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -102,27 +100,26 @@ const cardVariants: Variants = {
         </div>
 
         {/* --- Animated Contact Info Cards --- */}
-          <h1 className="text-red-500 text-sm">{errorMessage}</h1>
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12 text-center">
           {contactDetailsData.map((card, i) => {
             const Icon = card.icon; // get the component
             return (
-             <motion.a
-          key={i}
-          target="_blank"
-          href={card.redirect}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          custom={i}
-          variants={cardVariants}
-          whileHover={{
-            scale: 1.005,
-            boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
-          }}
-          whileTap={{ scale: 0.97 }}
-          className="flex flex-col  bg-gray-50 cursor-pointer rounded-xl p-6 shadow-sm transition-transform"
-        >
+              <motion.a
+                key={i}
+                target="_blank"
+                href={card.redirect}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                custom={i}
+                variants={cardVariants}
+                whileHover={{
+                  scale: 1.005,
+                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
+                }}
+                whileTap={{ scale: 0.97 }}
+                className="flex flex-col  bg-gray-50 cursor-pointer rounded-xl p-6 shadow-sm transition-transform"
+              >
                 <div className="items-center content-center">
                   <Icon className="text-primary text-3xl mb-3 mx-auto" />{" "}
                   {/* Render here */}
@@ -144,48 +141,78 @@ const cardVariants: Variants = {
           className="space-y-6"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <input
-              onChange={handleChange}
-              type="text"
-              name="name"
-              value={formData.name}
-              placeholder="Full Name"
-              className="w-full px-4 py-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-            />
-            <input
-              onChange={handleChange}
-              type="email"
-              name="email"
-              value={formData.email}
-              placeholder="Email Address"
-              className="w-full px-4 py-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-            />
+            <div>
+              <input
+                onChange={handleChange}
+                type="text"
+                name="name"
+                value={formData.name}
+                placeholder="Full Name"
+                className={`w-full px-4 py-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 ${
+                  errors.name ? "focus:ring-red-500" : "focus:ring-secondary"
+                }`}
+              />
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+              )}
+            </div>
+
+            <div>
+              <input
+                onChange={handleChange}
+                name="email"
+                value={formData.email}
+                placeholder="Email Address"
+                className={`w-full px-4 py-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 ${
+                  errors.email ? "focus:ring-red-500" : "focus:ring-secondary"
+                }`}
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+              )}
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div>
+              <input
+                onChange={handleChange}
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                placeholder="Phone Number"
+                className={`w-full px-4 py-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 ${
+                  errors.phone ? "focus:ring-red-500" : "focus:ring-secondary"
+                }`}
+              />
+              {errors.phone && (
+                <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+              )}
+            </div>
+
             <input
-              onChange={handleChange}
               type="text"
-              name="phone"
-              value={formData.phone}
-              placeholder="Phone Number"
-              className="w-full px-4 py-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-            />
-            <input
-              onChange={handleChange}
-              type="text"
-              placeholder="Subject"
-              className="w-full px-4 py-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
+              placeholder="Subject (optional)"
+              className={`w-full px-4 py-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 ${
+                errors.phone ? "focus:ring-red-500" : "focus:ring-secondary"
+              }`}
             />
           </div>
 
-          <textarea
-            onChange={handleChange}
-            placeholder="Write a Message"
-            value={formData.message}
-            name="message"
-            className="w-full min-h-32 px-4 py-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-          ></textarea>
+          <div>
+            <textarea
+              onChange={handleChange}
+              placeholder="Write a Message"
+              value={formData.message}
+              name="message"
+              className={`w-full min-h-32 px-4 py-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 ${
+                errors.message ? "focus:ring-red-500" : "focus:ring-secondary"
+              }`}
+            ></textarea>
+            {errors.message && (
+              <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+            )}
+          </div>
 
           <div className="text-center mx-auto">
             <motion.button

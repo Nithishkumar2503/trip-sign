@@ -1,14 +1,11 @@
-import {
-  FaEnvelope,
-  FaMapMarkerAlt,
-  FaPhone,
-} from "react-icons/fa";
-import { IoLogoWhatsapp } from "react-icons/io";
-import { MdFlight } from "react-icons/md";
+import {  FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { IoLogoInstagram} from "react-icons/io";
+import { MdFlight, MdOutlineEmail } from "react-icons/md";
 import CountryItem from "./CountryItem";
 import {
-  emailAddress,
   emailRedirectTo,
+  facebooklink,
+  instaLink,
   lat_long,
   phoneCode,
   phoneNoOne,
@@ -19,6 +16,8 @@ import {
   phoneRedirectToTwo,
   whatsappRedirectTo,
 } from "./data&type";
+import { CiFacebook } from "react-icons/ci";
+import { FaWhatsapp } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -81,29 +80,55 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="flex items-center space-x-2 gap-1 hover:text-primary">
-                  <IoLogoWhatsapp className="w-5 h-5" />
-                  <a target="_blank" href={whatsappRedirectTo}>Whatsapp</a>
-                </li>
-                <li className="flex items-center space-x-2 gap-1 hover:text-primary">
-                  <FaEnvelope className="w-4 h-4" />
-                  <a href={emailRedirectTo} target="_blank">
-                    {emailAddress}
+                  <FaPhone className="w-4 h-4" />
+                  <a href={phoneRedirectToOne}>
+                    {phoneCode + " " + phoneNoOne}
                   </a>
                 </li>
                 <li className="flex items-center space-x-2 gap-1 hover:text-primary">
                   <FaPhone className="w-4 h-4" />
-                  <a href={phoneCode+' '+phoneRedirectToOne}>{phoneNoOne}</a>
+                  <a href={phoneRedirectToTwo}>
+                    {phoneCode + " " + phoneNoTwo}
+                  </a>
                 </li>
                 <li className="flex items-center space-x-2 gap-1 hover:text-primary">
                   <FaPhone className="w-4 h-4" />
-                  <a href={phoneCode+' '+phoneRedirectToTwo}>{phoneNoTwo}</a>
-                </li>
-                <li className="flex items-center space-x-2 gap-1 hover:text-primary">
-                  <FaPhone className="w-4 h-4" />
-                  <a href={phoneCode+' '+phoneRedirectToThree}>{phoneNoThree}</a>
+                  <a href={phoneRedirectToThree}>
+                    {phoneCode + " " + phoneNoThree}
+                  </a>
                 </li>
               </ul>
             </div>
+          </div>
+          <div className="flex gap-12 py-4 justify-center py-2">
+            <a
+              href={instaLink}
+              target="_blank"
+              className="h-6 hover:text-pink-400 cursor-pointer"
+            >
+              <IoLogoInstagram className="w-full h-full" />
+            </a>
+            <a
+              href={facebooklink}
+              target="_blank"
+              className="h-6 hover:text-primary cursor-pointer"
+            >
+              <CiFacebook className="w-full h-full" />
+            </a>
+            <a
+              href={whatsappRedirectTo}
+              target="_blank"
+              className="h-6 hover:text-primary cursor-pointer"
+            >
+              <FaWhatsapp className="w-full h-full" />
+            </a>
+            <a
+              href={emailRedirectTo}
+              target="_blank"
+              className="h-6 hover:text-primary cursor-pointer"
+            >
+              <MdOutlineEmail className="w-full h-full" />
+            </a>
           </div>
           {/* Back to Top Button */}
           <button
@@ -113,7 +138,7 @@ const Footer = () => {
           >
             <MdFlight />
           </button>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-800 mt-2 pt-8 text-center text-gray-400">
             <p>&copy; 2025 Trip With Sign. All rights reserved.</p>
           </div>
         </div>

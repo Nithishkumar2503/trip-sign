@@ -142,6 +142,7 @@ Best regards,
   `;
 }
 app.post("/send-email", (req, res) => {
+  console.log('hitted...')
   handleMailOptionData(req.body);
   const transporter = nodemailer.createTransport({
     service: "gmail",

@@ -45,20 +45,20 @@ export const contactDetailsData:ContactItem[] = [
   {
     icon: FaPhoneAlt,
     title: "Phone",
-    info: phoneNoOne,
+    info: phoneCode+" "+phoneNoOne,
     redirect:phoneRedirectToOne
 
   },
    {
     icon: FaPhoneAlt,
     title: "Phone",
-    info: phoneNoTwo,
+    info: phoneCode+" "+phoneNoTwo,
     redirect:phoneRedirectToTwo
 
   }, {
     icon: FaPhoneAlt,
     title: "Phone",
-    info: phoneNoThree,
+    info: phoneCode+" "+phoneNoThree,
     redirect:phoneRedirectToThree
 
   },
@@ -77,3 +77,37 @@ export const contactDetailsData:ContactItem[] = [
 
   },
 ];
+
+
+
+  // ✅ Regular Expressions
+  export const regex = {
+    name: /^[A-Za-z\s]{3,30}$/, // only letters and spaces, 3-30 chars
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // basic email pattern
+    phone: /^[6-9]\d{9}$/, // 10-digit Indian mobile numbers (starting 6–9)
+    message: /^.{10,500}$/, // at least 10 chars
+  };
+
+export const validateField = (name: string, value: string) => {
+  switch (name) {
+    case "name":
+      if (!value.trim()) return "Name is required";
+      if (!regex.name.test(value)) return "Enter a valid name (3–30 letters)";
+      break;
+    case "email":
+      if (!value.trim()) return "Email is required";
+      if (!regex.email.test(value)) return "Enter a valid email address";
+      break;
+    case "phone":
+      if (!value.trim()) return "Phone number is required";
+      if (!regex.phone.test(value)) return "Enter a valid 10-digit phone number";
+      break;
+    case "message":
+      if (!value.trim()) return "Message is required";
+      if (!regex.message.test(value)) return "Message must be at least 10 characters";
+      break;
+    default:
+      break;
+  }
+  return "";
+};
