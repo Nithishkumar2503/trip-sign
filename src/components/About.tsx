@@ -1,8 +1,8 @@
 import { FaUsers } from "react-icons/fa"; // For the icon
 import { FaQuoteLeft } from "react-icons/fa";
 import { useState } from "react";
-import { faqData, officeData, testimonials } from "./data&type";
 import { motion } from "framer-motion";
+import { faqData, officeData, testimonials } from "./data&type";
 
 const AboutScreen = () => {
   return (

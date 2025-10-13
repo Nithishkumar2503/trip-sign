@@ -1,4 +1,8 @@
-import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaPhone,
+} from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { MdFlight } from "react-icons/md";
 import CountryItem from "./CountryItem";
