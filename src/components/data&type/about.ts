@@ -1,3 +1,5 @@
+import { emailAddress, locationAddress, phoneCode, phoneNoOne, phoneNoThree, phoneNoTwo } from "./contact";
+
 interface itemProp {
   image: string;
   address: string;
@@ -13,9 +15,9 @@ export interface OfficeDataProps {
 export const officeData: OfficeDataProps = {
   Coimbatore: {
     image: "/hero2.png",
-    address: "First floor,Vignesh Park,Ram Nagar,Gandhipuram,Coimbatore-641009",
-    email: "tripwithsign@gmail.com",
-    phones: ["+916384044005", "+91 6374080040", "04224690439"],
+    address: locationAddress,
+    email: emailAddress,
+    phones: [phoneCode+' '+phoneNoOne, phoneCode+' '+phoneNoTwo, phoneCode+' '+phoneNoThree],
   },
 };
 

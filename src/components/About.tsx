@@ -1,7 +1,7 @@
 import { FaUsers } from "react-icons/fa"; // For the icon
 import { FaQuoteLeft } from "react-icons/fa";
 import { useState } from "react";
-import { faqData, officeData, stats, testimonials } from "./data&type";
+import { faqData, officeData, testimonials } from "./data&type";
 import { motion } from "framer-motion";
 
 const AboutScreen = () => {
@@ -156,9 +156,9 @@ const OfficeLocations = () => {
 
         {/* Office Content */}
 
-        <div className="bg-white rounded-xl lg:py-26  hover:shadow-2xl shadow-xl p-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div className="bg-white rounded-xl lg:py-26  hover:shadow-2xl shadow-xl p-12 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {/* Image */}
-          <div className="md:col-span-1 my-auto">
+          <div className="lg:col-span-1 my-auto">
             <img
               src={office?.image}
               alt={`Coimbatore office`}
@@ -167,7 +167,7 @@ const OfficeLocations = () => {
           </div>
 
           {/* Address & Contact */}
-          <div className="md:col-span-1 space-y-4 my-auto">
+          <div className="lg:col-span-1 space-y-4 my-auto">
             <h3 className="text-xl font-semibold text-gray-900">
               {"Coimbatore"}
             </h3>
@@ -186,7 +186,7 @@ const OfficeLocations = () => {
           </div>
 
           {/* Working Hours */}
-          <div className="md:col-span-1 lg:border-l lg:pl-6">{Open24x7()}</div>
+          <div className="lg:col-span-1 lg:border-l lg:pl-6">{Open24x7()}</div>
         </div>
       </div>
     </section>
@@ -202,7 +202,7 @@ const Open24x7 = () => {
 
         <div className="w-10 h-1 bg-red-500 mx-auto my-3 rounded-full"></div>
 
-        <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-6">
+        <h2 className="text-xl lg:text-3xl font-bold text-gray-900 mb-6">
           We’re Open 24/7 at <span className="text-primary">Online</span>
         </h2>
 

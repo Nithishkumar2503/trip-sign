@@ -8,30 +8,30 @@ export const heroContent: HeroContentProps[] = [
   {
     img: "/hero1.jpg",
     id: 1,
-    heading: "Turn Your Study Abroad Dreams into Reality",
+    heading: "Build Your Nursing Career Overseas",
     subHeading:
-      "Expert guidance for admissions, visas, and career opportunities in top universities worldwide.",
+      "Get expert counselling, licensing guidance, and placement support to work as a professional nurse in top international hospitals.",
   },
   {
     img: "/hero2.png",
     id: 2,
-    heading: "Global Education, Personalized for You",
+    heading: "Serve the World with Your Culinary Skills",
     subHeading:
-      "We help you choose the right course and destination to achieve your international career goals.",
+      "Turn your passion for food into a global career — we help you find catering and hospitality jobs abroad with full visa and placement assistance.",
   },
   {
-    img: "/hero3.png",
+    img: "/hero3.jpg",
     id: 3,
-    heading: "Your Journey to Study and Work Abroad Starts Here",
+    heading: "Secure Your Future with Warehouse Opportunities Abroad",
     subHeading:
-      "From university selection to visa support, we make your path to success smooth and stress-free.",
+      "Find stable and rewarding warehouse jobs overseas with trusted documentation, training, and relocation support.",
   },
   {
-    img: "/hero4.png",
+    img: "/hero4.jpg",
     id: 4,
-    heading: "Launch Your Career Abroad with Confidence",
+    heading: "Take Your Beauty Career Global",
     subHeading:
-      "We provide end-to-end support for securing international job opportunities and work visas.",
+      "Enhance your talent and work in international salons and spas — get complete guidance for training, certification, and overseas placement.",
   },
   // {
   //   img: "",

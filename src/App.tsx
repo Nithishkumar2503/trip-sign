@@ -7,16 +7,15 @@ import {
   Footer,
   Country,
 } from "./components";
-
 function App() {
+
   return (
     <BrowserRouter>
       {/* Page Routes */}
       <div className="">
         {/* Fixed Header */}
         <Header />
-        <div className="lg:h-20 h-18  bg-transparent">
-
+        <div className={`lg:h-[100px]  h-18 `}>
         </div>
         {/* padding to avoid overlap with fixed header */}
         <Routes>

@@ -24,7 +24,7 @@ const FreeFeelCard = () => {
   return (
     <div className="relative mt-14 lg:mt-0 mx-auto  w-fit  items-center content-center ">
       <div className="absolute lg:w-92 z-20 w-80 top-1/2 left-1/2   -translate-x-1/2 -translate-y-1/2 lg:h-92 h-80   bg-pink-400 rounded-full opacity-30 animate-pulse"></div>
-      <motion.div className="lg:mx-auto w-fit relative lg:sticky top-1/2 lg:top-0 lg:left-1/2  mx-auto lg:rotate-12 z-50 transition-transform  hover:rotate-0 duration-500 lg:w-fit h-fit lg:mt-4   items-center content-center bg-white  rounded-3xl shadow-2xl p-8 text-center text-white ">
+      <motion.div className="lg:mx-auto w-fit relative lg:sticky top-1/2 lg:top-0 lg:left-1/2  mx-auto lg:rotate-12 z-30 transition-transform  hover:rotate-0 duration-500 lg:w-fit h-fit lg:mt-4   items-center content-center bg-white  rounded-3xl shadow-2xl p-8 text-center text-white ">
         <h2 className=" text-xl  mb-4 drop-shadow-lg text-primary">
           Feel Free to Ask
         </h2>
@@ -93,17 +93,17 @@ const HeroSect = () => {
         {/* Left Content */}
         <div className="text-center lg:text-left max-w-xl text-wrap">
           <ExpandLatter
-              text="Start Your Study/Career Abroad"
-              classes="text-3xl  lg:text-5xl font-bold text-secondary leading-tight"
-            />
-            <ExpandLatter
-              text="Journey with"
-              classes="text-3xl  lg:text-5xl font-bold text-secondary leading-tight"
-            />
-            <ExpandLatter
-              text="Trip With Sign"
-              classes="text-3xl  lg:text-5xl font-bold text-primary leading-tight"
-            />
+            text="Start Your Study/Career Abroad"
+            classes="text-3xl  lg:text-5xl font-bold text-secondary leading-tight"
+          />
+          <ExpandLatter
+            text="Journey with"
+            classes="text-3xl  lg:text-5xl font-bold text-secondary leading-tight"
+          />
+          <ExpandLatter
+            text="Trip With Sign"
+            classes="text-3xl  lg:text-5xl font-bold text-primary leading-tight"
+          />
           <p className="mt-4 text-gray-700 text-lg">
             Your Trusted Partner for Overseas Education, Career Guidance, and
             Global Opportunities
