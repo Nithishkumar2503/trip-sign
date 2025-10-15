@@ -6,49 +6,69 @@ export interface HeroContentProps {
 }
 export const heroContent: HeroContentProps[] = [
   {
-    img: "/hero1.jpg",
     id: 1,
-    heading: "Build Your Nursing Career Overseas",
+    heading: "Work and Study Abroad Opportunities",
     subHeading:
-      "Get expert counselling, licensing guidance, and placement support to work as a professional nurse in top international hospitals.",
+      "Start your international career or education journey with expert guidance and opportunities in top global destinations.",
+    img: "/hero1.jpg",
   },
   {
-    img: "/hero2.png",
     id: 2,
-    heading: "Serve the World with Your Culinary Skills",
+    heading: "Nursing Jobs Abroad",
     subHeading:
-      "Turn your passion for food into a global career — we help you find catering and hospitality jobs abroad with full visa and placement assistance.",
+      "Gain international healthcare experience, work in reputed hospitals, and make a meaningful impact in patient care.",
+    img: "/hero2.jpg",
   },
   {
-    img: "/hero3.jpg",
     id: 3,
-    heading: "Secure Your Future with Warehouse Opportunities Abroad",
+    heading: "Warehouse & Storage Solutions",
     subHeading:
-      "Find stable and rewarding warehouse jobs overseas with trusted documentation, training, and relocation support.",
+      "Work in modern warehouses managing storage, logistics, and dispatch efficiently while gaining global work exposure.",
+    img: "/hero3.jpg",
   },
   {
-    img: "/hero4.jpg",
     id: 4,
-    heading: "Take Your Beauty Career Global",
+    heading: "Cleaning & Maintenance Services",
     subHeading:
-      "Enhance your talent and work in international salons and spas — get complete guidance for training, certification, and overseas placement.",
+      "Join professional teams abroad ensuring hygiene and safety across corporate and residential spaces with high standards.",
+    img: "/hero4.jpg",
   },
-  // {
-  //   img: "",
-  //   id: 5,
-  //   heading: "Work Abroad Opportunities Made Easy",
-  //   subHeading:
-  //     "Get expert advice on global job markets, resume building, and interview preparation.",
-  // },
-  // {
-  //   img: "",
-  //   id: 6,
-  //   heading: "Your International Career Starts Here",
-  //   subHeading:
-  //     "Connect with top employers abroad and kickstart your professional journey with guidance and support.",
-  // },
+  {
+    id: 5,
+    heading: "Beauty & Salon Professionals",
+    subHeading:
+      "Work in international salons and spas, enhance beauty skills, and deliver top-notch hair, skincare, and styling services.",
+    img: "/hero5.jpg",
+  },
+  {
+    id: 6,
+    heading: "Cooking & Culinary Opportunities",
+    subHeading:
+      "Step into global kitchens, learn world-class culinary techniques, and work under master chefs while earning abroad.",
+    img: "/hero6.jpg",
+  },
+  {
+    id: 7,
+    heading: "Waiter & Hotel Management",
+    subHeading:
+      "Build a career in hospitality, serving guests, managing operations, and gaining international hotel management experience.",
+    img: "/hero7.jpg",
+  },
+  {
+    id: 8,
+    heading: "Study Abroad Programs",
+    subHeading:
+      "Pursue undergraduate, postgraduate, and diploma courses in top universities worldwide with expert guidance.",
+    img: "/hero8.jpg",
+  },
+  {
+    id: 9,
+    heading: "Career-Focused Learning Pathways",
+    subHeading:
+      "Choose programs that match your passion from healthcare, hospitality, business, IT, and engineering with placement assistance.",
+    img: "/hero9.jpg",
+  },
 ];
-
 export interface StudyAbroadFormProps {
   title: string;
   desc: string;

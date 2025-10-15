@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { contactDetailsData } from "./data&type";
+import { contactDetailsData, validateField } from "./data&type";
 import { useState } from "react";
 
 const ContactForm = () => {
@@ -25,6 +25,7 @@ const ContactForm = () => {
     fromLocation?: string;
     destiny?: string;
     message?: string;
+    subject?:string
   }
 
   const [formData, setFormData] = useState<FormProps>({
@@ -35,6 +36,7 @@ const ContactForm = () => {
   });
 
   const handleChange = (e: any) => {
+    
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -42,9 +44,25 @@ const ContactForm = () => {
   };
 
   const [errors, setErrors] = useState<Partial<FormProps>>({});
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrors({});
+
+    // Validate all fields
+    const newErrors = {
+      name: validateField("name", formData?.name||''),
+      email: validateField("email", formData?.email||''),
+      phone: validateField("phone", formData?.phone||''),
+      message: validateField("message", formData?.message||''),
+    };
+
+    setErrors(newErrors);
+
+    // Check if there are any errors
+    const hasErrors = Object.values(newErrors).some((error) => error !== "");
+
+    if (hasErrors) {
+      return; // Stop if validation fails
+    }
 
     // ✅ If validation passes, send API request
     try {
@@ -60,7 +78,13 @@ const ContactForm = () => {
 
       if (result.success) {
         alert("Email sent successfully!");
-        setFormData({ name: "", email: "", message: "", phone: "" });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
       } else {
         alert("Email failed to send.");
       }
@@ -71,8 +95,8 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="min-h-[80vh]  flex flex-col items-center justify-center bg-white px-4 py-16">
-      <div className="max-w-5xl w-full">
+    <div className="min-h-[80vh]   flex flex-col items-center justify-center bg-white px-4 py-16">
+      <div className="lg:w-[66vw] p-2 w-full">
         {/* --- Header --- */}
         <div className="text-center mb-12">
           <motion.p
@@ -160,6 +184,7 @@ const ContactForm = () => {
             <div>
               <input
                 onChange={handleChange}
+                type="email"
                 name="email"
                 value={formData.email}
                 placeholder="Email Address"
@@ -191,11 +216,12 @@ const ContactForm = () => {
             </div>
 
             <input
+              onChange={handleChange}
               type="text"
+              name="subject"
+              value={formData.subject}
               placeholder="Subject (optional)"
-              className={`w-full px-4 py-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 ${
-                errors.phone ? "focus:ring-red-500" : "focus:ring-secondary"
-              }`}
+              className="w-full px-4 py-3 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
             />
           </div>
 
