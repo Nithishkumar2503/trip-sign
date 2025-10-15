@@ -42,7 +42,7 @@ const ContactForm = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+     
   const [errors, setErrors] = useState<Partial<FormProps>>({});
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

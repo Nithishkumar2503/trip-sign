@@ -120,8 +120,6 @@ let mailOptions = {
 function handleMailOptionData(params) {
   const { name, email, message, phone } = params;
   mailOptions.to = email;
-  // mailOptions.to = 'sigmabusiness001@gmail.com';
-  // mailOptions.subject=
   mailOptions.text = `Dear ${name},
   Thank you for reaching out to us with your enquiry regarding "${message}", We appreciate your interest in contact me . Based on your request, here are the details you asked for:${message},
 
@@ -141,9 +139,10 @@ Best regards,
 .
   `;
 }
-app.post("/send-email", (req, res) => {
-  console.log('hitted...')
-  handleMailOptionData(req.body);
+app.post("/send-email", async (req, res) => {
+  const { name, email, message, phone } = req.body;
+
+  // Create transporter
   const transporter = nodemailer.createTransport({
     service: "gmail",
     port: 465,
@@ -157,21 +156,27 @@ app.post("/send-email", (req, res) => {
     },
   });
 
-  transporter.sendMail(mailOptions, async (err, info) => {
-    if (err) {
-      res.json({
-        success: false,
-        errorMessage:err
-      });
-      console.error("Error : ", err);
-      return err;
-    } else {
-      res.json({
-        success: true,
-      });
-      return info;
-    }
-  });
+  try {
+    // 1️⃣ Send email to sender (user)
+    handleMailOptionData({ name, email, message, phone });
+    await transporter.sendMail(mailOptions);
+
+    // 2️⃣ Send email to receiver (admin)
+    const mailToAdmin = {
+      from: process.env.SMTP_USER,
+      to: process.env.SMTP_USER, // your email
+      subject: "New Contact Form Submission",
+      text: `New message received from ${name} (${email}, Phone: ${phone}):
+
+${message}`,
+    };
+    await transporter.sendMail(mailToAdmin);
+
+    res.json({ success: true });
+  } catch (err) {
+    console.error("Error sending emails:", err);
+    res.json({ success: false, errorMessage: err.message });
+  }
 });
 
 app.listen(PORT, () => {
