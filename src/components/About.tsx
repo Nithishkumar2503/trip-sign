@@ -2,7 +2,15 @@ import { FaUsers } from "react-icons/fa"; // For the icon
 import { FaQuoteLeft } from "react-icons/fa";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { faqData, officeData, phoneCode, phoneNoOne, phoneRedirectToOne, testimonials } from "./data&type";
+import {
+  faqData,
+  lat_long,
+  officeData,
+  phoneCode,
+  phoneNoOne,
+  phoneRedirectToOne,
+  testimonials,
+} from "./data&type";
 
 const AboutScreen = () => {
   return (
@@ -17,7 +25,8 @@ const AboutScreen = () => {
           About Us
         </h1>
         <p className="max-w-2xl text-center text-gray-600 lg:text-lg text-md leading-relaxed">
-          At <span className="text-primary font-semibold">Trip with Sign</span>, we help{" "}
+          At <span className="text-primary font-semibold">Trip with Sign</span>,
+          we help{" "}
           <span className="">
             students and professionals achieve their dream of studying and
             working abroad.
@@ -27,14 +36,11 @@ const AboutScreen = () => {
             choosing the right course or job, applying to universities,
             preparing documents,
           </span>{" "}
-          to{" "}
-          <span className="">
-            finding career opportunities overseas.
-          </span>
+          to <span className="">finding career opportunities overseas.</span>
           Studying and working abroad is more than travel – it’s about learning,
           growing, and building a better future. With{" "}
-          <span className="text-primary font-semibold">Trip with Sign</span>, the journey becomes
-          easy, clear, and stress-free.
+          <span className="text-primary font-semibold">Trip with Sign</span>,
+          the journey becomes easy, clear, and stress-free.
         </p>
       </motion.div>
     </>
@@ -136,57 +142,77 @@ const OfficeLocations = () => {
   const office: any = officeData["Coimbatore"];
 
   return (
-    <section className="bg-white p-2 py-4 lg:p-20">
-      <div className="lg:w-[66vw]   mx-auto ">
+    <section className="relative bg-gradient-to-b from-gray-50 to-white py-8 lg:py-28 overflow-hidden">
+      <div className="lg:w-[66vw] mx-auto lg:px-4 px-2">
         {/* Heading */}
-        <div className="text-center w-full">
-          <p className="text-sm uppercase tracking-widest text-gray-500">
+        <div className="text-center mb-14">
+          <p className="text-sm uppercase tracking-[3px] text-red-600 font-medium">
             Checkout Our Locations
           </p>
-          <div className="w-10 h-1 bg-red-500 mx-auto my-2 rounded-full"></div>
-          <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+          <div className="w-14 h-[3px] bg-red-500 mx-auto my-3 rounded-full"></div>
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
             Worldwide Visa Consultancy
           </h2>
-          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-            There are numerous versions of these passages, but most have been
-            altered in some way, often including random or irrelevant words that
-            affect their clarity.
+          <p className="text-gray-600 text-base max-w-2xl mx-auto leading-relaxed">
+            Discover our global presence and connect with our professional
+            offices near you. We're here to guide your journey every step of the
+            way.
           </p>
         </div>
 
         {/* Office Content */}
-
-        <div className="bg-white rounded-xl lg:py-26   hover:shadow-2xl shadow-xl p-2 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 grid grid-cols-1 lg:grid-cols-3 overflow-hidden">
           {/* Image */}
-          <div className="lg:col-span-1 my-auto">
+          <div className="lg:col-span-1 relative group overflow-hidden">
             <img
               src={office?.image}
-              alt={`Coimbatore office`}
-              className="w-full h-auto rounded-md object-cover"
+              alt="Coimbatore Office"
+              className="w-full h-full object-cover rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none transform transition-transform duration-700 group-hover:scale-105"
             />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
           </div>
 
           {/* Address & Contact */}
-          <div className="lg:col-span-1 space-y-4 my-auto">
-            <h3 className="text-xl font-semibold text-gray-900">
-              {"Coimbatore"}
+          <div className="lg:col-span-1 p-8 flex flex-col justify-center space-y-4">
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              Coimbatore Office
             </h3>
-            <p className="text-gray-600 flex items-start">
-              <span className="text-red-500 mr-2">📍</span>
-              {office?.address}
-            </p>
-            <p className="text-gray-600 flex items-center">
-              <span className="text-red-500 mr-2">✉️</span> {office?.email}
-            </p>
-            {office?.phones.map((phone: any, idx: any) => (
-              <p className="text-gray-600 flex items-center" key={idx}>
-                <span className="text-red-500 mr-2">📞</span> {phone}
+
+            <div className="space-y-3 text-gray-700">
+              <p className="flex items-start">
+                <span className="text-red-500 mr-2 text-lg">📍</span>
+                {office?.address}
               </p>
-            ))}
+              <p className="flex items-center">
+                <span className="text-red-500 mr-2 text-lg">✉️</span>
+                {office?.email}
+              </p>
+              {office?.phones.map((phone: any, idx: number) => (
+                <p key={idx} className="flex items-center">
+                  <span className="text-red-500 mr-2 text-lg">📞</span>
+                  {phone}
+                </p>
+              ))}
+            </div>
+
+            <a
+              target="_blank"
+              href={lat_long}
+              className="mt-6 self-start px-6 py-2.5 bg-secondary hover:bg-primary text-white text-sm font-semibold rounded-full shadow-md transition-transform duration-300 hover:scale-105"
+            >
+              Get Directions
+            </a>
           </div>
 
           {/* Working Hours */}
-          <div className="lg:col-span-1 lg:border-l lg:pl-6">{Open24x7()}</div>
+          <div className="lg:col-span-1 border-t lg:border-t-0 lg:border-l border-gray-100 p-8 flex flex-col justify-center">
+            <div className="space-y-3">
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                Working Hours
+              </h4>
+              <div className="text-gray-600">{Open24x7()}</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -213,10 +239,12 @@ const Open24x7 = () => {
         </p>
 
         <div className="items-center space-x-4 content-center ">
-          <a href={phoneRedirectToOne} className="text-xl text-red-600 cursor-pointer font-semibold py-2">
-            📞 {phoneCode+' '+phoneNoOne}
+          <a
+            href={phoneRedirectToOne}
+            className="text-xl text-red-600 cursor-pointer font-semibold py-2"
+          >
+            📞 {phoneCode + " " + phoneNoOne}
           </a>
-          
         </div>
       </div>
     </section>
@@ -275,7 +303,7 @@ const AboutUs = () => {
               alt="Team"
               className="w-full rounded-lg shadow-lg object-cover"
             />
-            <div className="absolute lg:top-4 lg:bottom-0 bottom-1 lg:right-4 right-1  bg-white p-4 rounded-lg shadow-lg flex flex-col items-center">
+            <div className="absolute lg:top-4 lg:bottom-0 bottom-1 h-fit lg:right-4 right-1  bg-white p-4 rounded-lg shadow-lg flex flex-col items-center">
               <span className="text-3xl font-bold text-red-500">10</span>
               <span className="text-gray-500 text-sm">Years of Experience</span>
             </div>

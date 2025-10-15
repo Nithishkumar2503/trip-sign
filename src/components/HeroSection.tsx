@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   FaGlobe,
   FaRoute,
@@ -264,46 +264,45 @@ export default function HeroSection() {
   }, 3000);
   return (
     <>
-      <div className="lg:flex  lg:w-[99.2vw] mx-auto  lg:h-[70vh] w-full  h-[80vh]  items-center content-center">
-        {heroContent.map((item: HeroContentProps) =>
-          count == item.id ? (
-            <div
-              key={item.id}
-              className={
-                item.id % 2 == 1
-                  ? " items-center content-center pb-0 h-full w-full "
-                  : " flex-row-reverse items-center content-center pb-0 h-full w-full "
-              }
-            >
-              <div className="relative w-full z-20 h-full flex items-center justify-center overflow-hidden shadow-lg">
-                {/* Image sliding from right to left */}
-                <motion.img
-                  src={item.img}
-                  alt=""
-                  className="select-none w-full h-full object-cover"
-                  initial={{ x: 10, opacity: 0 }} // start off-screen to the right
-                  animate={{ x: 0, opacity: 0.8 }} // slide into place
-                  transition={{
-                    duration: 0.8,
-                    ease: "easeOut",
-                  }}
-                  whileHover={{ scale: 1.05 }} // hover zoom effect
-                />
-              </div>
+      <div className="lg:flex lg:w-[99.2vw] mx-auto lg:h-[70vh] w-full h-[80vh] items-center content-center relative">
+        {heroContent.map((item) =>
+          count === item.id ? (
+            <div className="relative lg:w-[99.2vw] mx-auto lg:h-[70vh] w-full h-[80vh] flex items-center justify-center overflow-hidden">
+      {/* Static Image (Always visible) */}
+      <motion.img
+        key={item.img}
+        src={item.img}
+        alt={item.heading}
+        className="absolute inset-0 w-full h-full object-cover"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, ease: "easeInOut" }}
+      />
 
-              <div className="items-center content-center  absolute inset-0 w-fit mx-auto opacity-80 bg-gradient-to-l">
-                <motion.div
-                  className="text-white  text-nowrap text-8xl"
-                  initial={{ y: 200, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.5, duration: 0.7, ease: "easeOut" }}
-                >
-                  <h2 className="lg:text-4xl text-[6vw] font-bold text-wrap text-center lg:px-0 px-10">
-                    {item?.heading}
-                  </h2>
-                </motion.div>
-              </div>
-            </div>
+      {/* Overlay Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-l from-black/50 to-transparent z-10" />
+
+      {/* Sliding Text */}
+      <div className="relative z-20 flex justify-center items-center w-full h-full">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={item.id}
+            className="text-white text-center px-10"
+            initial={{ x: 200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -200, opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            <h2 className="lg:text-5xl text-[6vw] font-bold mb-2 drop-shadow-lg">
+              {item.heading}
+            </h2>
+            <p className="lg:text-2xl text-[4vw] text-gray-200 drop-shadow">
+              {item.subHeading}
+            </p>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
           ) : null
         )}
       </div>

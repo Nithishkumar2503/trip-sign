@@ -1,4 +1,11 @@
-import { emailAddress, locationAddress, phoneCode, phoneNoOne, phoneNoThree, phoneNoTwo } from "./contact";
+import {
+  emailAddress,
+  locationAddress,
+  phoneCode,
+  phoneNoOne,
+  phoneNoThree,
+  phoneNoTwo,
+} from "./contact";
 
 interface itemProp {
   image: string;
@@ -14,10 +21,14 @@ export interface OfficeDataProps {
 }
 export const officeData: OfficeDataProps = {
   Coimbatore: {
-    image: "/hero2.png",
+    image: "/office.jpg",
     address: locationAddress,
     email: emailAddress,
-    phones: [phoneCode+' '+phoneNoOne, phoneCode+' '+phoneNoTwo, phoneCode+' '+phoneNoThree],
+    phones: [
+      phoneCode + " " + phoneNoOne,
+      phoneCode + " " + phoneNoTwo,
+      phoneCode + " " + phoneNoThree,
+    ],
   },
 };
 
@@ -33,7 +44,7 @@ export const testimonials: TestingmonialsProps[] = [
     role: "Student",
     feedback:
       "From India to my destination country, they ensured every detail was covered, making my transition seamless and allowing me to focus on my studies.",
-    img: "/person.png", // Replace with actual profile image
+    img: "/women.jpg", // Replace with actual profile image
   },
   {
     name: "Krishna",
