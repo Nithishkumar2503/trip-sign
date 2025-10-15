@@ -11,10 +11,7 @@ import {
   FaCompass,
   FaChartLine,
 } from "react-icons/fa";
-import {
-  heroContent,
-  studyAbroadFormData,
-  } from "./data&type";
+import { heroContent, studyAbroadFormData } from "./data&type";
 import CountryItem from "./CountryItem";
 import StatsSection from "./StatsSection";
 import { ExpandLatter } from ".";
@@ -263,48 +260,52 @@ export default function HeroSection() {
   }, 3000);
   return (
     <>
-      <div className="lg:flex lg:w-[99.2vw] mx-auto lg:h-[70vh] w-full h-[80vh] items-center content-center relative">
+      <div className="lg:flex lg:w-[99.2vw] mx-auto w-full  items-center content-center relative">
         {heroContent.map((item) =>
           count === item.id ? (
-            <div className="relative lg:w-[99.2vw] mx-auto lg:h-[70vh] w-full h-[80vh] flex items-center justify-center overflow-hidden">
-      {/* Static Image (Always visible) */}
-      <motion.img
-        key={item.img}
-        src={item.img}
-        alt={item.heading}
-        className="absolute inset-0 w-full h-full object-cover"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, ease: "easeInOut" }}
-      />
+            <div
+              key={item.id}
+              className="relative lg:w-[99.2vw] mx-auto lg:h-[70vh] w-full h-[60vh] flex items-center justify-center overflow-hidden "
+            >
+              {/* Image (Show fully, responsive) */}
+              <motion.img
+                key={item.img}
+                src={item.img}
+                alt={item.heading}
+                className="absolute inset-0 w-full h-full object-cover "
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              />
 
-      {/* Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-l from-black/50 to-transparent z-10" />
+              {/* Overlay Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-l from-black/40 to-transparent z-10" />
 
-      {/* Sliding Text */}
-      <div className="relative z-20 flex justify-center items-center w-full h-full">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={item.id}
-            className="text-white text-center px-10"
-            initial={{ x: 200, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -200, opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-          >
-            <h2 className="lg:text-5xl text-[6vw] font-bold mb-2 drop-shadow-lg">
-              {item.heading}
-            </h2>
-            <p className="lg:text-2xl text-[4vw] text-gray-200 drop-shadow">
-              {item.subHeading}
-            </p>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    </div>
+              {/* Text Content */}
+              <div className="relative z-20 flex justify-center items-center w-full h-full">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={item.id}
+                    className="text-white text-center px-10"
+                    initial={{ x: 200, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: -200, opacity: 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                  >
+                    <h2 className="lg:text-5xl text-[6vw] font-bold mb-2 drop-shadow-lg">
+                      {item.heading}
+                    </h2>
+                    <p className="lg:text-2xl text-[4vw] text-gray-200 drop-shadow">
+                      {item.subHeading}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
           ) : null
         )}
       </div>
+
       {HeroSect()}
       {ImmigrationServices()}
       {StudyAbroadForm()}

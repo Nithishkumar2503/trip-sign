@@ -128,7 +128,7 @@ function Header() {
           isOpen={isOpen}
         />
       </div>
-      <div className="lg:h-fit z-50 shadow-xs rounded-b-xl  lg:z-50 w-full bg-white  fixed">
+      <div className="lg:h-fit z-50 shadow-xs   lg:z-50 w-full bg-white  fixed">
         <div className="pt-2  cursor-default hidden lg:block lg:flex lg:justify-center gap-6  lg:w-[66vw] mx-auto items-center content-center  px-2">
           {/* <div className="p-1 cursor-pointer flex gap-2 items-center  content-center">
             <TbViewfinder className="text-red-500" />
