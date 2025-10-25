@@ -1,6 +1,6 @@
 import { FaSquareWhatsapp } from "react-icons/fa6";
 import { MdEmail, MdOutlineEmail } from "react-icons/md";
-import { FaPhone, FaWhatsapp } from "react-icons/fa";
+import {  FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoLogoInstagram } from "react-icons/io";
 import { CiFacebook } from "react-icons/ci";
@@ -55,21 +55,21 @@ function sideBarContent() {
           href={phoneRedirectToOne}
           className="p-1 cursor-pointer flex gap-2 items-center content-center px-2  rounded-xl border-gray-300"
         >
-          <FaPhone className="text-green-500" />
+          <FaPhoneAlt className="text-green-500" />
           <h1>{phoneCode + " " + phoneNoOne}</h1>
         </a>
         <a
           href={phoneRedirectToTwo}
           className="p-1 cursor-pointer flex gap-2 items-center content-center px-2  rounded-xl border-gray-300"
         >
-          <FaPhone className="text-green-500" />
+          <FaPhoneAlt className="text-green-500" />
           <h1>{phoneCode + " " + phoneNoTwo}</h1>
         </a>
         <a
           href={phoneRedirectToThree}
           className="p-1 cursor-pointer flex gap-2 items-center content-center px-2  rounded-xl border-gray-300"
         >
-          <FaPhone className="text-green-500" />
+          <FaPhoneAlt className="text-green-500" />
           <h1>{phoneCode + " " + phoneNoThree}</h1>
         </a>
 
@@ -137,19 +137,19 @@ function Header() {
           </div> */}
           <a href={phoneRedirectToOne}>
             <div className="p-1 text-xs cursor-pointer flex gap-2 items-center content-center border px-2  rounded-xl border-gray-300">
-              <FaPhone className="text-green-500" />
+              <FaPhoneAlt className="text-green-500" />
               <h1>{phoneNoOne}</h1>
             </div>
           </a>
           <a href={phoneRedirectToTwo}>
             <div className="p-1 text-xs cursor-pointer flex gap-2 items-center content-center border px-2  rounded-xl border-gray-300">
-              <FaPhone className="text-green-500" />
+              <FaPhoneAlt className="text-green-500" />
               <h1>{phoneNoTwo}</h1>
             </div>
           </a>
           <a href={phoneRedirectToThree}>
             <div className="p-1 text-xs cursor-pointer flex gap-2 items-center content-center border px-2  rounded-xl border-gray-300">
-              <FaPhone className="text-green-500" />
+              <FaPhoneAlt className="text-green-500" />
               <h1>{phoneNoThree}</h1>
             </div>
           </a>
@@ -169,7 +169,7 @@ function Header() {
           </a>
         </div>
         <div className="lg:bg-white py-2  z-50 items-center content-center">
-          <div className="lg:h-full  h-full flex justify-between  items-center content-center w-full lg:w-[66vw] mx-auto  px-2 lg:flex lg:justify-between ">
+          <div className="lg:h-full  h-full  flex justify-between  items-center content-center w-full lg:w-[66vw] mx-auto  px-2 lg:flex lg:justify-between ">
             <a href="/" className="">
               <div className="flex gap-1 items-center content-center h-full">
                 <img

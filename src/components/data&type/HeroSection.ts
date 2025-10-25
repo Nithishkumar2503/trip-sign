@@ -278,3 +278,18 @@ export const countries: CountriesProp[] = [
     },
   },
 ];
+
+
+
+
+export const highlightImages = [
+  "/hl1.png",
+  "/hl2.png",
+  "/hl3.png",
+  "/hl4.png",
+  "/hl5.png",
+  "/hl6.png",
+  "/hl7.png",
+  "/hl8.png",
+  "/hl9.png",
+];

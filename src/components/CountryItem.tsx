@@ -65,7 +65,7 @@ const CountryItem = (textOnly?: boolean) => {
               <p className="text-gray-600 text-lg ">World-Wide Services</p>
             </motion.div>
             {!selectedCountry && (
-              <div className="grid grid-cols-1 lg:grid-cols-2 py-4  lg:grid-cols-4 gap-6 mb-8">
+              <div className="grid grid-cols-1 py-4  lg:grid-cols-4 gap-6 mb-8">
                 {countries.map((country, index) => (
                   <motion.div
                     key={country.id}
@@ -317,7 +317,7 @@ const CountryItem = (textOnly?: boolean) => {
             animate={{ opacity: 1 }}
             className="text-center text-gray-500 mt-12"
           >
-            <div className="text-6xl mb-4">🌍</div>
+            <div className="text-6xl mb-4 animate-bounce hover:animate-spin w-fit mx-auto cursor-zoom-in">🌍</div>
             <p className="text-lg">
               Select a country to explore study and job opportunities
             </p>

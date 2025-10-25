@@ -1,7 +1,7 @@
 import { FaUsers } from "react-icons/fa"; // For the icon
 import { FaQuoteLeft } from "react-icons/fa";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   faqData,
   lat_long,
@@ -11,6 +11,7 @@ import {
   phoneRedirectToOne,
   testimonials,
 } from "./data&type";
+import { viewportOnce } from "./utils";
 
 const AboutScreen = () => {
   return (
@@ -48,8 +49,26 @@ const AboutScreen = () => {
 };
 
 function Testimonials() {
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2, // Delay between each child animation
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div className="bg-gray-50 py-28 px-6 lg:px-20 w-full  items-center content-center">
+    <div className="bg-gray-50 py-28 px-6 lg:px-20 w-full items-center content-center">
       <div className="text-center mb-12">
         <p className="text-sm font-semibold text-gray-500 tracking-wide uppercase">
           Our Feedbacks
@@ -59,11 +78,17 @@ function Testimonials() {
         </h2>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8 lg:w-[66vw] px-4 p-2 mx-auto">
+      <motion.div
+        className="grid lg:grid-cols-2 gap-8 lg:w-[66vw] px-4 p-2 mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {testimonials.map((t, index) => (
-          <div
+          <motion.div
             key={index}
             className="bg-white shadow-md rounded-lg p-6 relative"
+            variants={cardVariants}
           >
             <div className="flex items-center mb-4">
               <img
@@ -83,58 +108,93 @@ function Testimonials() {
             <div className="absolute top-6 right-6 text-red-500 text-2xl">
               <FaQuoteLeft />
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
 function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  // Variants for parent container
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { staggerChildren: 0.1, duration: 0.5 },
+    },
+  };
 
+  // Variants for each FAQ item
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+  };
   return (
-    <div className="items-center content-center lg:w-[66vw] mx-auto">
-      <div className=" px-4 p-2 lg:flex space-y-2 mx-auto py-12 gap-8">
-        <div className="w-full   lg:flex lg:flex-col justify-center ">
+    <motion.div
+      className="items-center content-center lg:w-[66vw] mx-auto"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <div className="px-4 p-2 lg:flex space-y-2 mx-auto py-12 gap-8">
+        <motion.div
+          className="w-full lg:flex lg:flex-col justify-center"
+          variants={itemVariants}
+        >
           <img src="/faq.jpg" className="w-full h-full rounded-2xl" alt="" />
-        </div>
-        <div className="w-full  flex flex-col justify-center ">
-          <div>
-            <p className="text-sm uppercase text-gray-500 tracking-wider">
-              Common FAQs
-            </p>
-            <h2 className="text-4xl font-bold mt-2 mb-10">
-              Frequently Asked Questions?
-            </h2>
+        </motion.div>
 
-            <div className="space-y-4">
-              {faqData.map((item, index) => (
-                <div
-                  key={index}
-                  className="border-b pb-4 cursor-pointer"
-                  onClick={() =>
-                    setOpenIndex(openIndex === index ? null : index)
-                  }
-                >
-                  <div className="flex justify-between items-center">
-                    <p className="font-medium text-lg">{item.heading}</p>
-                    <span className="text-red-600 text-xl">
-                      {openIndex === index ? "-" : "+"}
-                    </span>
-                  </div>
-                  {openIndex === index && (
-                    <p className="text-gray-600 text-sm py-2">
-                      {/* Placeholder answer - customize as needed */}
-                      {item.subHeading}
-                    </p>
-                  )}
+        <motion.div
+          className="w-full flex flex-col justify-center"
+          variants={itemVariants}
+        >
+          <p className="text-sm uppercase text-gray-500 tracking-wider">
+            Common FAQs
+          </p>
+          <h2 className="text-4xl font-bold mt-2 mb-10">
+            Frequently Asked Questions?
+          </h2>
+
+          <div className="space-y-4">
+            {faqData.map((item, index) => (
+              <motion.div
+                key={index}
+                className="border-b pb-4 cursor-pointer"
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                variants={itemVariants}
+              >
+                <div className="flex justify-between items-center">
+                  <p className="font-medium text-lg">{item.heading}</p>
+                  <motion.span
+                    animate={{ rotate: openIndex === index ? 45 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-red-600 text-xl"
+                  >
+                    +
+                  </motion.span>
                 </div>
-              ))}
-            </div>
+
+                <AnimatePresence initial={false}>
+                  {openIndex === index && (
+                    <motion.p
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="text-gray-600 text-sm py-2 overflow-hidden"
+                    >
+                      {item.subHeading}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -255,10 +315,15 @@ const AboutUs = () => {
   return (
     <>
       {AboutScreen()}
-      <section className="bg-white py-16  lg:px-16 relative h-fit  items-center content-center">
+      <section className="bg-white py-16 lg:px-16 relative h-fit items-center content-center">
         <div className="lg:w-[66vw] px-4 p-2 mx-auto grid lg:grid-cols-2 gap-10 items-center">
           {/* Left Content */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: viewportOnce }}
+            transition={{ duration: 0.8 }}
+          >
             <p className="text-sm text-gray-500 uppercase mb-2">
               Get to know us
             </p>
@@ -290,24 +355,31 @@ const AboutUs = () => {
                 <span className="text-red-500">✔</span> Guarantee Approval
               </p>
             </div>
-
-            {/* <button className="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition">
-              Discover More
-            </button> */}
-          </div>
+          </motion.div>
 
           {/* Right Content */}
-          <div className="relative flex flex-col gap-4">
+          <motion.div
+            className="relative flex flex-col gap-4"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: viewportOnce }}
+            transition={{ duration: 0.8 }}
+          >
             <img
               src="/hero1.jpg"
               alt="Team"
               className="w-full rounded-lg shadow-lg object-cover"
             />
-            <div className="absolute lg:top-4 lg:bottom-0 bottom-1 h-fit lg:right-4 right-1  bg-white p-4 rounded-lg shadow-lg flex flex-col items-center">
+
+            <motion.div
+              className="absolute lg:top-4 lg:bottom-0 bottom-1 h-fit lg:right-4 right-1 bg-white p-4 rounded-lg shadow-lg flex flex-col items-center"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <span className="text-3xl font-bold text-red-500">10</span>
               <span className="text-gray-500 text-sm">Years of Experience</span>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
       {/* Decorative plane icon */}

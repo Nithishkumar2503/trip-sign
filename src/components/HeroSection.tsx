@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   FaGlobe,
@@ -14,7 +14,8 @@ import {
 import { heroContent, studyAbroadFormData } from "./data&type";
 import CountryItem from "./CountryItem";
 import StatsSection from "./StatsSection";
-import { ExpandLatter } from ".";
+import HighlightCarousel from "./HighlightCarousel";
+import { viewportOnce } from "./utils";
 
 const FreeFeelCard = () => {
   return (
@@ -45,11 +46,22 @@ const FreeFeelCard = () => {
 // StudyAbroadForm.jsx
 const StudyAbroadForm = () => {
   return (
-    <div className="bg-primary   text-white px-6 lg:py-26 py-12 lg:items-center lg:justify-center gap-40 lg:px-20">
-      <div className="lg:w-[66vw] gap-8 lg:flex mx-auto p-2">
+    <div className="bg-primary text-white px-2 lg:py-26 py-12 lg:items-center lg:justify-center gap-40 lg:px-20">
+      <motion.div
+        className="lg:w-[66vw] gap-8 lg:flex mx-auto lg:p-2"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: viewportOnce }}
+      >
         {/* Left Section */}
-        <div className="">
-          <h2 className="lg:text-3xl text-xl font-bold ">
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: viewportOnce }}
+        >
+          <h2 className="lg:text-3xl text-xl font-bold">
             Your Next Steps to Studying Abroad
           </h2>
           <p className="lg:text-lg text-sm mb-2">
@@ -61,72 +73,107 @@ const StudyAbroadForm = () => {
 
           <ul className="space-y-6 lg:pt-0 pt-2">
             {studyAbroadFormData.map((step, index) => (
-              <li key={index} className="flex items-start space-x-4">
-                <div className="lg:text-2xl text-md  bg-white text-purple-700 p-2 rounded-md">
+              <motion.li
+                key={index}
+                className="flex items-start space-x-4"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                viewport={{ once: viewportOnce }}
+              >
+                <div className="lg:text-2xl text-md bg-white text-purple-700 p-2 rounded-md">
                   {step.icon}
                 </div>
                 <div>
                   <h4 className="font-semibold text-white">{step.title}</h4>
                   <p className="text-sm text-red-200">{step.desc}</p>
                 </div>
-              </li>
+              </motion.li>
             ))}
           </ul>
-        </div>
+        </motion.div>
 
         {/* Right Section */}
-        {FreeFeelCard()}
-      </div>
+        <motion.div
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: viewportOnce }}
+        >
+          {FreeFeelCard()}
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
 
 const HeroSect = () => {
   return (
-    <section className=" bg-white py-8 lg:px-12 h-fit items-center content-center">
+    <section className="bg-white py-8 lg:px-12 h-fit items-center content-center">
       {/* Hero content */}
-      <div className="lg:w-[66vw] p-2 mx-auto flex flex-col-reverse lg:flex-row justify-between items-center gap-12">
+      <div className="lg:w-[66vw] p-2 mx-auto lg:flex justify-between items-center gap-12">
         {/* Left Content */}
-        <div className="text-center lg:text-left max-w-xl text-wrap">
-          <ExpandLatter
-            text="Start Your Study/Career Abroad"
-            classes="text-3xl  lg:text-5xl font-bold text-secondary leading-tight"
-          />
-          <ExpandLatter
-            text="Journey with"
-            classes="text-3xl  lg:text-5xl font-bold text-secondary leading-tight"
-          />
-          <ExpandLatter
-            text="Trip With Sign"
-            classes="text-3xl  lg:text-5xl font-bold text-primary leading-tight"
-          />
-          <p className="mt-4 text-gray-700 text-lg">
-            Your Trusted Partner for Overseas Education, Career Guidance, and
-            Global Opportunities
-          </p>
+        <motion.div
+          className="text-center px-2 lg:text-left max-w-xl text-wrap"
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: viewportOnce }}
+        >
+          <div className="text-center lg:text-left max-w-xl">
+            <motion.h1
+              className="text-4xl lg:text-5xl font-bold text-gray-600 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              viewport={{ once: viewportOnce }}
+            >
+              Start Your Study/Career Abroad <br /> Journey with{" "}
+              <span className="text-primary">Trip With Sign</span>
+            </motion.h1>
 
-          {/* Buttons */}
-          {/* <button className="bg-purple-900 text-white px-6 py-3 h-fit  rounded-full font-medium hover:bg-purple-800 transition">
-              Register for FREE
-            </button> */}
-          <div className="mt-8  flex flex-col sm:flex-row gap-4 justify-center items-center content-center lg:justify-start">
+            <motion.p
+              className="mt-4 text-gray-700 text-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              viewport={{ once: viewportOnce }}
+            >
+              Your Trusted Partner for Overseas Education, Career Guidance, and
+              Global Opportunities
+            </motion.p>
+          </div>
+
+          <motion.div
+            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center content-center lg:justify-start"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            viewport={{ once: viewportOnce }}
+          >
             <a
               href="/contact"
-              className="border cursor-pointer border-primary text-primary mx-auto font-medium px-6 py-2 rounded-full hover:bg-primary hover:text-white  transition"
+              className="border cursor-pointer border-primary text-primary mx-auto font-medium px-6 py-2 rounded-full hover:bg-primary hover:text-white transition"
             >
               Contact us
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Right Image */}
-        <div className="flex justify-center">
+        <motion.div
+          className="flex justify-center"
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          viewport={{ once: viewportOnce }}
+        >
           <img
             src="/abroad-career.png"
             alt="Student smiling"
-            className="lg:h-[600px]  rounded-xl object-cover"
+            className="lg:h-[600px] rounded-xl object-cover"
           />
-        </div>
+        </motion.div>
       </div>
       {StatsSection()}
     </section>
@@ -217,21 +264,57 @@ function ImmigrationServices() {
 
   return (
     <section className="relative py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-      <div className="lg:w-[66vw] p-2 mx-auto lg:px-4 w-full items-center content-center ">
-        <h2 className="text-2xl lg:text-4xl font-bold text-center mb-12">
-          Citizenship & Immigration Services
-        </h2>
+      {/* Animated decorative background */}
+      <motion.div
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="absolute top-0 left-0 w-full h-64 bg-blue-50 rounded-b-full -z-10"
+      />
 
-        <div className="flex flex-wrap lg:justify-between  justify-center gap-8 ">
+      <div className="lg:w-[66vw] py-2 mx-auto lg:px-4 w-full items-center content-center">
+        <motion.h2
+          initial={{ opacity: 0, y: -40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-2xl lg:text-4xl font-bold text-center mb-12"
+        >
+          Citizenship & Immigration Services
+        </motion.h2>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: viewportOnce }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15 },
+            },
+          }}
+          className="flex flex-wrap lg:justify-between justify-center gap-8"
+        >
           {immigrationContent.map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.05, type: "spring", stiffness: 100 }}
-              className="group   bg-white rounded-3xl shadow-lg p-6 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-start gap-4 w-[27rem]"
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              whileHover={{
+                scale: 1.05,
+                y: -6,
+                transition: { type: "spring", stiffness: 200 },
+              }}
+              className="group bg-white rounded-3xl shadow-lg p-6 hover:shadow-2xl transform transition-all duration-300 flex items-start gap-4 w-[27rem]"
             >
-              <div className="flex-shrink-0">{item.icon}</div>
+              <motion.div
+                whileHover={{ rotate: 10, scale: 1.1 }}
+                className="flex-shrink-0"
+              >
+                {item.icon}
+              </motion.div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-500 transition-colors">
                   {item.heading}
@@ -240,76 +323,112 @@ function ImmigrationServices() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-
-      {/* Decorative curved background */}
-      <div className="absolute top-0 left-0 w-full h-64 bg-blue-50 rounded-b-full -z-10"></div>
     </section>
   );
 }
 
 export default function HeroSection() {
   const [count, setCount] = useState(1);
-  setTimeout(() => {
-    if (heroContent.length == count) {
-      setCount(1);
-      return;
-    }
-    setCount(count + 1);
-  }, 3000);
+
+  // Auto-slide every 4 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCount((prev) => (prev === heroContent.length ? 1 : prev + 1));
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, [count]);
+
+  // Manual navigation
+  const nextSlide = () => {
+    setCount(count === heroContent.length ? 1 : count + 1);
+  };
+
+  const prevSlide = () => {
+    setCount(count === 1 ? heroContent.length : count - 1);
+  };
+
   return (
     <>
-      <div className="lg:flex lg:w-[99.2vw] mx-auto w-full  items-center content-center relative">
-        {heroContent.map((item) =>
-          count === item.id ? (
-            <div
-              key={item.id}
-              className="relative lg:w-[99.2vw] mx-auto lg:h-[70vh] w-full h-[60vh] flex items-center justify-center overflow-hidden "
-               >
-              {/* Image (Show fully, responsive) */}
-              <motion.img
-                key={item.img}
-                src={item.img}
-                alt={item.heading}
-                className="absolute inset-0 w-full h-full object-cover "
-                animate={{ opacity: 0.5 }}
-                transition={{ duration: 0.1, ease: "easeInOut" }}
-              />
+      <div className="relative w-full lg:h-[70vh] h-[60vh] overflow-hidden bg-black">
+        {/* Static background for smooth fade transition */}
+        <img
+          src={heroContent[count - 1]?.img}
+          alt="background"
+          className="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-700"
+        />
 
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-l from-black/40 to-transparent z-10" />
+        {/* Animated slide transition */}
+        <AnimatePresence mode="wait">
+          {heroContent.map((item) =>
+            count === item.id ? (
+              <motion.div
+                key={item.id}
+                className="absolute inset-0 flex justify-center items-center"
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -80 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+              >
+                {/* Image layer */}
+                <motion.img
+                  src={item.img}
+                  alt={item.heading}
+                  className="absolute inset-0 w-full h-full object-cover z-0"
+                  initial={{ scale: 1.1 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 3 }}
+                />
 
-              {/* Text Content */}
-              <div className="relative z-20 flex justify-center items-center w-full h-full">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={item.id}
-                    className="text-white text-center px-10"
-                    initial={{ x: 200, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: -200, opacity: 0 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                  >
-                    <h2 className="lg:text-5xl text-[6vw] font-bold mb-2 drop-shadow-lg">
-                      {item.heading}
-                    </h2>
-                    <p className="lg:text-2xl text-[4vw] text-gray-200 drop-shadow">
-                      {item.subHeading}
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/40 z-10" />
+
+                {/* Text */}
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="relative z-20 text-center text-white px-8"
+                >
+                  <h2 className="lg:text-6xl text-[8vw] font-bold mb-4 drop-shadow-lg">
+                    {item.heading}
+                  </h2>
+                  {item.subheading && (
+                    <p className="lg:text-lg text-sm text-gray-200 max-w-2xl mx-auto drop-shadow-md">
+                      {item.subheading}
                     </p>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
-          ) : null
-        )}
+                  )}
+                </motion.div>
+              </motion.div>
+            ) : null
+          )}
+        </AnimatePresence>
+
+        {/* Navigation buttons */}
+        <motion.button
+          onClick={prevSlide}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+          className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl z-30"
+        >
+          &#10094;
+        </motion.button>
+        <motion.button
+          onClick={nextSlide}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl z-30"
+        >
+          &#10095;
+        </motion.button>
       </div>
 
+      {/* Other sections below */}
       {HeroSect()}
       {ImmigrationServices()}
       {StudyAbroadForm()}
       {CountryItem()}
-      {/* Left Section*/}
+      {HighlightCarousel()}
     </>
   );
 }

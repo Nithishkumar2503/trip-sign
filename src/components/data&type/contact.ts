@@ -1,7 +1,7 @@
 import { FaEnvelope, FaPhoneAlt, FaWhatsapp, FaMapMarkerAlt } from "react-icons/fa";
 import type { IconType } from "react-icons";
 //Address location
-export const latLong = "11.0168,76.9558";
+export const latLong = "11.0091833,76.9658177";
 export const locationAddress =
   "First floor, Vignesh park, Ram Nagar,Ghandipuram,Coimbatore - 6410009";
 //Redirect to items
@@ -16,7 +16,6 @@ export const instaLink: string = "https://www.instagram.com/trip_with_sign?igsh=
 export const facebooklink: string = "https://www.facebook.com/share/1CUckrMtQJ";
 
 export const lat_long = `https://www.google.com/maps?q=${latLong}`;
-
 //Contact Details
 export const whatsaapno: string = "6384044005";
 export const emailAddress: string = "tripwithsign@gmail.com";

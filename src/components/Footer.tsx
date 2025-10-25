@@ -1,5 +1,5 @@
-import {  FaMapMarkerAlt, FaPhone } from "react-icons/fa";
-import { IoLogoInstagram} from "react-icons/io";
+import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { IoLogoInstagram } from "react-icons/io";
 import { MdFlight, MdOutlineEmail } from "react-icons/md";
 import CountryItem from "./CountryItem";
 import {
@@ -80,19 +80,19 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="flex items-center space-x-2 gap-1 hover:text-primary">
-                  <FaPhone className="w-4 h-4" />
+                  <FaPhoneAlt className="w-4 h-4" />
                   <a href={phoneRedirectToOne}>
                     {phoneCode + " " + phoneNoOne}
                   </a>
                 </li>
                 <li className="flex items-center space-x-2 gap-1 hover:text-primary">
-                  <FaPhone className="w-4 h-4" />
+                  <FaPhoneAlt className="w-4 h-4" />
                   <a href={phoneRedirectToTwo}>
                     {phoneCode + " " + phoneNoTwo}
                   </a>
                 </li>
                 <li className="flex items-center space-x-2 gap-1 hover:text-primary">
-                  <FaPhone className="w-4 h-4" />
+                  <FaPhoneAlt className="w-4 h-4" />
                   <a href={phoneRedirectToThree}>
                     {phoneCode + " " + phoneNoThree}
                   </a>
