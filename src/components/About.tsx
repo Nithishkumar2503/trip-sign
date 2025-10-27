@@ -1,7 +1,7 @@
 import { FaUsers } from "react-icons/fa"; // For the icon
 import { FaQuoteLeft } from "react-icons/fa";
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import {
   faqData,
   lat_long,
@@ -11,7 +11,8 @@ import {
   phoneRedirectToOne,
   testimonials,
 } from "./data&type";
-import { viewportOnce } from "./utils";
+import { useViewport, viewportOnce } from "./utils";
+const { isMobile } = useViewport();
 
 const AboutScreen = () => {
   return (
@@ -58,14 +59,18 @@ function Testimonials() {
     },
   };
 
-  const cardVariants = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
+  const cardVariants: Variants = {
+  hidden: isMobile? { opacity: 0, y: 50 }:{ opacity: 0, x: 50 },
+  visible: isMobile? {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }, // valid easing
+  }:{
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" }, // valid easing
+  },
+};
 
   return (
     <div className="bg-gray-50 py-28 px-6 lg:px-20 w-full items-center content-center">
@@ -319,8 +324,8 @@ const AboutUs = () => {
         <div className="lg:w-[66vw] px-4 p-2 mx-auto grid lg:grid-cols-2 gap-10 items-center">
           {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={ isMobile? { opacity: 0, y: -50 }:{ opacity: 0, x: -50 }}
+            whileInView={ isMobile? { opacity: 1, y: 0 }:{ opacity: 1, x: 0 }}
             viewport={{ once: viewportOnce }}
             transition={{ duration: 0.8 }}
           >
@@ -360,8 +365,8 @@ const AboutUs = () => {
           {/* Right Content */}
           <motion.div
             className="relative flex flex-col gap-4"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={isMobile?  { opacity: 0, y: 50 }:{ opacity: 0, x: 50 }}
+            whileInView={isMobile?  { opacity: 1, y: 0 }:{ opacity: 1, x: 0 }}
             viewport={{ once: viewportOnce }}
             transition={{ duration: 0.8 }}
           >

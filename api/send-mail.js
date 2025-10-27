@@ -1,19 +1,63 @@
 import nodemailer from "nodemailer";
-import cors from "cors";
-import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
-const app = express();
-const PORT = 5000;
-app.use(cors());
-app.use(express.json());
 
-let mailOptions = {
-  from: process.env.MAIL_FROM,
-  to: "",
-  subject: "Subject: Re: Trip with sign",
-  text: "Happy to See you.",
-  html: `
+export default async function handler(req, res) {
+  console.log("clicked.."),
+    () => {
+      if (req.method !== "POST") {
+        return res.status(405).json({ message: "Method not allowed!" });
+      }
+    };
+  const { name, email, message, phone, subject } = req.body;
+
+  // Create transporter
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+    tls: {
+      rejectUnauthorized: true,
+    },
+  });
+
+  try {
+    // 1️⃣ Send email to sender (user)
+    await transporter.sendMail(
+      handleMailOptionData({ name, email, message, phone, subject })
+    );
+
+    // 2️⃣ Send email to receiver (admin)
+    const mailToAdmin = {
+      from: process.env.SMTP_USER,
+      to: process.env.SMTP_USER, // your email
+      subject: "New Contact Form Submission",
+      text: `New message received from ${name} (${email}, Phone: ${phone}):
+
+${message}`,
+    };
+    await transporter.sendMail(mailToAdmin);
+
+    res.json({ success: true });
+  } catch (err) {
+    console.error("Error sending emails:", err);
+    res.json({ success: false, errorMessage: err.message });
+  }
+}
+
+function handleMailOptionData(params) {
+  const { name, email, message, phone, subject } = params;
+
+  let mailOptions = {
+    from: process.env.MAIL_FROM,
+    to: email,
+    subject: "Subject: Re: Trip with sign",
+    text: "Happy to See you.",
+    html: `
    <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,7 +93,7 @@ let mailOptions = {
               <td
                 align="center"
                 style="
-                  background-color: #2563eb;
+                  background-color:#e53e3e;
                   padding: 20px;
                   color: #ffffff;
                   font-size: 24px;
@@ -64,7 +108,7 @@ let mailOptions = {
             <tr>
               <td style="padding: 30px 20px; color: #333333; font-size: 16px;">
                 <p style="margin: 0 0 16px;">
-                  Hi <strong>there</strong>,
+                  Hi <strong>${name}</strong>,
                 </p>
                 <p style="margin: 0 0 16px; line-height: 1.6;">
                   Thank you for reaching out to us! We’ve successfully received
@@ -76,10 +120,22 @@ let mailOptions = {
                  ’re here to help you succeed.
                 </p>
 
+                 <p style="margin: 0 0 10px;">
+                  Client Details, <br />
+                 
+                  Email  : ${email} <br />
+                  Contact: <a href='tel:+91${phone}'>${phone} </a>  <br />
+                  Subject: ${subject}  <br />
+                  Message: ${message} <br />
+                </p>
                 <!-- Button -->
                 <p style="margin: 0 0 10px;">
                   Best regards, <br />
-                  <strong>Trip with Sign Team</strong>
+                  Ashokkumar  <br />
+                  <a href='tel:+916374080040'>6374080040 </a> <br />
+                  <a href='tel:+916384044005'>6384044005 </a> <br />
+                  <a href='tel:04224690439'>04224690439</a> <br />
+                  tripwithsign@gmail.com
                 </p>
               </td>
             </tr>
@@ -96,13 +152,7 @@ let mailOptions = {
                 "
               >
                 <p style="margin: 0;">
-                  📧
-                  <a
-                    href="mailto:tripwithsign@gmail.com"
-                    style="color: #2563eb; text-decoration: none;"
-                  >
-                    tripwithsign@gmail.com
-                  </a>
+                  <strong>Trip with Sign Team</strong>
                 </p>
                 
               </td>
@@ -115,70 +165,6 @@ let mailOptions = {
 </html>
 
   `,
-};
-
-function handleMailOptionData(params) {
-  const { name, email, message, phone } = params;
-  mailOptions.to = email;
-  mailOptions.text = `Dear ${name},
-  Thank you for reaching out to us with your enquiry regarding "${message}", We appreciate your interest in contact me . Based on your request, here are the details you asked for:${message},
-
-If you have any further questions or would like to schedule a meeting to discuss this in more detail, please feel free to let us know. We're happy to assist you further.
-
-Looking forward to the opportunity to work together.
-
-Contact: ${phone}
-
-Best regards,
-[Ashokkumar]
-[Trip with Sign]
-[6374080040]
-[6384044005]
-[04224690439]
-[tripwithsign@gmail.com]
-.
-  `;
+  };
+  return mailOptions;
 }
-app.post("/send-email", async (req, res) => {
-  const { name, email, message, phone } = req.body;
-
-  // Create transporter
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-    tls: {
-      rejectUnauthorized: true,
-    },
-  });
-
-  try {
-    // 1️⃣ Send email to sender (user)
-    handleMailOptionData({ name, email, message, phone });
-    await transporter.sendMail(mailOptions);
-
-    // 2️⃣ Send email to receiver (admin)
-    const mailToAdmin = {
-      from: process.env.SMTP_USER,
-      to: process.env.SMTP_USER, // your email
-      subject: "New Contact Form Submission",
-      text: `New message received from ${name} (${email}, Phone: ${phone}):
-
-${message}`,
-    };
-    await transporter.sendMail(mailToAdmin);
-
-    res.json({ success: true });
-  } catch (err) {
-    console.error("Error sending emails:", err);
-    res.json({ success: false, errorMessage: err.message });
-  }
-});
-
-app.listen(PORT, () => {
-  console.log("Server is running in :", PORT);
-});

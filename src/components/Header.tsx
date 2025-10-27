@@ -173,14 +173,10 @@ function Header() {
             <a href="/" className="">
               <div className="flex gap-1 items-center content-center h-full">
                 <img
-                  className="lg:w-12 w-12 block my-auto "
+                  className="w-20 h-20 block my-auto "
                   src="/trip-sign.png"
                   alt=""
                 />
-
-                <div className=" grid font-semibold hidden lg:block">
-                  Trip with Sign
-                </div>
               </div>
             </a>
 

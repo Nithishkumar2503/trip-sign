@@ -1,8 +1,8 @@
 export interface HeroContentProps {
-  id: number;
-  heading: string;
-  subHeading: string;
-  img: string;
+  id?: number;
+  heading?: string;
+  subHeading?: string;
+  img?: string;
 }
 export const heroContent: HeroContentProps[] = [
   {

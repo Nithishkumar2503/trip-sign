@@ -65,7 +65,7 @@ export const contactDetailsData:ContactItem[] = [
     icon: FaWhatsapp,
     title: "WhatsApp",
     info: whatsaapno,
-    redirect:whatsaapno
+    redirect:whatsappRedirectTo
 
   },
   {

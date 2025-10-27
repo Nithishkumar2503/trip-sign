@@ -15,8 +15,8 @@ import { heroContent, studyAbroadFormData } from "./data&type";
 import CountryItem from "./CountryItem";
 import StatsSection from "./StatsSection";
 import HighlightCarousel from "./HighlightCarousel";
-import { viewportOnce } from "./utils";
-
+import { viewportOnce, useViewport } from "./utils";
+const { isMobile } = useViewport();
 const FreeFeelCard = () => {
   return (
     <div className="relative mt-14 lg:mt-0 mx-auto  w-fit  items-center content-center ">
@@ -56,8 +56,8 @@ const StudyAbroadForm = () => {
       >
         {/* Left Section */}
         <motion.div
-          initial={{ opacity: 0, x: -80 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={isMobile ? { opacity: 0, y: -80 } : { opacity: 0, x: -80 }}
+          whileInView={isMobile ? { opacity: 1, y: 0 }:{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: viewportOnce }}
         >
@@ -76,8 +76,8 @@ const StudyAbroadForm = () => {
               <motion.li
                 key={index}
                 className="flex items-start space-x-4"
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={isMobile ? { opacity: 0, x: -40 }:{ opacity: 0, x: -40 }}
+                whileInView={isMobile ? { opacity: 1, x: 0 }:{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 viewport={{ once: viewportOnce }}
               >
@@ -95,8 +95,8 @@ const StudyAbroadForm = () => {
 
         {/* Right Section */}
         <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={isMobile ? { opacity: 0, y: 80 }:{ opacity: 0, x: 80 }}
+          whileInView={isMobile ? { opacity: 1, y: 0 }:{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: viewportOnce }}
         >
@@ -115,8 +115,8 @@ const HeroSect = () => {
         {/* Left Content */}
         <motion.div
           className="text-center px-2 lg:text-left max-w-xl text-wrap"
-          initial={{ opacity: 0, x: -80 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={isMobile ? { opacity: 0, y: -80 }:{ opacity: 0, x: -80 }}
+          whileInView={isMobile ? { opacity: 1, y: 0 }:{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: viewportOnce }}
         >
@@ -163,8 +163,8 @@ const HeroSect = () => {
         {/* Right Image */}
         <motion.div
           className="flex justify-center"
-          initial={{ opacity: 0, x: 80 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={isMobile ? { opacity: 0, y: 80 }:{ opacity: 0, x: 80 }}
+          whileInView={isMobile ? { opacity: 1, y: 0 }:{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
           viewport={{ once: viewportOnce }}
         >
@@ -298,9 +298,14 @@ function ImmigrationServices() {
           {immigrationContent.map((item, idx) => (
             <motion.div
               key={idx}
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: viewportOnce, amount: 0.3 }} // animate only first time, 30% visible
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+                delay: idx * 0.05, // stagger cards
               }}
               whileHover={{
                 scale: 1.05,
@@ -310,7 +315,8 @@ function ImmigrationServices() {
               className="group bg-white rounded-3xl shadow-lg p-6 hover:shadow-2xl transform transition-all duration-300 flex items-start gap-4 w-[27rem]"
             >
               <motion.div
-                whileHover={{ rotate: 10, scale: 1.1 }}
+                whileHover={{ rotate: 15, scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 300 }}
                 className="flex-shrink-0"
               >
                 {item.icon}
@@ -350,7 +356,7 @@ export default function HeroSection() {
   };
 
   return (
-    <>
+    <div>
       <div className="relative w-full lg:h-[70vh] h-[60vh] overflow-hidden bg-black">
         {/* Static background for smooth fade transition */}
         <img
@@ -366,8 +372,8 @@ export default function HeroSection() {
               <motion.div
                 key={item.id}
                 className="absolute inset-0 flex justify-center items-center"
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -80 }}
+                animate={isMobile ? { opacity: 1, y: 0 }:{ opacity: 1, x: 0 }}
+                exit={isMobile ?{ opacity: 0, y: -80 }:{ opacity: 0, x: -80 }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
               >
                 {/* Image layer */}
@@ -393,9 +399,9 @@ export default function HeroSection() {
                   <h2 className="lg:text-6xl text-[8vw] font-bold mb-4 drop-shadow-lg">
                     {item.heading}
                   </h2>
-                  {item.subheading && (
+                  {item.subHeading && (
                     <p className="lg:text-lg text-sm text-gray-200 max-w-2xl mx-auto drop-shadow-md">
-                      {item.subheading}
+                      {item.subHeading}
                     </p>
                   )}
                 </motion.div>
@@ -429,6 +435,6 @@ export default function HeroSection() {
       {StudyAbroadForm()}
       {CountryItem()}
       {HighlightCarousel()}
-    </>
+    </div>
   );
 }

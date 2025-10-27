@@ -25,7 +25,7 @@ const ContactForm = () => {
     fromLocation?: string;
     destiny?: string;
     message?: string;
-    subject?:string
+    subject?: string;
   }
 
   const [formData, setFormData] = useState<FormProps>({
@@ -36,23 +36,27 @@ const ContactForm = () => {
   });
 
   const handleChange = (e: any) => {
-    
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-     
+
   const [errors, setErrors] = useState<Partial<FormProps>>({});
+  const [loading, setLoading] = useState(false);
+  const [apiErrorMessage, setApiErrorMessage] = useState("");
   const handleSubmit = async (e: React.FormEvent) => {
+
+    setLoading(true);
+    setApiErrorMessage("");
     e.preventDefault();
 
     // Validate all fields
     const newErrors = {
-      name: validateField("name", formData?.name||''),
-      email: validateField("email", formData?.email||''),
-      phone: validateField("phone", formData?.phone||''),
-      message: validateField("message", formData?.message||''),
+      name: validateField("name", formData?.name || ""),
+      email: validateField("email", formData?.email || ""),
+      phone: validateField("phone", formData?.phone || ""),
+      message: validateField("message", formData?.message || ""),
     };
 
     setErrors(newErrors);
@@ -61,12 +65,13 @@ const ContactForm = () => {
     const hasErrors = Object.values(newErrors).some((error) => error !== "");
 
     if (hasErrors) {
+      setLoading(false);
       return; // Stop if validation fails
     }
-
+    
     // ✅ If validation passes, send API request
     try {
-      const response = await fetch("http://localhost:5000/send-email", {
+      const response = await fetch(`/api/send-mail`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +82,10 @@ const ContactForm = () => {
       const result = await response.json();
 
       if (result.success) {
-        alert("Email sent successfully!");
+        setApiErrorMessage("Email sent successfully!");
+        setTimeout(() => {
+          setApiErrorMessage("");
+        }, 2000);
         setFormData({
           name: "",
           email: "",
@@ -86,16 +94,24 @@ const ContactForm = () => {
           message: "",
         });
       } else {
-        alert("Email failed to send.");
+        setApiErrorMessage("Email failed to send.");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred. Try again.");
+      setApiErrorMessage("An error occurred. Try again.");
+    } finally {
+      setLoading(false);
+      setApiErrorMessage("");
     }
   };
 
   return (
     <div className="min-h-[80vh]   flex flex-col items-center justify-center bg-white px-4 py-16">
+      {loading && (
+        <div className="min-h-screen absolute w-screen bg-black opacity-20 z-40 items-center content-center">
+          <div className="relative p-6 h-20 text-center my-auto z-50">Submiting...</div>
+        </div>
+      )}
       <div className="lg:w-[66vw] p-2 w-full">
         {/* --- Header --- */}
         <div className="text-center mb-12">
@@ -144,11 +160,13 @@ const ContactForm = () => {
                 whileTap={{ scale: 0.97 }}
                 className="flex flex-col  bg-gray-50 cursor-pointer rounded-xl p-6 shadow-sm transition-transform"
               >
-                <div className="items-center content-center">
+                <div className="items-center content-center w-full h-full ">
                   <Icon className="text-primary text-3xl mb-3 mx-auto" />{" "}
                   {/* Render here */}
                   <h3 className="font-semibold text-gray-800">{card.title}</h3>
-                  <p className="text-gray-600 text-sm ">{card.info}</p>
+                  <p className="text-gray-600 text-sm lg:truncate">
+                    {card.info}
+                  </p>
                 </div>
               </motion.a>
             );
@@ -239,7 +257,15 @@ const ContactForm = () => {
               <p className="text-red-500 text-sm mt-1">{errors.message}</p>
             )}
           </div>
-
+          <h1
+            className={
+              apiErrorMessage == "Email sent successfully!"
+                ? "text-green-500"
+                : "text-red-500"
+            }
+          >
+            {apiErrorMessage}
+          </h1>
           <div className="text-center mx-auto">
             <motion.button
               whileHover={{ scale: 1.05 }}

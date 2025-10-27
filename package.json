@@ -6,7 +6,7 @@
   "homepage": "https://nithish.github.io/trip-sign",
   "scripts": {
     "client": "vite",
-    "server": "nodemon src/server.js",
+    "server": "nodemon server/server.js",
     "dev": "concurrently \"npm run client\" \"npm run server\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
