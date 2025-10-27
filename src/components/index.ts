@@ -10,3 +10,4 @@ export { default as CounrtyItem } from './CountryItem';
 export { default as VisaCard } from './StatsSection';
 export { default as ExpandLatter } from './ExpandLatter';
 export { default as HighlightCarousel } from './HighlightCarousel';
+export { default as NotFound } from './NotFound';

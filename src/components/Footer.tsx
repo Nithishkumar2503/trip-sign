@@ -43,17 +43,17 @@ const Footer = () => {
               <h3 className="font-bold mb-4">Services</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <a href="#" className="hover:text-red-600 transition">
+                  <a href="#" className="hover:text-red-600 hover:scale-101 transition">
                     Student Visa
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-red-600 transition">
+                  <a href="#" className="hover:text-red-600 hover:scale-101 transition">
                     Work Visa
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-red-600 transition">
+                  <a href="#" className="hover:text-red-600 hover:scale-101 transition">
                     Travel Visa
                   </a>
                 </li>
@@ -66,10 +66,10 @@ const Footer = () => {
             <div>
               <h3 className="font-bold mb-4">Contact</h3>
               <ul className="space-y-2 text-gray-400">
-                <li className="flex items-center space-x-2 gap-1 hover:text-primary">
+                <li className="flex hover:scale-101 items-center space-x-2 gap-1 hover:text-primary">
                   <a
                     target="_blank"
-                    className="flex items-center space-x-2 gap-1 hover:text-primary"
+                    className="flex hover:scale-101 items-center space-x-2 gap-1 hover:text-primary"
                     href={lat_long}
                   >
                     <FaMapMarkerAlt className="w-6 h-6" />
@@ -79,22 +79,22 @@ const Footer = () => {
                     </span>
                   </a>
                 </li>
-                <li className="flex items-center space-x-2 gap-1 hover:text-primary">
+                <li className="flex hover:scale-101 items-center space-x-2 gap-1 hover:text-primary">
                   <FaPhoneAlt className="w-4 h-4" />
                   <a href={phoneRedirectToOne}>
                     {phoneCode + " " + phoneNoOne}
                   </a>
                 </li>
-                <li className="flex items-center space-x-2 gap-1 hover:text-primary">
+                <li className="flex hover:scale-101 items-center space-x-2 gap-1 hover:text-primary">
                   <FaPhoneAlt className="w-4 h-4" />
                   <a href={phoneRedirectToTwo}>
                     {phoneCode + " " + phoneNoTwo}
                   </a>
                 </li>
-                <li className="flex items-center space-x-2 gap-1 hover:text-primary">
+                <li className="flex hover:scale-101 items-center space-x-2 gap-1 hover:text-primary">
                   <FaPhoneAlt className="w-4 h-4" />
                   <a href={phoneRedirectToThree}>
-                    {phoneCode + " " + phoneNoThree}
+                    { phoneNoThree}
                   </a>
                 </li>
               </ul>

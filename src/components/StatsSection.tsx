@@ -8,9 +8,9 @@ import {
 } from "framer-motion";
 import { viewportOnce } from "./utils";
 
-const CountUp = ({ target, suffix = "+" }) => {
+const CountUp = ({ target}:{target:number,suffix?:string}) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: viewportOnce });
   const count = useMotionValue(0);
   const spring = useSpring(count, { duration: 2000 });
   const [displayValue, setDisplayValue] = useState(0);
@@ -29,8 +29,7 @@ const CountUp = ({ target, suffix = "+" }) => {
 
   return (
     <h3 ref={ref} className="text-3xl font-bold text-primary">
-      {displayValue}
-      {suffix}
+      {displayValue}+
     </h3>
   );
 };

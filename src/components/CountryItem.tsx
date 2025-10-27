@@ -41,10 +41,10 @@ const CountryItem = (textOnly?: boolean) => {
     >
       <div className={`${textOnly ? "" : "lg:w-[66vw] py-8 p-2 mx-auto 0"}`}>
         {textOnly ? (
-          <ul className="space-y-2 text-gray-400">
+          <ul className="space-y-2  text-gray-400">
             {countries.map((country, index) => (
               <li
-                className="hover:text-red-600 cursor-pointer transition"
+                className="hover:text-red-600 hover:scale-101 cursor-pointer transition"
                 onClick={() => setSelectedCountry(country)}
                 key={index}
               >
@@ -318,6 +318,7 @@ const CountryItem = (textOnly?: boolean) => {
             className="text-center text-gray-500 mt-12"
           >
             <div className="text-6xl mb-4 animate-bounce hover:animate-spin w-fit mx-auto cursor-zoom-in">🌍</div>
+            <div className="border-t-4 w-24 border-gray-200 shadow-gray-200 -mt-2 mx-auto shadow-2xl"></div>
             <p className="text-lg">
               Select a country to explore study and job opportunities
             </p>
