@@ -1,44 +1,59 @@
 import { AiOutlineClose } from "react-icons/ai";
+import { motion, AnimatePresence } from "framer-motion";
+import { ReactNode } from "react";
 
 interface ParamsProps {
-  child?: HTMLElement|any;
+  child?: ReactNode;
   isOpen?: boolean;
-  onDispatch: ()=>void|null|HTMLElement;
+  onDispatch?: () => void;
 }
-export default function Sidebar({ isOpen, child, onDispatch }: ParamsProps) {
-  function onClose() {
-    if (typeof onDispatch == "function") onDispatch();
-  }
+
+export default function Sidebar({ isOpen = false, child, onDispatch }: ParamsProps) {
+  const onClose = () => {
+    onDispatch?.();
+  };
+
   return (
     <div className="relative">
-      {/* Sidebar Overlay */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/80 z-40"
-          onClick={() => onClose()}
-        ></div>
-      )}
+      {/* Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black/80 z-40"
+            onClick={onClose}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Sidebar */}
-      <div
-        className={`fixed  top-0 right-0 h-full w-[60vw] rounded-lg  bg-white shadow-lg z-50 transform transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-       >
-        {/* Close Button */}
-        <div className="flex justify-end p-4 ">
-          <button
-            onClick={() =>
-              typeof onDispatch == "function" ? onDispatch() : null
-            }
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed top-0 right-0 z-50 h-full w-[60vw] rounded-l-lg bg-white shadow-lg"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{
+              type: "tween",
+              duration: 0.35,
+              ease: "easeInOut",
+            }}
           >
-            <AiOutlineClose className="h-6 w-6 text-gray-700 cursor-pointer" />
-          </button>
-        </div>
+            {/* Close button */}
+            <div className="flex justify-end p-4">
+              <button onClick={onClose}>
+                <AiOutlineClose className="h-6 w-6 cursor-pointer text-gray-700" />
+              </button>
+            </div>
 
-        {/* Main content*/}
-        {typeof child !== "undefined" ? child : null}
-      </div>
+            {/* Content */}
+            {child}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
