@@ -101,10 +101,7 @@ export const validateField = (name: string, value: string) => {
       if (!value.trim()) return "Phone number is required";
       if (!regex.phone.test(value)) return "Enter a valid 10-digit phone number";
       break;
-    case "message":
-      if (!value.trim()) return "Message is required";
-      if (!regex.message.test(value)) return "Message must be at least 10 characters";
-      break;
+   
     default:
       break;
   }

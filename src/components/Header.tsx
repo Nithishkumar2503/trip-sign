@@ -1,6 +1,6 @@
 import { FaSquareWhatsapp } from "react-icons/fa6";
 import { MdEmail, MdOutlineEmail } from "react-icons/md";
-import {  FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
+import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoLogoInstagram } from "react-icons/io";
 import { CiFacebook } from "react-icons/ci";
@@ -25,28 +25,52 @@ import {
 function sideBarContent() {
   return (
     <>
-      <div className="p-2 z-50">
+      <div className="p-2 z-50 pt-10 ">
         <div className="mb-4">
           <a href="/">
-            <div className="border-b border-gray-300 p-2 py-3 hover:bg-gray-100 mb-1 cursor-pointer">
+            <div
+              className={`${
+                useLocation().pathname == "/"
+                  ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white"
+                  : ""
+              } border-b border-gray-300 p-2 py-3 hover:bg-gray-100 mb-1 cursor-pointer rounded-lg`}
+             >
               Home
             </div>
           </a>
 
           <a href="/About">
-            <div className="border-b border-gray-300 p-2 py-3 hover:bg-gray-100 mb-1 cursor-pointer">
+            <div
+              className={`${
+                useLocation().pathname == "/About"
+                  ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white"
+                  : ""
+              } border-b border-gray-300 p-2 py-3 hover:bg-gray-100 mb-1 cursor-pointer rounded-lg`}
+            >
               About us
             </div>
           </a>
 
           <a href="/Country">
-            <div className="border-b border-gray-300 p-2 py-3 hover:bg-gray-100 mb-1 cursor-pointer">
+            <div
+              className={`${
+                useLocation().pathname == "/Country"
+                  ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white"
+                  : ""
+              } border-b border-gray-300 p-2 py-3 hover:bg-gray-100 mb-1 cursor-pointer rounded-lg`}
+            >
               Countries
             </div>
           </a>
 
           <a href="/contact">
-            <div className="border-b border-gray-300 p-2 py-3 hover:bg-gray-100 mb-1 cursor-pointer">
+            <div
+              className={`${
+                useLocation().pathname == "/contact"
+                  ? "px-4  hover:scale-104 hover:bg-primary bg-primary text-white"
+                  : ""
+              } border-b border-gray-300 p-2 py-3 hover:bg-gray-100 mb-1 cursor-pointer rounded-lg`}
+            >
               Contact
             </div>
           </a>
@@ -129,7 +153,7 @@ function Header() {
           />
         </div>
       )}
-      <div className="lg:h-fit z-50 shadow-xs    lg:z-50 w-full bg-white  fixed">
+      <div className="lg:h-fit  z-50 shadow-xs    lg:z-50 w-full bg-white  fixed">
         <div className="pt-2  cursor-default hidden  lg:block lg:flex lg:justify-center gap-6  lg:w-[66vw] mx-auto items-center content-center  px-2">
           {/* <div className="p-1 cursor-pointer flex gap-2 items-center  content-center">
             <TbViewfinder className="text-red-500" />
@@ -165,11 +189,11 @@ function Header() {
             className="p-1 text-xs cursor-pointer flex gap-2 items-center content-center border px-2 rounded-xl border-gray-300"
           >
             <FaSquareWhatsapp className="text-green-500" />
-            <h1>WhatsApp</h1>
+            <h1>Whatsapp</h1>
           </a>
         </div>
-        <div className="lg:bg-white py-2  z-50 items-center content-center">
-          <div className="lg:h-full  h-full  flex justify-between  items-center content-center w-full lg:w-[66vw] mx-auto  px-2 lg:flex lg:justify-between ">
+        <div className="lg:bg-white  z-50 items-center content-center">
+          <div className="lg:h-full   h-full  flex justify-between  items-center content-center w-full lg:w-[66vw] mx-auto  px-2 lg:flex lg:justify-between ">
             <a href="/" className="">
               <div className="flex gap-1 items-center content-center h-full">
                 <img
